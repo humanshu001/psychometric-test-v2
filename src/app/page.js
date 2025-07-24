@@ -1,10 +1,10 @@
-'use client'
+"use client";
 
-import { Card, CardContent } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
-import { Separator } from '@/components/ui/separator'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
 
 export default function HomePage() {
   return (
@@ -14,7 +14,8 @@ export default function HomePage() {
         <div className="text-center space-y-3">
           <h1 className="text-5xl font-bold">Geeta Personality Portal</h1>
           <p className="text-lg text-muted-foreground">
-            Powered by Geeta University – where “empowering education empowers minds” 
+            Powered by Geeta University – where “empowering education empowers
+            minds”
           </p>
           <Link href="/test">
             <Button size="lg">Go to Tests</Button>
@@ -23,80 +24,89 @@ export default function HomePage() {
 
         <Separator />
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-  <div className="col-span-full">
-    <h1 className="text-center text-3xl font-bold mb-4">
-      Explore Your Personality with Our Tests
-    </h1>
-  </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="col-span-full">
+            <h1 className="text-center text-3xl font-bold mb-4">
+              Explore Your Personality with Our Tests
+            </h1>
+          </div>
 
-  {/* Growth Mindset */}
-  <Card className="hover:shadow-xl transition-all duration-300">
-    <CardContent className="p-6 space-y-3">
-      <Badge className="bg-gradient-to-r from-green-400 to-blue-500 text-white">
-        Mindset
-      </Badge>
-      <h2 className="text-xl font-semibold">Growth vs. Fixed Mindset</h2>
-      <p className="text-muted-foreground">
-        Explore your beliefs about learning and ability through Dr. Carol Dweck’s world-renowned framework.
-      </p>
-    </CardContent>
-  </Card>
+          {/* Growth Mindset */}
+          <Card className="hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-6 space-y-3">
+              <Badge className="bg-gradient-to-r from-green-400 to-blue-500 text-white">
+                Mindset
+              </Badge>
+              <h2 className="text-xl font-semibold">
+                Growth vs. Fixed Mindset
+              </h2>
+              <p className="text-muted-foreground">
+                Explore your beliefs about learning and ability through Dr.
+                Carol Dweck’s world-renowned framework.
+              </p>
+            </CardContent>
+          </Card>
 
-  {/* Self-Esteem */}
-  <Card className="hover:shadow-xl transition-all duration-300">
-    <CardContent className="p-6 space-y-3">
-      <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white">
-        Self-Esteem
-      </Badge>
-      <h2 className="text-xl font-semibold">Rosenberg Self-Esteem Scale</h2>
-      <p className="text-muted-foreground">
-        Discover your self-perception and confidence level with this classic self-esteem inventory.
-      </p>
-    </CardContent>
-  </Card>
+          {/* Self-Esteem */}
+          <Card className="hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-6 space-y-3">
+              <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+                Self-Esteem
+              </Badge>
+              <h2 className="text-xl font-semibold">
+                Rosenberg Self-Esteem Scale
+              </h2>
+              <p className="text-muted-foreground">
+                Discover your self-perception and confidence level with this
+                classic self-esteem inventory.
+              </p>
+            </CardContent>
+          </Card>
 
-  {/* Aggression Scale */}
-  <Card className="hover:shadow-xl transition-all duration-300">
-    <CardContent className="p-6 space-y-3">
-      <Badge className="bg-gradient-to-r from-red-400 to-yellow-400 text-white">
-        Aggression
-      </Badge>
-      <h2 className="text-xl font-semibold">Aggression Scale</h2>
-      <p className="text-muted-foreground">
-        Assess how you manage anger, frustration, and conflict through everyday emotional triggers.
-      </p>
-    </CardContent>
-  </Card>
+          {/* Aggression Scale */}
+          <Card className="hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-6 space-y-3">
+              <Badge className="bg-gradient-to-r from-red-400 to-yellow-400 text-white">
+                Aggression
+              </Badge>
+              <h2 className="text-xl font-semibold">Aggression Scale</h2>
+              <p className="text-muted-foreground">
+                Assess how you manage anger, frustration, and conflict through
+                everyday emotional triggers.
+              </p>
+            </CardContent>
+          </Card>
 
-  {/* Emotional Intelligence */}
-  <Card className="hover:shadow-xl transition-all duration-300">
-    <CardContent className="p-6 space-y-3">
-      <Badge className="bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
-        Emotional Intelligence
-      </Badge>
-      <h2 className="text-xl font-semibold">Emotional Intelligence Scale</h2>
-      <p className="text-muted-foreground">
-        Measure your self-awareness, empathy, and relationship skills with this practical tool.
-      </p>
-    </CardContent>
-  </Card>
+          {/* Emotional Intelligence */}
+          <Card className="hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-6 space-y-3">
+              <Badge className="bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
+                Emotional Intelligence
+              </Badge>
+              <h2 className="text-xl font-semibold">
+                Emotional Intelligence Scale
+              </h2>
+              <p className="text-muted-foreground">
+                Measure your self-awareness, empathy, and relationship skills
+                with this practical tool.
+              </p>
+            </CardContent>
+          </Card>
 
-  {/* Well-Being Scale */}
-  <Card className="hover:shadow-xl transition-all duration-300">
-    <CardContent className="p-6 space-y-3">
-      <Badge className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white">
-        Well-Being
-      </Badge>
-      <h2 className="text-xl font-semibold">Well-Being Scale</h2>
-      <p className="text-muted-foreground">
-        Discover your overall life satisfaction and emotional health across different dimensions.
-      </p>
-    </CardContent>
-  </Card>
-</div>
-
-
+          {/* Well-Being Scale */}
+          <Card className="hover:shadow-xl transition-all duration-300">
+            <CardContent className="p-6 space-y-3">
+              <Badge className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white">
+                Well-Being
+              </Badge>
+              <h2 className="text-xl font-semibold">Well-Being Scale</h2>
+              <p className="text-muted-foreground">
+                Discover your overall life satisfaction and emotional health
+                across different dimensions.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
 
         <Separator />
 
@@ -127,7 +137,8 @@ export default function HomePage() {
               <Badge className="bg-pink-400 text-white">Programs Offered</Badge>
               <p className="text-2xl font-semibold">70+</p>
               <p className="text-sm text-muted-foreground">
-                From UG to Ph.D., across Engineering, Law, Management, Pharmacy, Agriculture & more
+                From UG to Ph.D., across Engineering, Law, Management, Pharmacy,
+                Agriculture & more
               </p>
             </CardContent>
           </Card>
@@ -140,7 +151,8 @@ export default function HomePage() {
           <CardContent className="space-y-4">
             <h2 className="text-2xl font-semibold">Our Vision & Mission</h2>
             <p className="text-muted-foreground">
-              “To reach the pinnacle of academic excellence and nurture future-ready leaders…”
+              “To reach the pinnacle of academic excellence and nurture
+              future-ready leaders…”
             </p>
             <ul className="list-disc ml-5 space-y-2 text-sm">
               <li>Student‑centric, outcome‑based teaching.</li>
@@ -159,7 +171,8 @@ export default function HomePage() {
             <CardContent className="space-y-3">
               <h3 className="text-xl font-semibold">International Students</h3>
               <p className="text-sm text-muted-foreground">
-                A vibrant campus preparing students for global careers, with dedicated admission & visa support
+                A vibrant campus preparing students for global careers, with
+                dedicated admission & visa support
               </p>
             </CardContent>
           </Card>
@@ -168,7 +181,8 @@ export default function HomePage() {
             <CardContent className="space-y-3">
               <h3 className="text-xl font-semibold">Ph.D. Programs</h3>
               <p className="text-sm text-muted-foreground">
-                Offers interdisciplinary Ph.D. across disciplines with dedicated infrastructure and national-level entrance testing 
+                Offers interdisciplinary Ph.D. across disciplines with dedicated
+                infrastructure and national-level entrance testing
               </p>
             </CardContent>
           </Card>
@@ -186,5 +200,5 @@ export default function HomePage() {
         </div>
       </div>
     </>
-  )
+  );
 }

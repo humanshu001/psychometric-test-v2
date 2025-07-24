@@ -1,21 +1,25 @@
-'use client'
+"use client";
 
-import { Card } from '@/components/ui/card'
-import { Separator } from '@/components/ui/separator'
-import Link from 'next/link'
+import { Card } from "@/components/ui/card";
+import { Separator } from "@/components/ui/separator";
+import Link from "next/link";
 
 export default function LayoutWrapper({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
       <header className="w-full border-b p-4 flex justify-between items-center">
-        <div className="text-xl font-black">
-          GU Personality Portal
-        </div>
+        <div className="text-xl font-black">GU Personality Portal</div>
         <div className="flex justify-end gap-8">
-          <Link href="/" className="text-sm font-semibold hover:underline transition-all duration-200">
+          <Link
+            href="/"
+            className="text-sm font-semibold hover:underline transition-all duration-200"
+          >
             Home
           </Link>
-          <Link href="/test" className="text-sm font-semibold hover:underline transition-all duration-200">
+          <Link
+            href="/test"
+            className="text-sm font-semibold hover:underline transition-all duration-200"
+          >
             Tests
           </Link>
         </div>
@@ -31,5 +35,5 @@ export default function LayoutWrapper({ children }) {
         Made with ❤️ by Softricity
       </footer>
     </div>
-  )
+  );
 }
