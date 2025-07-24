@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -45,11 +45,13 @@ const selectFields = {
 };
 
 export default function ImprovedPersonalityTest() {
-  const [selectedTest, setSelectedTest] = useState("");
+  const [selectedTest, setSelectedTest] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [score, setScore] = useState(null);
   const [open, setOpen] = useState(false);
+  const [formSubmitted, setFormSubmitted] = useState(false);
+
   const [userInfo, setUserInfo] = useState({
     name: "",
     dob: "",
@@ -64,7 +66,12 @@ export default function ImprovedPersonalityTest() {
     institution: "",
     rural_urban: "",
   });
-  const [formSubmitted, setFormSubmitted] = useState(false);
+
+  useEffect(() => {
+    const query = new URLSearchParams(window.location.search);
+    const test = query.get("test");
+    if (test) setSelectedTest(test);
+  }, []);
 
   const handleAnswer = (value) => {
     const updated = [...answers];
@@ -83,31 +90,15 @@ export default function ImprovedPersonalityTest() {
     setOpen(true);
 
     const payload = {
-      name: userInfo.name,
-      dob: userInfo.dob,
-      course: userInfo.course,
+      ...userInfo,
       married: userInfo.married === "yes" ? 1 : 0,
-      education: userInfo.education,
-      religion: userInfo.religion,
-      gender: userInfo.gender,
-      email: userInfo.email,
-      occupation: userInfo.occupation,
-      phone: userInfo.phone,
-      institution: userInfo.institution,
-      rural_or_urban: userInfo.rural_urban,
       test_name: test.title,
       score: result,
       result: test.interpret(result),
     };
 
     try {
-      console.log("Submission successful");
-      console.log("Payload:", payload);
-      const response = await axios.post(
-        "https://psychometric-test-geeta.onrender.com/submit-details",
-        payload
-      );
-      console.log("Response data:", response.data);
+      await axios.post("https://psychometric-test-geeta.onrender.com/submit-details", payload);
       setFormSubmitted(false);
       setAnswers([]);
       setCurrentIndex(0);
@@ -138,14 +129,16 @@ export default function ImprovedPersonalityTest() {
 
   return (
     <div className="w-full mx-auto px-4 space-y-6">
-      <h1 className="text-2xl font-bold">Select a Test</h1>
+      <h1 className="text-3xl font-extrabold text-[#841844]">Select a Test</h1>
+
       <Select
         onValueChange={(val) => {
           setSelectedTest(val);
           reset();
         }}
+        value={selectedTest || ""}
       >
-        <SelectTrigger>
+        <SelectTrigger className="w-full">
           <SelectValue placeholder="Choose a test" />
         </SelectTrigger>
         <SelectContent>
@@ -159,59 +152,62 @@ export default function ImprovedPersonalityTest() {
 
       {selectedTest &&
         (!formSubmitted ? (
-          <Card className="w-full">
+          <Card className="w-full border border-[#841844]/40 shadow-md">
             <CardContent className="p-6 space-y-4">
-              <h2 className="text-xl font-semibold mb-2">
-                Fill your details before starting the test
+              <h2 className="text-xl font-bold text-[#841844]">
+                Fill Your Details Before Starting the Test
               </h2>
-              {Object.entries(userInfo).map(([key, value]) => (
-                <div key={key} className="space-y-1">
-                  <Label htmlFor={key} className="capitalize">
-                    {key.replace("_", " or ")}
-                  </Label>
-                  {selectFields[key] ? (
-                    <Select
-                      value={value}
-                      onValueChange={(val) =>
-                        setUserInfo({ ...userInfo, [key]: val })
-                      }
-                    >
-                      <SelectTrigger className="w-full">
-                        <SelectValue
-                          placeholder={`Select ${key.replace("_", " or ")}`}
-                        />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {selectFields[key].map((opt) => (
-                          <SelectItem key={opt.value} value={opt.value}>
-                            {opt.label}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  ) : key === "dob" ? (
-                    <Input
-                      type="date"
-                      id={key}
-                      value={value}
-                      onChange={(e) =>
-                        setUserInfo({ ...userInfo, [key]: e.target.value })
-                      }
-                    />
-                  ) : (
-                    <Input
-                      type="text"
-                      id={key}
-                      value={value}
-                      onChange={(e) =>
-                        setUserInfo({ ...userInfo, [key]: e.target.value })
-                      }
-                    />
-                  )}
-                </div>
-              ))}
+              <div className="grid sm:grid-cols-2 gap-4">
+                {Object.entries(userInfo).map(([key, value]) => (
+                  <div key={key} className="space-y-1">
+                    <Label htmlFor={key} className="capitalize">
+                      {key.replace("_", " or ")}
+                    </Label>
+                    {selectFields[key] ? (
+                      <Select
+                        value={value}
+                        onValueChange={(val) =>
+                          setUserInfo({ ...userInfo, [key]: val })
+                        }
+                      >
+                        <SelectTrigger className="w-full">
+                          <SelectValue
+                            placeholder={`Select ${key.replace("_", " or ")}`}
+                          />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {selectFields[key].map((opt) => (
+                            <SelectItem key={opt.value} value={opt.value}>
+                              {opt.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                    ) : key === "dob" ? (
+                      <Input
+                        type="date"
+                        id={key}
+                        value={value}
+                        onChange={(e) =>
+                          setUserInfo({ ...userInfo, [key]: e.target.value })
+                        }
+                      />
+                    ) : (
+                      <Input
+                        type="text"
+                        id={key}
+                        value={value}
+                        onChange={(e) =>
+                          setUserInfo({ ...userInfo, [key]: e.target.value })
+                        }
+                      />
+                    )}
+                  </div>
+                ))}
+              </div>
 
               <Button
+                className="bg-[#841844] text-white hover:bg-[#6d1337]"
                 onClick={() => setFormSubmitted(true)}
                 disabled={Object.values(userInfo).some((val) => !val.trim())}
               >
@@ -220,7 +216,7 @@ export default function ImprovedPersonalityTest() {
             </CardContent>
           </Card>
         ) : (
-          <Card className="w-full">
+          <Card className="w-full border border-[#841844]/30">
             <CardContent className="p-6 space-y-4">
               <div className="text-sm text-muted-foreground">
                 {TESTS[selectedTest]?.title}
@@ -229,7 +225,7 @@ export default function ImprovedPersonalityTest() {
                 Question {currentIndex + 1} of{" "}
                 {TESTS[selectedTest].questions.length}
               </div>
-              <div className="mb-4 font-bold text-xl">
+              <div className="mb-4 font-bold text-xl text-[#841844]">
                 {TESTS[selectedTest].questions[currentIndex]}
               </div>
               <RadioGroup
@@ -263,6 +259,7 @@ export default function ImprovedPersonalityTest() {
                   </Button>
                 ) : (
                   <Button
+                    className="bg-[#841844] text-white hover:bg-[#6d1337]"
                     onClick={calculateScore}
                     disabled={
                       answers.length !== TESTS[selectedTest].questions.length
@@ -276,17 +273,23 @@ export default function ImprovedPersonalityTest() {
           </Card>
         ))}
 
+      {/* Result Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent>
+        <DialogContent className="text-center">
           <DialogHeader>
-            <DialogTitle>{TESTS[selectedTest]?.title} Result</DialogTitle>
+            <DialogTitle className="text-[#841844]">
+              {TESTS[selectedTest]?.title} Result
+            </DialogTitle>
           </DialogHeader>
           {score !== null && (
-            <div className="space-y-2">
-              <p className="text-6xl font-black text-center">{score}</p>
-              <p className="text-center mt-3">
+            <div className="space-y-4">
+              <p className="text-6xl font-black text-[#841844]">{score}</p>
+              <p className="text-lg font-medium">
                 {TESTS[selectedTest].interpret(score)}
               </p>
+              <Button variant="outline" onClick={() => setOpen(false)}>
+                Close
+              </Button>
             </div>
           )}
         </DialogContent>

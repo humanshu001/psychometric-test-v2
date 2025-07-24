@@ -7,32 +7,37 @@ import Link from "next/link";
 export default function LayoutWrapper({ children }) {
   return (
     <div className="min-h-screen flex flex-col bg-background text-foreground">
+      {/* Header */}
       <header className="w-full border-b p-4 flex justify-between items-center">
-        <div className="text-xl font-black">GU Personality Portal</div>
-        <div className="flex justify-end gap-8">
+        <Link href="/" className="text-xl font-extrabold text-[#841844] hover:opacity-80 transition">
+          GU Personality Portal
+        </Link>
+        <div className="flex justify-end gap-6 text-sm">
           <Link
             href="/"
-            className="text-sm font-semibold hover:underline transition-all duration-200"
+            className="font-medium hover:text-[#841844] transition"
           >
             Home
           </Link>
           <Link
             href="/test"
-            className="text-sm font-semibold hover:underline transition-all duration-200"
+            className="font-medium hover:text-[#841844] transition"
           >
             Tests
           </Link>
         </div>
       </header>
 
-      <main className="flex-1 w-full max-w-4xl mx-auto py-8 px-4">
+      {/* Main Content */}
+      <main className="flex-1 w-full max-w-5xl mx-auto py-10 px-6">
         {children}
       </main>
 
       <Separator />
 
-      <footer className="p-4 text-right text-sm text-muted-foreground">
-        Made with ❤️ by Softricity
+      {/* Footer */}
+      <footer className="p-4 text-center sm:text-right text-sm text-muted-foreground">
+        Made with ❤️ by <span className="font-medium text-[#841844]">Softricity</span>
       </footer>
     </div>
   );
