@@ -12,7 +12,7 @@ export default function HomePage() {
       <div className="space-y-8">
         {/* Hero Section */}
         <div className="text-center space-y-3">
-          <h1 className="text-5xl font-bold">Geeta University Personality Hub</h1>
+          <h1 className="text-5xl font-bold">Geeta Personality Portal</h1>
           <p className="text-lg text-muted-foreground">
             Powered by Geeta University – where “empowering education empowers minds” 
           </p>
@@ -23,32 +23,79 @@ export default function HomePage() {
 
         <Separator />
 
-         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="sm:col-span-2">
-            <h1 className="text-center text-3xl font-bold">
-              Explore Your Personality with Our Tests
-            </h1>
-          </div>
-          <Card className="hover:shadow-xl transition-all duration-300">
-            <CardContent className="p-6 space-y-3">
-              <Badge className="bg-gradient-to-r from-green-400 to-blue-500 text-white">Mindset</Badge>
-              <h2 className="text-xl font-semibold">Growth vs. Fixed Mindset</h2>
-              <p className="text-muted-foreground">
-                Explore your beliefs about learning and ability through Dr. Carol Dweck’s world-renowned framework.
-              </p>
-            </CardContent>
-          </Card>
+         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <div className="col-span-full">
+    <h1 className="text-center text-3xl font-bold mb-4">
+      Explore Your Personality with Our Tests
+    </h1>
+  </div>
 
-          <Card className="hover:shadow-xl transition-all duration-300">
-            <CardContent className="p-6 space-y-3">
-              <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white">Self-Esteem</Badge>
-              <h2 className="text-xl font-semibold">Rosenberg Self-Esteem Scale</h2>
-              <p className="text-muted-foreground">
-                Discover your self-perception and confidence level with this classic self-esteem inventory.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
+  {/* Growth Mindset */}
+  <Card className="hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 space-y-3">
+      <Badge className="bg-gradient-to-r from-green-400 to-blue-500 text-white">
+        Mindset
+      </Badge>
+      <h2 className="text-xl font-semibold">Growth vs. Fixed Mindset</h2>
+      <p className="text-muted-foreground">
+        Explore your beliefs about learning and ability through Dr. Carol Dweck’s world-renowned framework.
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Self-Esteem */}
+  <Card className="hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 space-y-3">
+      <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white">
+        Self-Esteem
+      </Badge>
+      <h2 className="text-xl font-semibold">Rosenberg Self-Esteem Scale</h2>
+      <p className="text-muted-foreground">
+        Discover your self-perception and confidence level with this classic self-esteem inventory.
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Aggression Scale */}
+  <Card className="hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 space-y-3">
+      <Badge className="bg-gradient-to-r from-red-400 to-yellow-400 text-white">
+        Aggression
+      </Badge>
+      <h2 className="text-xl font-semibold">Aggression Scale</h2>
+      <p className="text-muted-foreground">
+        Assess how you manage anger, frustration, and conflict through everyday emotional triggers.
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Emotional Intelligence */}
+  <Card className="hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 space-y-3">
+      <Badge className="bg-gradient-to-r from-indigo-500 to-pink-500 text-white">
+        Emotional Intelligence
+      </Badge>
+      <h2 className="text-xl font-semibold">Emotional Intelligence Scale</h2>
+      <p className="text-muted-foreground">
+        Measure your self-awareness, empathy, and relationship skills with this practical tool.
+      </p>
+    </CardContent>
+  </Card>
+
+  {/* Well-Being Scale */}
+  <Card className="hover:shadow-xl transition-all duration-300">
+    <CardContent className="p-6 space-y-3">
+      <Badge className="bg-gradient-to-r from-emerald-500 to-cyan-500 text-white">
+        Well-Being
+      </Badge>
+      <h2 className="text-xl font-semibold">Well-Being Scale</h2>
+      <p className="text-muted-foreground">
+        Discover your overall life satisfaction and emotional health across different dimensions.
+      </p>
+    </CardContent>
+  </Card>
+</div>
+
 
 
         <Separator />
