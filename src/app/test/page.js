@@ -161,7 +161,7 @@ export default function ImprovedPersonalityTest() {
                 {Object.entries(userInfo).map(([key, value]) => (
                   <div key={key} className="space-y-1">
                     <Label htmlFor={key} className="capitalize">
-                      {key.replace("_", " ")}
+                      {key.replaceAll("_", " ")}
                     </Label>
                     {selectFields[key] ? (
                       <Select
@@ -172,7 +172,7 @@ export default function ImprovedPersonalityTest() {
                       >
                         <SelectTrigger className="w-full">
                           <SelectValue
-                            placeholder={`Select ${key.replace("_", " or ")}`}
+                            placeholder={`Select ${key.replaceAll("_", " ")}`}
                           />
                         </SelectTrigger>
                         <SelectContent>
