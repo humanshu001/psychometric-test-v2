@@ -46,7 +46,7 @@ export default function AdminPanel() {
   const fetchAllTestSubmissions = async () => {
     try {
       const response = await axios.get(
-        "https://psychometric-test-geeta.onrender.com/"
+        "https://psychometric-test-v2-backend.onrender.com/"
       );
       if(testName === "all") {
         setFilteredSubmissions(response.data);

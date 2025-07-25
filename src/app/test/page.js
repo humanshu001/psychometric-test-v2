@@ -98,7 +98,7 @@ export default function ImprovedPersonalityTest() {
     };
 
     try {
-      await axios.post("https://psychometric-test-geeta.onrender.com/submit-details", payload);
+      await axios.post("https://psychometric-test-v2-backend.onrender.com/submit-details", payload);
       setFormSubmitted(false);
       setAnswers([]);
       setCurrentIndex(0);
