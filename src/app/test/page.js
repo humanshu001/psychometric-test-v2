@@ -33,7 +33,7 @@ const selectFields = {
     { label: "Christian", value: "christian" },
     { label: "Other", value: "other" },
   ],
-  rural_urban: [
+  rural_or_urban: [
     { label: "Urban", value: "urban" },
     { label: "Rural", value: "rural" },
   ],
@@ -64,7 +64,7 @@ export default function ImprovedPersonalityTest() {
     occupation: "",
     phone: "",
     institution: "",
-    rural_urban: "",
+    rural_or_urban: "",
   });
 
   useEffect(() => {
@@ -114,7 +114,7 @@ export default function ImprovedPersonalityTest() {
         occupation: "",
         phone: "",
         institution: "",
-        rural_urban: "",
+        rural_or_urban: "",
       });
     } catch (error) {
       console.error("Failed to submit result", error);
@@ -161,7 +161,7 @@ export default function ImprovedPersonalityTest() {
                 {Object.entries(userInfo).map(([key, value]) => (
                   <div key={key} className="space-y-1">
                     <Label htmlFor={key} className="capitalize">
-                      {key.replace("_", " or ")}
+                      {key.replace("_", " ")}
                     </Label>
                     {selectFields[key] ? (
                       <Select
