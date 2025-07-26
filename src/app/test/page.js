@@ -239,12 +239,12 @@ export default function ImprovedPersonalityTest() {
                 onValueChange={handleAnswer}
               >
                 {TESTS[selectedTest].options.map((opt, index) => (
-                  <div key={index} className="flex items-center space-x-2">
+                  <div key={index} className="flex items-center space-x-2 w-full cursor-pointer">
                     <RadioGroupItem
                       value={opt}
                       id={`${currentIndex}-${index}`}
                     />
-                    <Label htmlFor={`${currentIndex}-${index}`}>{opt}</Label>
+                    <Label className={"w-full cursor-pointer"} htmlFor={`${currentIndex}-${index}`}>{opt}</Label>
                   </div>
                 ))}
               </RadioGroup>
