@@ -129,15 +129,18 @@ export default function ImprovedPersonalityTest() {
 
   return (
     <div className="w-full mx-auto px-4 space-y-6">
-      <h1 className="text-3xl font-extrabold text-[#841844]">Select a Test</h1>
-
-      <Select
-        onValueChange={(val) => {
-          setSelectedTest(val);
-          reset();
-        }}
-        value={selectedTest || ""}
-      >
+      {
+        !formSubmitted && (
+          <>
+          <h1 className="text-3xl font-extrabold text-[#841844]">Select a Test</h1>
+          
+          <Select
+          onValueChange={(val) => {
+            setSelectedTest(val);
+            reset();
+          }}
+          value={selectedTest || ""}
+          >
         <SelectTrigger className="w-full">
           <SelectValue placeholder="Choose a test" />
         </SelectTrigger>
@@ -149,6 +152,9 @@ export default function ImprovedPersonalityTest() {
           ))}
         </SelectContent>
       </Select>
+          </>
+        )
+      }
 
       {selectedTest &&
         (!formSubmitted ? (
