@@ -27,7 +27,7 @@ import { Eye, GraduationCap } from "lucide-react";
 import { TESTS } from "@/data";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { DatePicker } from "@/components/ui/date-picker";
-import { es } from "date-fns/locale";
+import jsonToCsvExport from "json-to-csv-export";
 
 const ADMIN_EMAIL = "admin@geeta.edu.in";
 const ADMIN_PASSWORD = "admin123";
@@ -42,6 +42,7 @@ export default function AdminPanel() {
   const [testName, setTestName] = useState("all");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [dataToExport, setDataToExport] = useState([]);
 
   const fetchAllTestSubmissions = async () => {
     try {
@@ -61,6 +62,26 @@ export default function AdminPanel() {
       setError("Failed to fetch test submissions. Please try again later.");
     }
   };
+
+  useEffect(() => {
+    setDataToExport(
+      filteredSubmissions.map((submission) => ({
+        "Name": submission.name,
+        "Email": submission.email,
+        "Phone": submission.phone,
+        "Test Name": submission.test_name,
+        "Score": submission.score,
+        "Result": submission.result,
+        "Course": submission.course,
+        "Institution": submission.institution,
+        "Marital Status": submission.married ? "Married" : "Unmarried",
+        "Education": submission.education,
+        "Religion": submission.religion,
+        "Rural or Urban": submission.rural_or_urban,
+        "Timestamp": new Date(new Date(submission.timestamp).getTime() - 8 * 60 * 60 * 1000).toLocaleString("en-IN", {timeZone: "Asia/Kolkata"})
+      }))
+    );
+  }, [filteredSubmissions]);
 
   useEffect(() => {
     const session = sessionStorage.getItem("adminLoggedIn");
@@ -165,8 +186,14 @@ export default function AdminPanel() {
       <Separator />
 
       <Card>
-        <CardHeader>
+        <CardHeader className={"flex items-center justify-between"}>
           <h2 className="text-xl font-semibold">Submissions</h2>
+          <Button
+            variant="outline"
+            onClick={() => jsonToCsvExport({data: dataToExport, filename: 'Test Submissions.csv'})}
+          >
+            Export to CSV
+          </Button>
         </CardHeader>
         <CardContent className="p-5 pt-0 space-y-4">
           <div className="flex justify-end flex-wrap gap-2 mb-4">
