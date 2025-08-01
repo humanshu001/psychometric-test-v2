@@ -77,6 +77,14 @@ export default function HomePage() {
               "Discover your overall life satisfaction and emotional health across different dimensions.",
             gradient: "from-emerald-400 to-[#841844]",
           },
+          {
+            href: "/test?test=peerpressure",
+            title: "Peer Pressure Scale",
+            badge: "Peer Pressure",
+            desc:
+              "Evaluate how peer influence affects your decisions and behavior.",
+            gradient: "from-purple-500 to-[#841844]",
+          }
         ].map(({ href, title, badge, desc, gradient }) => (
           <Link key={title} href={href}>
             <Card className="hover:shadow-xl transition-all duration-300 hover:border-[#841844]">
