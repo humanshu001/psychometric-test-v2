@@ -51,6 +51,8 @@ export default function ImprovedPersonalityTest() {
   const [score, setScore] = useState(null);
   const [open, setOpen] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
+  const [resultDetails, setResultDetails] = useState(null);
+
 
   const [userInfo, setUserInfo] = useState({
     name: "",
@@ -80,46 +82,52 @@ export default function ImprovedPersonalityTest() {
   };
 
   const calculateScore = async () => {
-    const test = TESTS[selectedTest];
-    const result = answers.reduce((sum, val, i) => {
-      const idx = test.options.indexOf(val);
-      return sum + (test.scoring[i]?.[idx] || 0);
-    }, 0);
+  const test = TESTS[selectedTest];
+  const result = answers.reduce((sum, val, i) => {
+    const idx = test.options.indexOf(val);
+    return sum + (test.scoring[i]?.[idx] || 0);
+  }, 0);
 
-    setScore(result);
-    setOpen(true);
+  const interpretation = test.interpret(result);
+  setScore(result);
+  setResultDetails(interpretation);
+  setOpen(true);
 
-    const payload = {
-      ...userInfo,
-      married: userInfo.married === "yes" ? 1 : 0,
-      test_name: test.title,
-      score: result,
-      result: test.interpret(result),
-    };
-
-    try {
-      await axios.post("https://psychometric-test-v2-backend.onrender.com/submit-details", payload);
-      setFormSubmitted(false);
-      setAnswers([]);
-      setCurrentIndex(0);
-      setUserInfo({
-        name: "",
-        dob: "",
-        course: "",
-        married: "",
-        education: "",
-        religion: "",
-        gender: "",
-        email: "",
-        occupation: "",
-        phone: "",
-        institution: "",
-        rural_or_urban: "",
-      });
-    } catch (error) {
-      console.error("Failed to submit result", error);
-    }
+  const payload = {
+    ...userInfo,
+    married: userInfo.married === "yes" ? 1 : 0,
+    test_name: test.title,
+    score: result,
+    result: interpretation,
   };
+
+  try {
+    await axios.post(
+      "https://psychometric-test-v2-backend.onrender.com/submit-details",
+      payload
+    );
+    setFormSubmitted(false);
+    setAnswers([]);
+    setCurrentIndex(0);
+    setUserInfo({
+      name: "",
+      dob: "",
+      course: "",
+      married: "",
+      education: "",
+      religion: "",
+      gender: "",
+      email: "",
+      occupation: "",
+      phone: "",
+      institution: "",
+      rural_or_urban: "",
+    });
+  } catch (error) {
+    console.error("Failed to submit result", error);
+  }
+};
+
 
   const reset = () => {
     setScore(null);
@@ -281,24 +289,60 @@ export default function ImprovedPersonalityTest() {
 
       {/* Result Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="text-center">
-          <DialogHeader>
-            <DialogTitle className="text-[#841844]">
-              {TESTS[selectedTest]?.title} Result
-            </DialogTitle>
-          </DialogHeader>
-          {score !== null && (
-            <div className="space-y-4">
-              <p className="text-6xl font-black text-[#841844]">{score}</p>
-              <p className="text-lg font-medium">
-                {TESTS[selectedTest].interpret(score)}
-              </p>
-              <Button variant="outline" onClick={() => setOpen(false)}>
-                Close
-              </Button>
-            </div>
-          )}
-        </DialogContent>
+        <DialogContent className="text-left max-w-xl">
+  <DialogHeader>
+    <DialogTitle className="text-[#841844] text-center">
+      {TESTS[selectedTest]?.title} Result
+    </DialogTitle>
+  </DialogHeader>
+  {score !== null && resultDetails && (
+    <div className="space-y-4">
+      <p className="text-5xl font-bold text-[#841844] text-center">{score}</p>
+
+      <h3 className="text-xl font-semibold text-[#841844]">
+        {resultDetails.title}
+      </h3>
+
+      <p className="text-gray-700 leading-relaxed">
+        {resultDetails.description}
+      </p>
+
+      {resultDetails.studentProfile && (
+        <>
+          <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
+          <p className="text-gray-700">{resultDetails.studentProfile}</p>
+        </>
+      )}
+
+      {resultDetails.goal && (
+        <>
+          <h4 className="font-medium text-md text-[#841844]">Goal</h4>
+          <p className="text-gray-700">{resultDetails.goal}</p>
+        </>
+      )}
+
+      {resultDetails.suggestions && (
+        <div>
+          <h4 className="font-medium text-md text-[#841844] mb-1">
+            Suggestions
+          </h4>
+          <ul className="list-disc list-inside text-gray-700 space-y-1">
+            {resultDetails.suggestions.map((s, i) => (
+              <li key={i}>{s}</li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="text-center">
+        <Button variant="outline" onClick={() => setOpen(false)}>
+          Close
+        </Button>
+      </div>
+    </div>
+  )}
+</DialogContent>
+
       </Dialog>
     </div>
   );
