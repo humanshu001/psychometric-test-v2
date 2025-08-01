@@ -206,12 +206,44 @@ export const TESTS = {
       18: [3, 2, 1, 0],
       19: [0, 1, 2, 3],
     },
-    interpret(score) {
-      if (score >= 45) return "Strong Growth Mindset";
-      if (score >= 34) return "Growth Mindset with some Fixed ideas";
-      if (score >= 21) return "Fixed Mindset with some Growth ideas";
-      return "Strong Fixed Mindset";
-    },
+   interpret(score) {
+      if (score >= 31) {
+        return {
+          title: "Growth Mindset",
+          description: "You strongly believe that learning and effort lead to improvement. You embrace challenges and see failures as opportunities to grow.",
+          suggestions: [
+            "Model mindset for others: Share your strategies with peers or juniors.",
+            "Continue embracing challenges: Seek out new skills or knowledge areas outside your comfort zone.",
+            "Practice resilience: Use setbacks as opportunities to refine your learning approach.",
+            "Mentor others: Helping others build a growth mindset strengthens your own."
+          ]
+        };
+      }
+    
+      if (score >= 21) {
+        return {
+          title: "Moderate Mindset",
+          description: "You show a mix of both mindsets. While you may believe in growth in some areas, you may still hesitate when faced with setbacks.",
+          suggestions: [
+            "Identify limiting beliefs: Notice in which subjects or tasks you have a fixed mindset.",
+            "Set learning goals: Shift focus from performance goals (e.g., getting an 'A') to learning goals (e.g., understanding the concept).",
+            "Seek feedback actively: Embrace constructive feedback and see it as a tool for growth.",
+            "Reflect on growth moments: Think of times when you improved with practice and use them as confidence boosters."
+          ]
+        };
+      }
+    
+      return {
+        title: "Fixed Mindset",
+        description: "You tend to believe intelligence and abilities are unchangeable. You may avoid challenges, fear failure, and give up easily.",
+        suggestions: [
+          "Challenge negative beliefs: Start noticing when you think “I can’t do this” and replace it with “I can learn this.”",
+          "Praise effort, not talent: Recognize your effort and persistence more than the outcome.",
+          "Learn about neuroplasticity: Understand that the brain changes with practice and learning.",
+          "Use 'yet' language: Say “I don’t understand this yet” to signal future potential."
+        ]
+      };
+    }
   },
   rses: {
     title: "Rosenberg Self-Esteem Scale",
@@ -230,10 +262,45 @@ export const TESTS = {
       9: [3, 2, 1, 0],
     },
     interpret(score) {
-      if (score >= 21) return "High Self-Esteem";
-      if (score >= 11) return "Moderate Self-Esteem";
-      return "Low Self-Esteem";
-    },
+      if (score >= 21) return {
+        title: "High Self-Esteem",
+        description: "Suggests strong self-belief, emotional resilience, and a positive self-image conducive to academic and personal growth.",
+        studentProfile: "Demonstrates leadership, active class participation, healthy peer relationships, and a proactive approach to learning.",
+        suggestions: [
+          "Offer opportunities for mentoring peers or leading projects.",
+          "Encourage continuous learning and exposure to new challenges.",
+          "Foster humility and emotional intelligence alongside confidence."
+        ],
+        goal: "Maintain balance between confidence and self-awareness for sustained success."
+      };
+      
+      if (score >= 11) return {
+        title: "Moderate Self-Esteem",
+        description: "Reflects a mixed view of oneself; students may have fluctuating confidence and could be sensitive to criticism or failure.",
+        studentProfile: "Shows potential but may hesitate in leadership roles or during failure; motivation can vary depending on feedback or environment.",
+        suggestions: [
+          "Encourage goal-setting and incremental academic achievements.",
+          "Provide positive reinforcement and constructive feedback.",
+          "Promote involvement in student-led initiatives to build confidence.",
+          "Introduce cognitive-behavioral techniques to manage self-criticism."
+        ],
+        goal: "Strengthen consistency in self-confidence and decision-making."
+      };
+    
+      return {
+        title: "Low Self-Esteem",
+        description: "Indicates significant self-doubt, low confidence, and possibly feelings of worthlessness or inadequacy.",
+        studentProfile: "You may struggle with peer interaction, have difficulty speaking up in class, feel overwhelmed in adapting to college life, and show signs of withdrawal or isolation.",
+        suggestions: [
+          "Attend self-awareness and confidence-building workshops.",
+          "Seek mentoring from seniors or faculty.",
+          "Participate in small-group activities to foster social bonding.",
+          "Engage in reflective journaling and positive affirmation exercises.",
+          "Referral to counseling services if persistent low mood or anxiety is observed."
+        ],
+        goal: "Rebuild self-worth through consistent, supportive interventions."
+      };
+    }
   },
   aggression: {
     title: "Aggression Scale",
