@@ -133,6 +133,7 @@ export default function ImprovedPersonalityTest() {
     setScore(null);
     setAnswers([]);
     setCurrentIndex(0);
+    setResultDetails(null);
   };
 
   return (
