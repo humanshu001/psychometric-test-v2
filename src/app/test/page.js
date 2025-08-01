@@ -98,7 +98,7 @@ export default function ImprovedPersonalityTest() {
     married: userInfo.married === "yes" ? 1 : 0,
     test_name: test.title,
     score: result,
-    result: interpretation,
+    result: JSON.stringify(interpretation),
   };
 
   try {
@@ -296,52 +296,62 @@ export default function ImprovedPersonalityTest() {
       {TESTS[selectedTest]?.title} Result
     </DialogTitle>
   </DialogHeader>
-  {score !== null && resultDetails && (
-    <div className="space-y-4">
-      <p className="text-5xl font-bold text-[#841844] text-center">{score}</p>
+    	  {score !== null && resultDetails && (
+    	    <div className="space-y-4 h-64 overflow-y-auto">
+    	      <p className="text-5xl font-bold text-[#841844] text-center">{score}</p>
 
-      <h3 className="text-xl font-semibold text-[#841844]">
-        {resultDetails.title}
-      </h3>
+    	      {typeof resultDetails === 'string' ? (
+    	        <p className="text-xl font-semibold text-[#841844]">{resultDetails}</p>
+    	      ) : typeof resultDetails === 'object' ? (
+    	        <div>
+    	          <h3 className="text-xl font-semibold text-[#841844]">
+    	            {resultDetails.title}
+    	          </h3>
 
-      <p className="text-gray-700 leading-relaxed">
-        {resultDetails.description}
-      </p>
+    	          <p className="text-gray-700 leading-relaxed">
+    	            {resultDetails.description}
+    	          </p>
 
-      {resultDetails.studentProfile && (
-        <>
-          <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
-          <p className="text-gray-700">{resultDetails.studentProfile}</p>
-        </>
-      )}
+    	        {resultDetails.studentProfile && (
+    	          <>
+    	            <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
+    	            <p className="text-gray-700">{resultDetails.studentProfile}</p>
+    	          </>
+    	        )}
 
-      {resultDetails.goal && (
-        <>
-          <h4 className="font-medium text-md text-[#841844]">Goal</h4>
-          <p className="text-gray-700">{resultDetails.goal}</p>
-        </>
-      )}
+    	        {resultDetails.goal && (
+    	          <>
+    	            <h4 className="font-medium text-md text-[#841844]">Goal</h4>
+    	            <p className="text-gray-700">{resultDetails.goal}</p>
+    	          </>
+    	        )}
 
-      {resultDetails.suggestions && (
-        <div>
-          <h4 className="font-medium text-md text-[#841844] mb-1">
-            Suggestions
-          </h4>
-          <ul className="list-disc list-inside text-gray-700 space-y-1">
-            {resultDetails.suggestions.map((s, i) => (
-              <li key={i}>{s}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+    	        {resultDetails.suggestions && (
+    	          <div>
+    	            <h4 className="font-medium text-md text-[#841844] mb-1">
+    	              Suggestions
+    	            </h4>
+    	            <ul className="list-disc list-inside text-gray-700 space-y-1">
+    	              {resultDetails.suggestions.map((s, i) => (
+    	                <li key={i}>{s}</li>
+    	              ))}
+    	            </ul>
+    	          </div>
+    	        )}
+    	        </div>
+    	      ) : (
+    	        <p className="text-gray-700">
+    	          {JSON.stringify(resultDetails)}
+    	        </p>
+    	      )}
 
-      <div className="text-center">
-        <Button variant="outline" onClick={() => setOpen(false)}>
-          Close
-        </Button>
-      </div>
-    </div>
-  )}
+    	      <div className="text-center">
+    	        <Button variant="outline" onClick={() => setOpen(false)}>
+    	          Close
+    	        </Button>
+    	      </div>
+    	    </div>
+    	  )}
 </DialogContent>
 
       </Dialog>

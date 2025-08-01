@@ -179,11 +179,51 @@ export const questionsOfWellbeing = [
     "I am quite conscious about my style of dressing."
 ];
 
+export const questionsOfPeerPressure = [
+  "I feel pressured to dress a certain way to fit in with my friends.",
+  "I often go along with the group even if I don’t agree with them.",
+  "I find it hard to say 'no' when friends ask me to do something I’m uncomfortable with.",
+  "I feel the need to change my behavior to be accepted by others.",
+  "My academic choices are influenced by what my peers think is best.",
+  "I participate in social activities just to avoid feeling left out.",
+  "I avoid expressing my real opinions if they differ from the group.",
+  "I’ve changed my hobbies or interests to match those of my friends.",
+  "I feel embarrassed if I am the only one not doing what my peers are doing.",
+  "I sometimes lie to fit in with a social group.",
+  "I choose to study or skip class depending on what my friends are doing.",
+  "I feel bad about myself if others don’t approve of my choices.",
+  "I’ve tried substances like alcohol or cigarettes because of peer influence.",
+  "I’ve felt pressured to participate in risky behavior to be accepted.",
+  "I go along with my friends even when I know they’re making a wrong decision.",
+  "I pretend to agree with things I don’t believe in to avoid conflict.",
+  "I feel anxious when I make decisions that differ from my peer group.",
+  "I feel pressured to buy things or spend money to maintain my image among friends.",
+  "I often seek approval from my peers before making a personal decision.",
+  "I’ve felt excluded for not following group norms.",
+  "I feel forced to attend social events even when I don’t want to.",
+  "I sometimes imitate others’ behavior to avoid standing out.",
+  "I act differently around certain groups to gain their acceptance.",
+  "I hesitate to share my true interests if I think they won’t be accepted.",
+  "I rely on peer opinions more than my own while making decisions.",
+  "I feel peer pressure when deciding how much time to spend on academics.",
+  "I feel like I must act ‘cool’ to fit in socially.",
+  "I find myself saying things I don’t mean just to fit in.",
+  "I feel guilty when I say ‘no’ to friends.",
+  "I get influenced by peer approval or disapproval on social media.",
+  "I find it hard to disagree with peers in group decisions.",
+  "I fear being judged when making personal choices.",
+  "I’ve compromised my values because of peer influence.",
+  "I try to gain attention to feel accepted in my friend group.",
+  "I hesitate to stand up for myself if it goes against the group.",
+  "I find it difficult to resist peer pressure in public settings."
+];
+
+
 export const TESTS = {
   dweck: {
     title: "Growth vs. Fixed Mindset Test",
     options: ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"],
-    questions: questionsOfDweck.map((q) => q),
+    questions: questionsOfDweck,
     scoring: {
       0: [0, 1, 2, 3],
       1: [3, 2, 1, 0],
@@ -248,7 +288,7 @@ export const TESTS = {
   rses: {
     title: "Rosenberg Self-Esteem Scale",
     options: ["Strongly Agree", "Agree", "Disagree", "Strongly Disagree"],
-    questions: questionsOfRses.map((q) => q),
+    questions: questionsOfRses,
     scoring: {
       0: [3, 2, 1, 0],
       1: [0, 1, 2, 3],
@@ -304,7 +344,7 @@ export const TESTS = {
   },
   aggression: {
     title: "Aggression Scale",
-    questions: questionsOfAggression.map((q) => q),
+    questions: questionsOfAggression,
     options: ["Strongly Agree", "Agree", "Not Sure", "Disagree", "Strongly Disagree"],
     scoring: (() => {
       const scoreMap = {};
@@ -335,7 +375,7 @@ export const TESTS = {
   },
   emotional: {
     title: "Emotional Intelligence Scale",
-    questions: questionsOfEmotionalIntelligence.map((q) => q),
+    questions: questionsOfEmotionalIntelligence,
     options: ["Yes", "No"],
     scoring: (() => {
       const scoreMap = {};
@@ -363,7 +403,7 @@ export const TESTS = {
   },
   wellbeing: {
     title: "Well-Being Scale",
-    questions: questionsOfWellbeing.map((q) => q),
+    questions: questionsOfWellbeing,
     options: ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"],
     scoring: (() => {
       const scoreMap = {};
@@ -378,4 +418,50 @@ export const TESTS = {
       return "Low Well-Being";
     },
   },
+  peerpressure: {
+  title: "Peer Pressure Scale",
+  options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+  questions: questionsOfPeerPressure,
+  scoring: (() => {
+    const scoreMap = {};
+    for (let i = 0; i < 36; i++) {
+      scoreMap[i] = [1, 2, 3, 4, 5]; // Likert: SD=1 to SA=5
+    }
+    return scoreMap;
+  })(),
+  interpret(score) {
+    if (score <= 70) {
+      return {
+        title: "Low Peer Pressure Susceptibility",
+        description: "Highly independent and assertive. You have strong personal boundaries and resist group pressure effectively.",
+        suggestions: [
+          "Continue practicing self-validation and self-awareness.",
+          "Mentor peers who struggle with peer pressure.",
+          "Maintain a balance between confidence and openness to feedback.",
+        ],
+      };
+    }
+    if (score <= 124) {
+      return {
+        title: "Moderate Peer Pressure Susceptibility",
+        description: "Sometimes influenced by peers, but you still retain a sense of independent judgment in most situations.",
+        suggestions: [
+          "Develop clearer personal values to guide your decisions.",
+          "Practice assertive communication.",
+          "Reflect on past peer-influenced situations—what would you do differently?",
+        ],
+      };
+    }
+    return {
+      title: "High Peer Pressure Susceptibility",
+      description: "You are easily influenced by others, may struggle to say 'no', and often seek approval from peers.",
+      suggestions: [
+        "Practice daily affirmations to reinforce personal worth.",
+        "Engage in role-plays to strengthen assertiveness.",
+        "Surround yourself with supportive, non-judgmental friends.",
+        "Seek counseling or peer support to build resistance skills.",
+      ],
+    };
+  },
+}
 };

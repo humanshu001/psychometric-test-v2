@@ -372,13 +372,68 @@ export default function AdminPanel() {
                                 Score
                               </Label>
                             </div>
-                            <div className="col-span-1">
+                            <div className="col-span-full">
                               <Label className="text-muted-foreground">
                                 Result
                               </Label>
-                              <p className="font-semibold text-primary">
-                                {submission.result}
-                              </p>
+                              {(() => {
+                                const parseResult = (result) => {
+                                  try {
+                                    return JSON.parse(result);
+                                  } catch (e) {
+                                    return result;
+                                  }
+                                };
+
+                                const parsedResult = parseResult(submission.result);
+
+                                if (typeof parsedResult === 'string') {
+                                  return (
+                                    <p className="font-semibold text-primary">
+                                      {parsedResult}
+                                    </p>
+                                  );
+                                } else if (parsedResult && typeof parsedResult === 'object') {
+                                  return (
+                                    <div className="mt-2 p-4 bg-gray-50 rounded-lg space-y-3">
+                                      <h4 className="font-bold text-lg text-primary">
+                                        {parsedResult.title}
+                                      </h4>
+                                      <p className="text-gray-700 leading-relaxed">
+                                        {parsedResult.description}
+                                      </p>
+                                      {parsedResult.studentProfile && (
+                                        <div>
+                                          <h5 className="font-medium text-primary mb-1">Student Profile</h5>
+                                          <p className="text-gray-700">{parsedResult.studentProfile}</p>
+                                        </div>
+                                      )}
+                                      {parsedResult.goal && (
+                                        <div>
+                                          <h5 className="font-medium text-primary mb-1">Goal</h5>
+                                          <p className="text-gray-700">{parsedResult.goal}</p>
+                                        </div>
+                                      )}
+                                      {parsedResult.suggestions && Array.isArray(parsedResult.suggestions) && (
+                                        <div>
+                                          <h5 className="font-medium text-primary mb-1">Suggestions</h5>
+                                          <ul className="list-disc list-inside text-gray-700 space-y-1">
+                                            {parsedResult.suggestions.map((suggestion, index) => (
+                                              <li key={index}>{suggestion}</li>
+                                            ))}
+                                          </ul>
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                } else {
+                                  return (
+                                    <p className="font-semibold text-primary">
+                                      {JSON.stringify(parsedResult)}
+                                    </p>
+                                  );
+                                }
+                              })()}
                             </div>
                             <div className="col-span-1">
                               <Label className="text-muted-foreground">
