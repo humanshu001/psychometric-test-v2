@@ -219,6 +219,65 @@ export const questionsOfPeerPressure = [
 ];
 
 
+export const questionsOfEntrepreneurial = [
+  // ✅ Self-Efficacy
+  "I believe I am very capable of organizing and executing actions to be successful.",
+  "I have control upon the critical factors that influence my success.",
+  "I have all the capacity needed to realize my professional/academic future.",
+  "I am sure I am competent enough to develop my career successfully.",
+  "My academic/professional success depends heavily upon me.",
+
+  // ✅ Opportunity Detector
+  "I frequently think of products/services that could be offered in the market.",
+  "I am interested in knowing the market needs for determined products/services.",
+  "I think I have a good ability to detect business opportunities in the market.",
+  "Whenever I observe people complaining about some products/services, I think about the market opportunities that may be opening.",
+  "I frequently imagine the possibility of success that certain products/services could have in a certain market.",
+
+  // ✅ Persistence
+  "I consider myself very persistent.",
+  "I never lose my determination when I face daily difficulties.",
+  "Whenever I find adversities, I employ extra effort to overcome them.",
+  "I face the difficult situations of my daily activities as personal challenges.",
+  "The obstacles I face make me increase my energy to overpass them.",
+
+  // ✅ Sociable
+  "I have a lot of friends.",
+  "I can easily relate with other persons, even with those I still do not know.",
+  "I always remember the persons I don't see for a long time.",
+  "I can easily memorize people’s names and faces.",
+  "I like to be in contact with other persons.",
+
+  // ✅ Creative
+  "I always find creative solutions to my academic/professional problems.",
+  "I do not like routine activities.",
+  "I repeatedly change the way I study/work.",
+  "I like to invent new things.",
+  "I like to do tasks that are completely new every day.",
+
+  // ✅ Planner
+  "I am rarely caught by surprise in situations that I could have planned.",
+  "I have issues regarding my work/study always planned well in advance.",
+  "I have a detailed plan of my academic/professional issues.",
+  "My professional/academic goals are very clear to me.",
+  "I like to have the activities of my next year always well planned.",
+
+  // ✅ Risk Taker
+  "Sometimes I financially bet in projects that can bring me advantages in the future.",
+  "I occasionally run financial risks for potential benefits.",
+  "I like to be exposed to situations that involve some kind of risk.",
+  "To be successful in life, it is necessary to run some risks.",
+  "A person that does not run some risks will rarely achieve a successful academic/professional life.",
+
+  // ✅ Leader
+  "I frequently influence other people’s opinions.",
+  "It’s easy for me to inspire other persons to do what I want.",
+  "I am frequently chosen as leader in academic/professional projects or activities.",
+  "I consider myself very convincing.",
+  "Other persons frequently ask for my advice about academic/professional issues."
+];
+
+
 export const TESTS = {
   dweck: {
     title: "Growth vs. Fixed Mindset Test",
@@ -463,5 +522,50 @@ export const TESTS = {
       ],
     };
   },
+},
+entrepreneurial : {
+  title: "Student Entrepreneurial Scale",
+  questions: questionsOfEntrepreneurial,
+  options: ["Completely Agree", "Strongly Agree", "Agree", "Neither Agree nor Disagree", "Disagree", "Strongly Disagree", "Completely Disagree"], // 1 = Most entrepreneurial
+  scoring: (() => {
+    const scoreMap = {};
+    for (let i = 0; i < 40; i++) {
+      scoreMap[i] = [1, 2, 3, 4, 5, 6, 7];
+    }
+    return scoreMap;
+  })(),
+  interpret(score) {
+    if (score <= 112) {
+      return {
+        title: "High Entrepreneurial Aptitude",
+        description: "You show strong entrepreneurial potential: self-motivated, creative, persistent, and a risk-taker.",
+        suggestions: [
+          "Pursue startup events or incubator programs.",
+          "Lead innovation projects or student groups.",
+          "Mentor peers or juniors in entrepreneurship."
+        ]
+      };
+    }
+    if (score <= 184) {
+      return {
+        title: "Moderate Entrepreneurial Aptitude",
+        description: "You have average entrepreneurial tendencies but can improve with targeted effort.",
+        suggestions: [
+          "Work on areas like leadership, risk-taking, or planning.",
+          "Join entrepreneurship clubs or competitions.",
+          "Use feedback and real-world challenges for growth."
+        ]
+      };
+    }
+    return {
+      title: "Low Entrepreneurial Aptitude",
+      description: "You may currently lack confidence, risk tolerance, or planning required for entrepreneurial roles.",
+      suggestions: [
+        "Start with low-stakes entrepreneurial experiences like freelancing or project pitching.",
+        "Seek coaching or mentorship.",
+        "Practice creative and opportunity-detection exercises."
+      ]
+    };
+  }
 }
 };
