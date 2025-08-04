@@ -86,7 +86,7 @@ export default function HomePage() {
           },
           {
             href: "/test?test=enterpreneurship",
-            title: "Student Entrepreneurial Mindset Scale",
+            title: "Student Entrepreneurial Scale",
             badge: "Entrepreneurship",
             desc:
               "Analyze your entrepreneurial traits like self-efficacy, risk-taking, creativity, and persistence.",
