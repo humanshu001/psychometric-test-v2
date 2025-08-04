@@ -277,6 +277,61 @@ export const questionsOfEntrepreneurial = [
   "Other persons frequently ask for my advice about academic/professional issues."
 ];
 
+export const questionsOfAchievement = [
+  "I set clear goals for myself and strive to achieve them.",
+  "I persist even when the task gets difficult.",
+  "I enjoy challenging tasks that help me grow.",
+  "I work hard to outperform others.",
+  "I feel a strong desire to be successful.",
+  "I take the initiative in group activities or assignments.",
+  "I do not give up easily when faced with obstacles.",
+  "I take pride in doing better than others.",
+  "I constantly evaluate and improve my work.",
+  "I feel motivated to achieve more when I see others succeed.",
+  "I like to plan ahead and set objectives for myself.",
+  "I bounce back quickly from failure.",
+  "I do not get discouraged easily.",
+  "I enjoy competing with others in academics or tasks.",
+  "I stay focused on tasks even when they are boring or difficult.",
+  "I want to be the best in the work I do.",
+  "I keep trying even when I do not succeed the first time.",
+  "I look for feedback to improve my performance.",
+  "I spend extra time perfecting what I do.",
+  "I like to challenge myself with hard goals.",
+  "I believe effort is the key to success.",
+  "I complete tasks even when no one is watching.",
+  "I measure success by the goals I accomplish.",
+  "I feel satisfied only when I give my best."
+];
+
+export const questionsOfForgiveness = [
+  "I let go of resentment quickly.",
+  "I do not hold grudges for long periods.",
+  "I can forgive someone who hurt me deeply.",
+  "I feel lighter after forgiving someone.",
+  "I believe forgiveness brings emotional peace.",
+  "I can forgive without needing an apology.",
+  "I find it difficult to stay angry for long.",
+  "I am able to move on from betrayal.",
+  "I prefer to heal rather than hurt others in return.",
+  "I can forgive people even when they do not deserve it.",
+  "I don't keep thinking about how others wronged me.",
+  "I try to understand why someone hurt me.",
+  "I struggle to forgive those who don't show remorse.",
+  "I believe everyone deserves a second chance.",
+  "I practice forgiveness as a way of self-care.",
+  "Forgiveness is important in maintaining relationships.",
+  "I don't believe revenge helps in healing.",
+  "I usually express my forgiveness verbally or in action.",
+  "I can forgive even if the issue is not resolved.",
+  "I value emotional peace over winning an argument.",
+  "Forgiving helps me sleep better.",
+  "I feel proud when I forgive someone.",
+  "I believe forgiveness helps personal growth.",
+  "I try to forgive myself for past mistakes.",
+  "I forgive others easily in most situations."
+];
+
 
 export const TESTS = {
   dweck: {
@@ -564,6 +619,118 @@ entrepreneurial : {
         "Start with low-stakes entrepreneurial experiences like freelancing or project pitching.",
         "Seek coaching or mentorship.",
         "Practice creative and opportunity-detection exercises."
+      ]
+    };
+  }
+},
+achievement : {
+  title: "Achievement Motivation Scale",
+  questions: questionsOfAchievement,
+  options: ["Strongly Agree", "Agree", "Neutral", "Disagree", "Strongly Disagree"],
+  scoring: (() => {
+    const scoreMap = {};
+    for (let i = 0; i < 24; i++) {
+      scoreMap[i] = [5, 4, 3, 2, 1];
+    }
+    return scoreMap;
+  })(),
+  interpret(score) {
+    if (score >= 14 * 5) {
+      return {
+        title: "High Achievement Motivation",
+        description: "You are driven, competitive, persistent, and goal-oriented.",
+        suggestions: [
+          "Pursue leadership opportunities and competitions.",
+          "Set long-term goals and break them into smaller milestones.",
+          "Mentor others who lack motivation to build your leadership identity."
+        ]
+      };
+    }
+    if (score >= 7 * 5) {
+      return {
+        title: "Moderate Achievement Motivation",
+        description: "You have a healthy desire to succeed but may lack consistency.",
+        suggestions: [
+          "Practice self-discipline and accountability routines.",
+          "Reflect on moments of peak motivation and aim to replicate them.",
+          "Join groups that inspire goal setting and follow-through."
+        ]
+      };
+    }
+    return {
+      title: "Low Achievement Motivation",
+      description: "You may lack drive or tend to avoid challenging tasks.",
+      suggestions: [
+        "Start by setting small achievable goals.",
+        "Celebrate progress to build internal motivation.",
+        "Consider journaling about your passions and long-term dreams."
+      ]
+    };
+  }
+},
+forgiveness : {
+  title: "Forgiveness Scale",
+  questions: questionsOfForgiveness,
+  options: ["Strongly Agree", "Agree", "Uncertain", "Disagree", "Strongly Disagree"],
+  scoring: (() => {
+    const scoreMap = {};
+    for (let i = 0; i < 25; i++) {
+      scoreMap[i] = [1, 2, 3, 4, 5]; // Lower = more forgiving
+    }
+    return scoreMap;
+  })(),
+  interpret(score) {
+    if (score <= 64) {
+      return {
+        title: "Very Low Forgiveness",
+        description: "You may struggle to let go of resentment and experience emotional pain.",
+        suggestions: [
+          "Start with forgiving yourself before others.",
+          "Explore guided forgiveness meditations.",
+          "Seek therapy or emotional healing tools."
+        ]
+      };
+    }
+    if (score <= 79) {
+      return {
+        title: "Low Forgiveness",
+        description: "You find it difficult to forgive and might hold onto emotional pain.",
+        suggestions: [
+          "Practice reflective journaling to express emotions.",
+          "Explore compassion practices like loving-kindness meditation.",
+          "Read stories or watch videos of forgiveness to inspire healing."
+        ]
+      };
+    }
+    if (score <= 94) {
+      return {
+        title: "Moderate Forgiveness",
+        description: "You are somewhat forgiving, depending on the situation.",
+        suggestions: [
+          "Understand what stops you from fully letting go.",
+          "Use self-talk to reduce emotional reactivity.",
+          "Try writing forgiveness letters, even if not sent."
+        ]
+      };
+    }
+    if (score <= 109) {
+      return {
+        title: "High Forgiveness",
+        description: "You generally forgive easily and move past emotional wounds.",
+        suggestions: [
+          "Continue cultivating empathy and peace practices.",
+          "Use your skills to help friends or peers struggling with conflict.",
+          "Stay aware of emotional boundaries even while being forgiving."
+        ]
+      };
+    }
+    return {
+      title: "Very High Forgiveness",
+      description: "You easily let go of anger and hold deep emotional maturity.",
+      suggestions: [
+        "Be a role model or peer mentor for emotional resilience.",
+        "Journal about your forgiveness journey to inspire others.",
+        "Maintain mindfulness and compassion rituals regularly."
       ]
     };
   }

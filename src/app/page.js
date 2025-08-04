@@ -35,14 +35,13 @@ export default function HomePage() {
           </h1>
         </div>
 
-        {/* Test Cards */}
         {[
           {
             href: "/test?test=dweck",
             title: "Growth vs. Fixed Mindset",
             badge: "Mindset",
             desc:
-              "Explore your beliefs about learning and ability through Dr. Carol Dweck’s world-renowned framework.",
+              "Explore how you perceive intelligence and learning. Do you believe abilities can grow with effort?",
             gradient: "from-[#ffb400] to-[#841844]",
           },
           {
@@ -50,7 +49,7 @@ export default function HomePage() {
             title: "Rosenberg Self-Esteem Scale",
             badge: "Self-Esteem",
             desc:
-              "Discover your self-perception and confidence level with this classic self-esteem inventory.",
+              "Measure your self-worth, confidence, and how positively you view yourself across different situations.",
             gradient: "from-[#ff9f43] to-[#841844]",
           },
           {
@@ -58,7 +57,7 @@ export default function HomePage() {
             title: "Aggression Scale",
             badge: "Aggression",
             desc:
-              "Assess how you manage anger, frustration, and conflict through everyday emotional triggers.",
+              "Understand how you handle anger, frustration, and social conflict in emotionally triggering events.",
             gradient: "from-red-400 to-[#841844]",
           },
           {
@@ -66,7 +65,7 @@ export default function HomePage() {
             title: "Emotional Intelligence Scale",
             badge: "Emotional Intelligence",
             desc:
-              "Measure your self-awareness, empathy, and relationship skills with this practical tool.",
+              "Discover how well you recognize, regulate, and empathize with emotions—yours and others'.",
             gradient: "from-indigo-500 to-[#841844]",
           },
           {
@@ -74,33 +73,63 @@ export default function HomePage() {
             title: "Well-Being Scale",
             badge: "Well-Being",
             desc:
-              "Discover your overall life satisfaction and emotional health across different dimensions.",
+              "Assess your satisfaction with life, emotional resilience, and psychological wellness.",
             gradient: "from-emerald-400 to-[#841844]",
           },
           {
             href: "/test?test=peerpressure",
             title: "Peer Pressure Scale",
-            badge: "Peer Pressure",
+            badge: "Peer Influence",
             desc:
-              "Evaluate how peer influence affects your decisions and behavior.",
+              "Evaluate how strongly peer opinions shape your choices, behavior, and decision-making.",
             gradient: "from-purple-500 to-[#841844]",
+          },
+          {
+            href: "/test?test=enterpreneurship",
+            title: "Student Entrepreneurial Mindset Scale",
+            badge: "Entrepreneurship",
+            desc:
+              "Analyze your entrepreneurial traits like self-efficacy, risk-taking, creativity, and persistence.",
+            gradient: "from-yellow-500 to-[#841844]",
+          },
+          {
+            href: "/test?test=achievement",
+            title: "Achievement Motivation Scale",
+            badge: "Achievement",
+            desc:
+              "Measure your internal drive, goal orientation, competitiveness, and persistence toward success.",
+            gradient: "from-blue-500 to-[#841844]",
+          },
+          {
+            href: "/test?test=forgiveness",
+            title: "Forgiveness Scale",
+            badge: "Forgiveness",
+            desc:
+              "Reflect on your ability to let go of resentment, move forward, and restore emotional peace.",
+            gradient: "from-pink-500 to-[#841844]",
           }
         ].map(({ href, title, badge, desc, gradient }) => (
-          <Link key={title} href={href}>
-            <Card className="hover:shadow-xl transition-all duration-300 hover:border-[#841844]">
-              <CardContent className="p-6 space-y-3">
+          <Link key={title} href={href} className="h-full">
+            {/* 🟢 Updated: Make the card fill the available height */}
+            <Card className="h-full hover:shadow-xl transition-all duration-300 hover:border-[#841844]">
+              {/* 🟢 Updated: Flex layout to make content stretch */}
+              <CardContent className="p-6 space-y-3 flex flex-col h-full">
                 <Badge className={`border-none font-extrabold bg-gradient-to-r ${gradient} text-white`}>
                   {badge}
                 </Badge>
                 <h2 className="text-xl font-semibold text-[#841844]">
                   {title}
                 </h2>
-                <p className="text-muted-foreground text-sm">{desc}</p>
+                {/* 🟢 Updated: Make this paragraph grow to fill space evenly */}
+                <p className="text-muted-foreground text-sm flex-grow">
+                  {desc}
+                </p>
               </CardContent>
             </Card>
           </Link>
         ))}
       </div>
+
 
       <Separator />
 
