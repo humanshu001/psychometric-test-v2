@@ -578,7 +578,7 @@ export const TESTS = {
     };
   },
 },
-entrepreneurial : {
+enterpreneurship : {
   title: "Student Entrepreneurial Scale",
   questions: questionsOfEntrepreneurial,
   options: ["Completely Agree", "Strongly Agree", "Agree", "Neither Agree nor Disagree", "Disagree", "Strongly Disagree", "Completely Disagree"], // 1 = Most entrepreneurial

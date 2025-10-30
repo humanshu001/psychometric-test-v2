@@ -238,16 +238,16 @@ export default function ImprovedPersonalityTest() {
               </div>
               <div className="text-sm font-medium">
                 Question {currentIndex + 1} of{" "}
-                {TESTS[selectedTest].questions.length}
+                {TESTS[selectedTest]?.questions?.length}
               </div>
               <div className="mb-4 font-bold text-xl text-[#841844]">
-                {TESTS[selectedTest].questions[currentIndex]}
+                {TESTS[selectedTest]?.questions[currentIndex]}
               </div>
               <RadioGroup
                 value={answers[currentIndex] || ""}
                 onValueChange={handleAnswer}
               >
-                {TESTS[selectedTest].options.map((opt, index) => (
+                {TESTS[selectedTest]?.options?.map((opt, index) => (
                   <div key={index} className="flex items-center space-x-2 w-full cursor-pointer">
                     <RadioGroupItem
                       value={opt}
@@ -265,7 +265,7 @@ export default function ImprovedPersonalityTest() {
                 >
                   Previous
                 </Button>
-                {currentIndex < TESTS[selectedTest].questions.length - 1 ? (
+                {currentIndex < TESTS[selectedTest]?.questions?.length - 1 ? (
                   <Button
                     onClick={() => setCurrentIndex(currentIndex + 1)}
                     disabled={!answers[currentIndex]}
@@ -277,7 +277,7 @@ export default function ImprovedPersonalityTest() {
                     className="bg-[#841844] text-white hover:bg-[#6d1337]"
                     onClick={calculateScore}
                     disabled={
-                      answers.length !== TESTS[selectedTest].questions.length
+                      answers.length !== TESTS[selectedTest]?.questions?.length
                     }
                   >
                     Submit
