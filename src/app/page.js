@@ -36,6 +36,23 @@ export default function HomePage() {
         </div>
 
         {[
+          // 🟢 NEWLY ADDED TESTS (First Position)
+          {
+            href: "/test?test=hgmi",
+            title: "Multiple Intelligence Test (English)",
+            badge: "Intelligence Profile",
+            desc: "Discover your strengths across 8 dimensions of intelligence (e.g., Linguistic, Spatial, Musical, Interpersonal).",
+            gradient: "from-teal-400 to-[#841844]",
+          },
+          {
+            href: "/test?test=hgmi_hindi",
+            title: "बहु-बुद्धि परीक्षण (Multiple Intelligence Test - Hindi)",
+            badge: "बुद्धि प्रोफ़ाइल",
+            desc: "हावर्ड गार्डनर के सिद्धांत पर आधारित 8 प्रकार की बुद्धिमत्ता (जैसे: भाषाई, स्थानिक, संगीतात्मक) में अपनी ताकत जानें।",
+            gradient: "from-orange-400 to-[#841844]",
+          },
+          // ------------------------------------
+
           {
             href: "/test?test=dweck",
             title: "Growth vs. Fixed Mindset",

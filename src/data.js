@@ -332,6 +332,235 @@ export const questionsOfForgiveness = [
   "I forgive others easily in most situations."
 ];
 
+// Howard Gardner Multiple Intelligence Test (English)
+export const questionsOfHGMI = [
+  // 1. Linguistic
+  "I enjoy word games like Scrabble, crosswords, or anagrams.",
+  "I like to read books, magazines, or articles for pleasure.",
+  "I can easily remember quotes, phrases, or lyrics.",
+  "I enjoy writing stories, poems, or journal entries.",
+  "I am good at explaining things to others.",
+  "I often use new words I have learned in conversation.",
+  "I enjoy listening to spoken word audio, podcasts, or radio dramas.",
+  "I like to tell jokes, riddles, or funny stories.",
+  "I find it easy to learn new languages.",
+  "I pay attention to the specific words people use when they talk.",
+  "I am good at word puzzles and analyzing text.",
+  "I have always dreamed of being a writer or editor.",
+
+  // 2. Logical-Mathematical
+  "I enjoy solving logic puzzles, Sudoku, or strategy games.",
+  "I like to work with numbers, graphs, and statistics.",
+  "I am good at mental arithmetic and calculations.",
+  "I enjoy categorizing and organizing information.",
+  "I like to understand how things work and why they happen.",
+  "I systematically work through problems step-by-step.",
+  "I enjoy science experiments and discovering new facts.",
+  "I look for patterns and relationships in data.",
+  "I like to ask 'why' and 'how' questions.",
+  "I am good at budgeting and managing finances.",
+  "I appreciate logical arguments and rational thinking.",
+  "I think best when I can analyze a situation objectively.",
+
+  // 3. Spatial
+  "I prefer to see diagrams, maps, or charts to understand things.",
+  "I have a good sense of direction and can read maps easily.",
+  "I enjoy drawing, painting, or visual arts.",
+  "I can easily visualize objects in 3D in my mind.",
+  "I like to take photos or videos to capture moments.",
+  "I enjoy puzzles like jigsaw puzzles or tangrams.",
+  "I notice details in architecture, design, and fashion.",
+  "I doodle or draw while listening or thinking.",
+  "I can easily rearrange furniture or design a room in my head.",
+  "I enjoy navigating through new places.",
+  "I appreciate color, layout, and aesthetics.",
+  "I learn best by seeing or observing.",
+
+  // 4. Musical
+  "I have always dreamed of being a musician or a singer.",
+  "I can easily remember melodies and tunes.",
+  "I enjoy listening to music while I work or study.",
+  "I can tell when a musical note is off-key.",
+  "I often tap a rhythm or hum to myself.",
+  "I play a musical instrument or sing in a choir.",
+  "I am sensitive to sounds in my environment.",
+  "I enjoy different genres and styles of music.",
+  "I can hear patterns and structures in music.",
+  "Music strongly affects my mood and emotions.",
+  "I notice the background music in movies or stores.",
+  "I often have a song stuck in my head.",
+
+  // 5. Bodily-Kinesthetic
+  "I think best when doing something physical like jogging/exercising.",
+  "I enjoy playing sports, dancing, or physical activities.",
+  "I am good at working with my hands (crafts, building, fixing).",
+  "I find it hard to sit still for long periods of time.",
+  "I use hand gestures and body language when I talk.",
+  "I learn best by doing and practicing rather than reading.",
+  "I have good balance and coordination.",
+  "I enjoy acting, role-playing, or miming.",
+  "I like to touch and handle objects to understand them.",
+  "I am physically active and energetic.",
+  "I enjoy thrill-seeking activities or rides.",
+  "I can easily mimic other people's movements or mannerisms.",
+
+  // 6. Interpersonal
+  "I enjoy social gatherings and meeting new people.",
+  "I am often the one people come to for advice or help.",
+  "I prefer team sports or group activities over individual ones.",
+  "I can easily read other people's moods and feelings.",
+  "I enjoy teaching or mentoring others.",
+  "I am good at resolving conflicts and negotiating.",
+  "I have many close friends and acquaintances.",
+  "I feel comfortable in leadership roles.",
+  "I enjoy collaborating and brainstorming with others.",
+  "I am empathetic and understanding of others' perspectives.",
+  "I like to organize events or coordinate groups.",
+  "I prefer to work in a team rather than alone.",
+
+  // 7. Intrapersonal
+  "I enjoy spending time alone to reflect and think.",
+  "I have a clear understanding of my own strengths and weaknesses.",
+  "I often keep a journal or diary to record my thoughts.",
+  "I am self-motivated and independent.",
+  "I have strong personal values and beliefs.",
+  "I prefer to work alone rather than in a group.",
+  "I set personal goals and strive to achieve them.",
+  "I am aware of my own emotions and how they affect me.",
+  "I enjoy solitary hobbies like reading, writing, or meditation.",
+  "I like to analyze my own behavior and decisions.",
+  "I value my privacy and personal space.",
+  "I am often described as introspective or deep-thinking.",
+
+  // 8. Naturalist
+  "I am deeply saddened by the state of climate change.",
+  "I enjoy spending time in nature, hiking, or gardening.",
+  "I can easily identify different plants, animals, or rocks.",
+  "I like to collect natural objects like shells, leaves, or stones.",
+  "I am interested in biology, ecology, or astronomy.",
+  "I notice changes in the weather and seasons.",
+  "I care about animal welfare and conservation.",
+  "I enjoy watching nature documentaries or reading about nature.",
+  "I have a 'green thumb' and enjoy growing plants.",
+  "I feel connected to the natural world.",
+  "I enjoy observing wildlife and animal behavior.",
+  "I prefer to be outdoors rather than indoors.",
+];
+
+// Howard Gardner Multiple Intelligence Test (Hindi Translation)
+export const questionsOfHGMIHindi = [
+  // 1. Linguistic (भाषाई)
+  "मुझे शब्द पहेलियाँ जैसे स्क्रैबल या क्रॉसवर्ड हल करना पसंद है।",
+  "मुझे आनंद के लिए किताबें, पत्रिकाएँ या लेख पढ़ना पसंद है।",
+  "मुझे उद्धरण, मुहावरे या गीतों के बोल आसानी से याद रहते हैं।",
+  "मुझे कहानियाँ, कविताएँ या डायरी लिखना अच्छा लगता है।",
+  "मैं दूसरों को बातें समझाने में अच्छा हूँ।",
+  "मैं अक्सर बातचीत में सीखे गए नए शब्दों का उपयोग करता हूँ।",
+  "मुझे पॉडकास्ट या रेडियो नाटक सुनना पसंद है।",
+  "मुझे चुटकुले या मज़ेदार कहानियाँ सुनाना पसंद है।",
+  "मुझे नई भाषाएँ सीखना आसान लगता है।",
+  "मैं लोगों के बोलने के तरीके और शब्दों पर ध्यान देता हूँ।",
+  "मैं शब्दों के खेल और विश्लेषण में अच्छा हूँ।",
+  "मेरा हमेशा से लेखक या संपादक बनने का सपना रहा है।",
+
+  // 2. Logical-Mathematical (तार्किक-गणितीय)
+  "मुझे तर्क पहेलियाँ, सुडोकू या रणनीति खेल पसंद हैं।",
+  "मुझे संख्याओं, ग्राफ और आंकड़ों के साथ काम करना पसंद है।",
+  "मैं मानसिक गणना और हिसाब-किताब में अच्छा हूँ।",
+  "मुझे जानकारी को वर्गीकृत और व्यवस्थित करना अच्छा लगता है।",
+  "मैं यह समझना पसंद करता हूँ कि चीजें कैसे काम करती हैं और क्यों होती हैं।",
+  "मैं समस्याओं को क्रमबद्ध तरीके से हल करता हूँ।",
+  "मुझे विज्ञान के प्रयोग और नए तथ्य खोजना पसंद है।",
+  "मैं डेटा में पैटर्न और संबंधों को खोजता हूँ।",
+  "मुझे 'क्यों' और 'कैसे' वाले प्रश्न पूछना पसंद है।",
+  "मैं बजट बनाने और वित्त प्रबंधन में अच्छा हूँ।",
+  "मैं तार्किक तर्कों और रेशनल सोच की सराहना करता हूँ।",
+  "मैं तब सबसे अच्छा सोचता हूँ जब मैं किसी स्थिति का निष्पक्ष विश्लेषण कर सकता हूँ।",
+
+  // 3. Spatial (स्थानिक/दृश्य)
+  "चीजों को समझने के लिए मैं चित्र, नक्शे या चार्ट देखना पसंद करता हूँ।",
+  "मेरी दिशाओं की समझ अच्छी है और मैं आसानी से नक्शे पढ़ सकता हूँ।",
+  "मुझे चित्रकला, पेंटिंग या दृश्य कला में रुचि है।",
+  "मैं अपने दिमाग में वस्तुओं की 3D छवि आसानी से बना सकता हूँ।",
+  "पलों को कैद करने के लिए मुझे फोटो या वीडियो लेना पसंद है।",
+  "मुझे जिगसॉ पज़ल जैसी पहेलियाँ सुलझाना पसंद है।",
+  "मैं वास्तुकला, डिजाइन और फैशन में बारीकियों पर ध्यान देता हूँ।",
+  "सोचते या सुनते समय मैं अक्सर चित्रकारी (डूडलिंग) करता हूँ।",
+  "मैं अपने दिमाग में आसानी से फर्नीचर को पुनर्व्यवस्थित या कमरे का डिजाइन कर सकता हूँ।",
+  "मुझे नई जगहों पर रास्ता खोजना पसंद है।",
+  "मैं रंगों और सौंदर्यशास्त्र की सराहना करता हूँ।",
+  "मैं देखकर या निरीक्षण करके सबसे अच्छा सीखता हूँ।",
+
+  // 4. Musical (संगीतात्मक)
+  "मेरा हमेशा से संगीतकार या गायक बनने का सपना रहा है।",
+  "मुझे धुनें और सुर आसानी से याद रहते हैं।",
+  "काम या पढ़ाई करते समय मुझे संगीत सुनना पसंद है।",
+  "मैं बता सकता हूँ कि कब कोई सुर ताल से बाहर है।",
+  "मैं अक्सर कोई ताल थपथपाता हूँ या गुनगुनाता हूँ।",
+  "मैं कोई वाद्ययंत्र बजाता हूँ या समूह में गाता हूँ।",
+  "मैं अपने आसपास की आवाज़ों के प्रति संवेदनशील हूँ।",
+  "मुझे संगीत की विभिन्न शैलियाँ पसंद हैं।",
+  "मैं संगीत में पैटर्न और संरचनाओं को सुन सकता हूँ।",
+  "संगीत मेरे मूड और भावनाओं को बहुत प्रभावित करता है।",
+  "मैं फिल्मों या दुकानों में बज रहे बैकग्राउंड संगीत पर ध्यान देता हूँ।",
+  "अक्सर मेरे दिमाग में कोई गाना अटक जाता है।",
+
+  // 5. Bodily-Kinesthetic (शारीरिक-गतिक)
+  "मुझे शारीरिक गतिविधियाँ जैसे जॉगिंग या व्यायाम करते समय सोचना सबसे अच्छा लगता है।",
+  "मुझे खेल खेलना, नृत्य करना या शारीरिक गतिविधियाँ पसंद हैं।",
+  "मैं अपने हाथों से काम करने (शिल्प, निर्माण, मरम्मत) में अच्छा हूँ।",
+  "मुझे लंबे समय तक एक जगह स्थिर बैठना मुश्किल लगता है।",
+  "बात करते समय मैं हाथों के इशारों और शारीरिक भाषा का उपयोग करता हूँ।",
+  "मैं पढ़ने के बजाय करके और अभ्यास करके सबसे अच्छा सीखता हूँ।",
+  "मेरा शारीरिक संतुलन और समन्वय अच्छा है।",
+  "मुझे अभिनय या मूक अभिनय (माइम) करना पसंद है।",
+  "चीजों को समझने के लिए मैं उन्हें छूना और संभालना पसंद करता हूँ।",
+  "मैं शारीरिक रूप से सक्रिय और ऊर्जावान हूँ।",
+  "मुझे रोमांचकारी गतिविधियाँ पसंद हैं।",
+  "मैं दूसरों की चाल-ढाल की आसानी से नकल कर सकता हूँ।",
+
+  // 6. Interpersonal (अंतर्वैयक्तिक)
+  "मुझे सामाजिक समारोहों में जाना और नए लोगों से मिलना पसंद है।",
+  "लोग अक्सर सलाह या मदद के लिए मेरे पास आते हैं।",
+  "मैं व्यक्तिगत खेलों के बजाय टीम खेल या समूह गतिविधियाँ पसंद करता हूँ।",
+  "मैं दूसरों के मूड और भावनाओं को आसानी से समझ सकता हूँ।",
+  "मुझे दूसरों को पढ़ाना या मार्गदर्शन देना पसंद है।",
+  "मैं विवादों को सुलझाने और बातचीत करने में अच्छा हूँ।",
+  "मेरे कई करीबी दोस्त और परिचित हैं।",
+  "मैं नेतृत्व की भूमिकाओं में सहज महसूस करता हूँ।",
+  "मुझे दूसरों के साथ मिलकर विचार-विमर्श करना पसंद है।",
+  "मैं संवेदनशील हूँ और दूसरों के दृष्टिकोण को समझता हूँ।",
+  "मुझे कार्यक्रम आयोजित करना या समूहों का समन्वय करना पसंद है।",
+  "मैं अकेले के बजाय टीम में काम करना पसंद करता हूँ।",
+
+  // 7. Intrapersonal (अंतरावैयक्तिक)
+  "मुझे आत्म-चिंतन के लिए अकेले समय बिताना पसंद है।",
+  "मुझे अपनी ताकतों और कमजोरियों की स्पष्ट समझ है।",
+  "मैं अक्सर अपने विचारों को रिकॉर्ड करने के लिए डायरी लिखता हूँ।",
+  "मैं स्व-प्रेरित और स्वतंत्र हूँ।",
+  "मेरे पास मजबूत व्यक्तिगत मूल्य और विश्वास हैं।",
+  "मैं समूह के बजाय अकेले काम करना पसंद करता हूँ।",
+  "मैं व्यक्तिगत लक्ष्य निर्धारित करता हूँ और उन्हें प्राप्त करने का प्रयास करता हूँ।",
+  "मैं अपनी भावनाओं और वे मुझे कैसे प्रभावित करती हैं, इसके प्रति जागरूक हूँ।",
+  "मुझे अकेले की जाने वाली गतिविधियाँ जैसे पढ़ना या ध्यान करना पसंद है।",
+  "मुझे अपने व्यवहार और निर्णयों का विश्लेषण करना पसंद है।",
+  "मैं अपनी निजता और व्यक्तिगत स्थान को महत्व देता हूँ।",
+  "मुझे अक्सर अंतर्मुखी या गहरा सोचने वाला कहा जाता है।",
+
+  // 8. Naturalist (प्रकृतिवादी)
+  "मैं जलवायु परिवर्तन की स्थिति से गहरा दुखी हूँ।",
+  "मुझे प्रकृति में समय बिताना, लंबी पैदल यात्रा या बागवानी करना पसंद है।",
+  "मैं विभिन्न पौधों, जानवरों या चट्टानों को आसानी से पहचान सकता हूँ।",
+  "मुझे प्राकृतिक वस्तुएं जैसे सीपियाँ, पत्तियां या पत्थर इकट्ठा करना पसंद है।",
+  "मुझे जीव विज्ञान, पारिस्थितिकी या खगोल विज्ञान में रुचि है।",
+  "मैं मौसम और ऋतुओं में बदलाव को नोटिस करता हूँ।",
+  "मुझे पशु कल्याण और संरक्षण की परवाह है।",
+  "मुझे प्रकृति पर वृत्तचित्र देखना या पढ़ना पसंद है।",
+  "मुझे पेड़-पौधे लगाने और उनकी देखभाल करने का शौक है।",
+  "मैं प्राकृतिक दुनिया से जुड़ाव महसूस करता हूँ।",
+  "मुझे वन्यजीवों और जानवरों के व्यवहार का निरीक्षण करना पसंद है।",
+  "मैं घर के अंदर रहने के बजाय बाहर रहना पसंद करता हूँ।",
+];
 
 export const TESTS = {
   dweck: {
@@ -734,5 +963,92 @@ forgiveness : {
       ]
     };
   }
+},
+hgmi: {
+    title: "Multiple Intelligence Test",
+    questions: questionsOfHGMI,
+    options: ["Yes", "No"],
+    scoring: (() => {
+        // Questions are grouped in blocks of 12
+        // 0-11: Linguistic
+        // 12-23: Logical
+        // 24-35: Spatial
+        // 36-47: Musical
+        // 48-59: Bodily
+        // 60-71: Interpersonal
+        // 72-83: Intrapersonal
+        // 84-95: Naturalist
+        const scoreMap = {};
+        for(let i=0; i<96; i++) {
+            scoreMap[i] = [1, 0]; // Yes = 1, No = 0
+        }
+        return scoreMap;
+    })(),
+    interpret(scores) {
+      // NOTE: 'scores' argument here is usually the TOTAL sum in other tests,
+      // but for HGMI we need the breakdown per category.
+      // Assuming the calling code sums up the scores based on the map.
+      // If the calling code only passes a total sum, we can't fully interpret HGMI.
+      // However, keeping with the structure, we can return a generic message or
+      // rely on the frontend to display the breakdown if it handles object returns.
+      //
+      // Below logic assumes the 'score' passed is just a total (which isn't ideal for HGMI).
+      // If you have a custom interpreter that takes the raw answers, that's better.
+      // For now, returning a generic success message as HGMI is a profile, not a single score.
+      
+      return {
+          title: "Multiple Intelligence Profile",
+          description: "Your results indicate your strengths across 8 different intelligences. Check the detailed breakdown to see your top intelligences.",
+          suggestions: [
+              "Leverage your top intelligences in your daily study habits.",
+              "Collaborate with others who have different strengths.",
+              "Explore careers that align with your dominant intelligences."
+          ]
+      };
+    },
+    // Custom helper to categorize scores (if your frontend can use it)
+    categories: [
+        { name: "Linguistic", range: [0, 11] },
+        { name: "Logical-Mathematical", range: [12, 23] },
+        { name: "Spatial", range: [24, 35] },
+        { name: "Musical", range: [36, 47] },
+        { name: "Bodily-Kinesthetic", range: [48, 59] },
+        { name: "Interpersonal", range: [60, 71] },
+        { name: "Intrapersonal", range: [72, 83] },
+        { name: "Naturalist", range: [84, 95] }
+    ]
+},
+hgmi_hindi: {
+    title: "बहु-बुद्धि परीक्षण (Multiple Intelligence Test - Hindi)",
+    questions: questionsOfHGMIHindi,
+    options: ["हाँ", "नहीं"],
+    scoring: (() => {
+        const scoreMap = {};
+        for(let i=0; i<96; i++) {
+            scoreMap[i] = [1, 0];
+        }
+        return scoreMap;
+    })(),
+    interpret(scores) {
+      return {
+          title: "बहु-बुद्धि प्रोफ़ाइल",
+          description: "आपके परिणाम 8 अलग-अलग बुद्धिमत्ता में आपकी ताकत को दर्शाते हैं। अपनी शीर्ष बुद्धिमत्ता देखने के लिए विस्तृत विवरण देखें।",
+          suggestions: [
+              "अपनी दैनिक अध्ययन आदतों में अपनी शीर्ष बुद्धिमत्ता का लाभ उठाएं।",
+              "उन लोगों के साथ सहयोग करें जिनकी ताकत आपसे अलग है।",
+              "उन करियर विकल्पों का पता लगाएं जो आपकी प्रमुख बुद्धिमत्ता के अनुरूप हों।"
+          ]
+      };
+    },
+    categories: [
+        { name: "भाषाई (Linguistic)", range: [0, 11] },
+        { name: "तार्किक-गणितीय (Logical-Mathematical)", range: [12, 23] },
+        { name: "स्थानिक (Spatial)", range: [24, 35] },
+        { name: "संगीतात्मक (Musical)", range: [36, 47] },
+        { name: "शारीरिक-गतिक (Bodily-Kinesthetic)", range: [48, 59] },
+        { name: "अंतर्वैयक्तिक (Interpersonal)", range: [60, 71] },
+        { name: "अंतरावैयक्तिक (Intrapersonal)", range: [72, 83] },
+        { name: "प्रकृतिवादी (Naturalist)", range: [84, 95] }
+    ]
 }
 };

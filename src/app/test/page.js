@@ -82,51 +82,85 @@ export default function ImprovedPersonalityTest() {
   };
 
   const calculateScore = async () => {
-  const test = TESTS[selectedTest];
-  const result = answers.reduce((sum, val, i) => {
-    const idx = test.options.indexOf(val);
-    return sum + (test.scoring[i]?.[idx] || 0);
-  }, 0);
+    const test = TESTS[selectedTest];
 
-  const interpretation = test.interpret(result);
-  setScore(result);
-  setResultDetails(interpretation);
-  setOpen(true);
+    let totalScore;
+    let interpretation;
 
-  const payload = {
-    ...userInfo,
-    married: userInfo.married === "yes" ? 1 : 0,
-    test_name: test.title,
-    score: result,
-    result: JSON.stringify(interpretation),
+    // --- Logic to handle Multi-Score Tests (e.g., HGMI) vs. Single-Score Tests ---
+    if (test.categories) {
+      // Multi-Score Calculation (HGMI)
+      const categoryScores = test.categories.map(category => {
+        let categorySum = 0;
+        for (let i = category.range[0]; i <= category.range[1]; i++) {
+          const val = answers[i];
+          if (val !== undefined) {
+            const idx = test.options.indexOf(val);
+            // Ensure scoring exists for the index, otherwise default to 0
+            categorySum += (test.scoring[i]?.[idx] || 0);
+          }
+        }
+        return { name: category.name, score: categorySum };
+      });
+
+      // Total score for database/simple display
+      totalScore = categoryScores.reduce((sum, cat) => sum + cat.score, 0);
+      
+      // Interpretation is fetched and the breakdown is attached
+      interpretation = test.interpret(totalScore); 
+      interpretation.breakdown = categoryScores.sort((a, b) => b.score - a.score);
+
+    } else {
+      // Single-Score Calculation (Dweck, Rses, etc.)
+      totalScore = answers.reduce((sum, val, i) => {
+        const idx = test.options.indexOf(val);
+        // Ensure scoring exists for the index, otherwise default to 0
+        return sum + (test.scoring[i]?.[idx] || 0);
+      }, 0);
+      
+      interpretation = test.interpret(totalScore);
+    }
+    
+    setScore(totalScore);
+    setResultDetails(interpretation);
+    setOpen(true);
+    // --------------------------------------------------------------------------
+
+    const payload = {
+      ...userInfo,
+      married: userInfo.married === "yes" ? 1 : 0,
+      test_name: test.title,
+      score: totalScore,
+      // Store the full interpretation object, including the breakdown for HGMI
+      result: JSON.stringify(interpretation), 
+    };
+
+    try {
+      await axios.post(
+        "https://psychometric-test-v2-backend.onrender.com/submit-details",
+        payload
+      );
+      setFormSubmitted(false);
+      setAnswers([]);
+      setCurrentIndex(0);
+      setUserInfo({
+        name: "",
+        dob: "",
+        course: "",
+        married: "",
+        education: "",
+        religion: "",
+        gender: "",
+        email: "",
+        occupation: "",
+        phone: "",
+        institution: "",
+        rural_or_urban: "",
+      });
+    } catch (error) {
+      console.error("Failed to submit result", error);
+    }
   };
-
-  try {
-    await axios.post(
-      "https://psychometric-test-v2-backend.onrender.com/submit-details",
-      payload
-    );
-    setFormSubmitted(false);
-    setAnswers([]);
-    setCurrentIndex(0);
-    setUserInfo({
-      name: "",
-      dob: "",
-      course: "",
-      married: "",
-      education: "",
-      religion: "",
-      gender: "",
-      email: "",
-      occupation: "",
-      phone: "",
-      institution: "",
-      rural_or_urban: "",
-    });
-  } catch (error) {
-    console.error("Failed to submit result", error);
-  }
-};
 
 
   const reset = () => {
@@ -291,69 +325,96 @@ export default function ImprovedPersonalityTest() {
       {/* Result Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogContent className="text-left max-w-xl">
-  <DialogHeader>
-    <DialogTitle className="text-[#841844] text-center">
-      {TESTS[selectedTest]?.title} Result
-    </DialogTitle>
-  </DialogHeader>
-    	  {score !== null && resultDetails && (
-    	    <div className="space-y-4 h-64 overflow-y-auto">
-    	      <p className="text-5xl font-bold text-[#841844] text-center">{score}</p>
+          <DialogHeader>
+            <DialogTitle className="text-[#841844] text-center">
+              {TESTS[selectedTest]?.title} Result
+            </DialogTitle>
+          </DialogHeader>
+          {score !== null && resultDetails && (
+            <div className="space-y-4 h-64 overflow-y-auto">
+              {/* Conditional Score Display: Larger for single score, smaller with label for multi-score */}
+              <p className={`font-bold text-[#841844] text-center ${resultDetails.breakdown ? 'text-2xl' : 'text-5xl'}`}>
+                  {resultDetails.breakdown ? `Total Score: ${score}` : score}
+              </p>
 
-    	      {typeof resultDetails === 'string' ? (
-    	        <p className="text-xl font-semibold text-[#841844]">{resultDetails}</p>
-    	      ) : typeof resultDetails === 'object' ? (
-    	        <div>
-    	          <h3 className="text-xl font-semibold text-[#841844]">
-    	            {resultDetails.title}
-    	          </h3>
+              {/* Multi-Intelligence Breakdown (HGMI specific) */}
+              {resultDetails.breakdown && (
+                <div className="space-y-3 p-3 border rounded-lg bg-gray-50">
+                  <h3 className="text-xl font-semibold text-[#841844] mb-2">
+                    Intelligence Profile Breakdown
+                  </h3>
+                  <div className="grid grid-cols-2 gap-2 text-sm">
+                    {/* Breakdown is already sorted in calculateScore */}
+                    {resultDetails.breakdown.map((cat, i) => (
+                      <div
+                        key={cat.name}
+                        className={`flex justify-between p-2 rounded ${
+                          i < 3 ? "bg-yellow-100 font-medium border border-yellow-300" : "bg-white border"
+                        }`}
+                      >
+                        <span className="text-gray-700">{cat.name}</span>
+                        <span className="text-[#841844] font-bold">
+                          {cat.score} / 12
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                  <p className="text-xs text-muted-foreground pt-2">
+                    Scores shown are raw counts of 'Yes' responses per intelligence type (out of 12 questions).
+                  </p>
+                </div>
+              )}
 
-    	          <p className="text-gray-700 leading-relaxed">
-    	            {resultDetails.description}
-    	          </p>
+              {/* Interpretation (Common for all tests) */}
+              {typeof resultDetails === 'string' ? (
+                <p className="text-xl font-semibold text-[#841844]">{resultDetails}</p>
+              ) : (
+                <div className="space-y-3">
+                  <h3 className="text-xl font-semibold text-[#841844]">
+                    {resultDetails.title}
+                  </h3>
 
-    	        {resultDetails.studentProfile && (
-    	          <>
-    	            <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
-    	            <p className="text-gray-700">{resultDetails.studentProfile}</p>
-    	          </>
-    	        )}
+                  <p className="text-gray-700 leading-relaxed">
+                    {resultDetails.description}
+                  </p>
 
-    	        {resultDetails.goal && (
-    	          <>
-    	            <h4 className="font-medium text-md text-[#841844]">Goal</h4>
-    	            <p className="text-gray-700">{resultDetails.goal}</p>
-    	          </>
-    	        )}
+                  {resultDetails.studentProfile && (
+                    <>
+                      <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
+                      <p className="text-gray-700">{resultDetails.studentProfile}</p>
+                    </>
+                  )}
 
-    	        {resultDetails.suggestions && (
-    	          <div>
-    	            <h4 className="font-medium text-md text-[#841844] mb-1">
-    	              Suggestions
-    	            </h4>
-    	            <ul className="list-disc list-inside text-gray-700 space-y-1">
-    	              {resultDetails.suggestions.map((s, i) => (
-    	                <li key={i}>{s}</li>
-    	              ))}
-    	            </ul>
-    	          </div>
-    	        )}
-    	        </div>
-    	      ) : (
-    	        <p className="text-gray-700">
-    	          {JSON.stringify(resultDetails)}
-    	        </p>
-    	      )}
+                  {resultDetails.goal && (
+                    <>
+                      <h4 className="font-medium text-md text-[#841844]">Goal</h4>
+                      <p className="text-gray-700">{resultDetails.goal}</p>
+                    </>
+                  )}
 
-    	      <div className="text-center">
-    	        <Button variant="outline" onClick={() => setOpen(false)}>
-    	          Close
-    	        </Button>
-    	      </div>
-    	    </div>
-    	  )}
-</DialogContent>
+                  {resultDetails.suggestions && (
+                    <div>
+                      <h4 className="font-medium text-md text-[#841844] mb-1">
+                        Suggestions
+                      </h4>
+                      <ul className="list-disc list-inside text-gray-700 space-y-1">
+                        {resultDetails.suggestions.map((s, i) => (
+                          <li key={i}>{s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              )}
 
+              <div className="text-center">
+                <Button variant="outline" onClick={() => setOpen(false)}>
+                  Close
+                </Button>
+              </div>
+            </div>
+          )}
+        </DialogContent>
       </Dialog>
     </div>
   );

@@ -402,6 +402,37 @@ export default function AdminPanel() {
                                       <p className="text-gray-700 leading-relaxed">
                                         {parsedResult.description}
                                       </p>
+                                      
+                                      {/* NEW: Multi-Intelligence Breakdown for HGMI tests */}
+                                      {parsedResult.breakdown && Array.isArray(parsedResult.breakdown) && (
+                                        <div className="mt-4">
+                                          <h5 className="font-bold text-lg text-[#841844] mb-2">Intelligence Breakdown</h5>
+                                          <Table className="border rounded-lg bg-white">
+                                            <TableHeader>
+                                              <TableRow>
+                                                <TableHead>Intelligence Type</TableHead>
+                                                <TableHead className="text-right">Score (Max 12)</TableHead>
+                                              </TableRow>
+                                            </TableHeader>
+                                            <TableBody>
+                                              {/* Assumption: Breakdown array is already sorted by score */}
+                                              {parsedResult.breakdown.map((cat, index) => (
+                                                <TableRow key={index} className={index < 3 ? 'bg-yellow-50' : ''}>
+                                                  <TableCell className="font-medium">{cat.name}</TableCell>
+                                                  <TableCell className="text-right font-bold text-green-700">
+                                                    {cat.score}
+                                                  </TableCell>
+                                                </TableRow>
+                                              ))}
+                                            </TableBody>
+                                          </Table>
+                                          <p className="text-xs text-muted-foreground mt-2">
+                                            Scores shown are raw counts of 'Yes' responses per intelligence type (out of 12 questions). The top 3 scoring types are highlighted.
+                                          </p>
+                                        </div>
+                                      )}
+                                      {/* END NEW: Multi-Intelligence Breakdown */}
+
                                       {parsedResult.studentProfile && (
                                         <div>
                                           <h5 className="font-medium text-primary mb-1">Student Profile</h5>
