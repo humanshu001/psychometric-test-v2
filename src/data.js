@@ -1,3 +1,4 @@
+
 export const questionsOfDweck = [
     "Your intelligence is something very basic about you that you can’t change very much.",
     "No matter how much intelligence you have, you can always change it quite a bit.",
@@ -19,7 +20,7 @@ export const questionsOfDweck = [
     "Human beings are basically good, but sometimes make terrible decisions.",
     "An important reason why I do my schoolwork is that I like to learn new things.",
     "Truly smart people don’t need to try hard.",
-]
+];
 
 export const questionsOfRses = [
     "On the whole, I am satisfied with myself.",
@@ -32,7 +33,7 @@ export const questionsOfRses = [
     "I wish I could have more respect for myself.",
     "All in all, I am inclined to feel that I am a failure.",
     "I take a positive attitude toward myself.",
-]
+];
 
 export const questionsOfAggression = [
     "I get angry when someone asks me to do something I don’t want to do.",
@@ -220,56 +221,41 @@ export const questionsOfPeerPressure = [
 
 
 export const questionsOfEntrepreneurial = [
-  // ✅ Self-Efficacy
   "I believe I am very capable of organizing and executing actions to be successful.",
   "I have control upon the critical factors that influence my success.",
   "I have all the capacity needed to realize my professional/academic future.",
   "I am sure I am competent enough to develop my career successfully.",
   "My academic/professional success depends heavily upon me.",
-
-  // ✅ Opportunity Detector
   "I frequently think of products/services that could be offered in the market.",
   "I am interested in knowing the market needs for determined products/services.",
   "I think I have a good ability to detect business opportunities in the market.",
   "Whenever I observe people complaining about some products/services, I think about the market opportunities that may be opening.",
   "I frequently imagine the possibility of success that certain products/services could have in a certain market.",
-
-  // ✅ Persistence
   "I consider myself very persistent.",
   "I never lose my determination when I face daily difficulties.",
   "Whenever I find adversities, I employ extra effort to overcome them.",
   "I face the difficult situations of my daily activities as personal challenges.",
   "The obstacles I face make me increase my energy to overpass them.",
-
-  // ✅ Sociable
   "I have a lot of friends.",
   "I can easily relate with other persons, even with those I still do not know.",
   "I always remember the persons I don't see for a long time.",
   "I can easily memorize people’s names and faces.",
   "I like to be in contact with other persons.",
-
-  // ✅ Creative
   "I always find creative solutions to my academic/professional problems.",
   "I do not like routine activities.",
   "I repeatedly change the way I study/work.",
   "I like to invent new things.",
   "I like to do tasks that are completely new every day.",
-
-  // ✅ Planner
   "I am rarely caught by surprise in situations that I could have planned.",
   "I have issues regarding my work/study always planned well in advance.",
   "I have a detailed plan of my academic/professional issues.",
   "My professional/academic goals are very clear to me.",
   "I like to have the activities of my next year always well planned.",
-
-  // ✅ Risk Taker
   "Sometimes I financially bet in projects that can bring me advantages in the future.",
   "I occasionally run financial risks for potential benefits.",
   "I like to be exposed to situations that involve some kind of risk.",
   "To be successful in life, it is necessary to run some risks.",
   "A person that does not run some risks will rarely achieve a successful academic/professional life.",
-
-  // ✅ Leader
   "I frequently influence other people’s opinions.",
   "It’s easy for me to inspire other persons to do what I want.",
   "I am frequently chosen as leader in academic/professional projects or activities.",
@@ -334,7 +320,6 @@ export const questionsOfForgiveness = [
 
 // Howard Gardner Multiple Intelligence Test (English)
 export const questionsOfHGMI = [
-  // 1. Linguistic
   "I enjoy word games like Scrabble, crosswords, or anagrams.",
   "I like to read books, magazines, or articles for pleasure.",
   "I can easily remember quotes, phrases, or lyrics.",
@@ -347,8 +332,6 @@ export const questionsOfHGMI = [
   "I pay attention to the specific words people use when they talk.",
   "I am good at word puzzles and analyzing text.",
   "I have always dreamed of being a writer or editor.",
-
-  // 2. Logical-Mathematical
   "I enjoy solving logic puzzles, Sudoku, or strategy games.",
   "I like to work with numbers, graphs, and statistics.",
   "I am good at mental arithmetic and calculations.",
@@ -361,8 +344,6 @@ export const questionsOfHGMI = [
   "I am good at budgeting and managing finances.",
   "I appreciate logical arguments and rational thinking.",
   "I think best when I can analyze a situation objectively.",
-
-  // 3. Spatial
   "I prefer to see diagrams, maps, or charts to understand things.",
   "I have a good sense of direction and can read maps easily.",
   "I enjoy drawing, painting, or visual arts.",
@@ -375,8 +356,6 @@ export const questionsOfHGMI = [
   "I enjoy navigating through new places.",
   "I appreciate color, layout, and aesthetics.",
   "I learn best by seeing or observing.",
-
-  // 4. Musical
   "I have always dreamed of being a musician or a singer.",
   "I can easily remember melodies and tunes.",
   "I enjoy listening to music while I work or study.",
@@ -389,8 +368,6 @@ export const questionsOfHGMI = [
   "Music strongly affects my mood and emotions.",
   "I notice the background music in movies or stores.",
   "I often have a song stuck in my head.",
-
-  // 5. Bodily-Kinesthetic
   "I think best when doing something physical like jogging/exercising.",
   "I enjoy playing sports, dancing, or physical activities.",
   "I am good at working with my hands (crafts, building, fixing).",
@@ -403,8 +380,6 @@ export const questionsOfHGMI = [
   "I am physically active and energetic.",
   "I enjoy thrill-seeking activities or rides.",
   "I can easily mimic other people's movements or mannerisms.",
-
-  // 6. Interpersonal
   "I enjoy social gatherings and meeting new people.",
   "I am often the one people come to for advice or help.",
   "I prefer team sports or group activities over individual ones.",
@@ -417,8 +392,6 @@ export const questionsOfHGMI = [
   "I am empathetic and understanding of others' perspectives.",
   "I like to organize events or coordinate groups.",
   "I prefer to work in a team rather than alone.",
-
-  // 7. Intrapersonal
   "I enjoy spending time alone to reflect and think.",
   "I have a clear understanding of my own strengths and weaknesses.",
   "I often keep a journal or diary to record my thoughts.",
@@ -431,8 +404,6 @@ export const questionsOfHGMI = [
   "I like to analyze my own behavior and decisions.",
   "I value my privacy and personal space.",
   "I am often described as introspective or deep-thinking.",
-
-  // 8. Naturalist
   "I am deeply saddened by the state of climate change.",
   "I enjoy spending time in nature, hiking, or gardening.",
   "I can easily identify different plants, animals, or rocks.",
@@ -449,7 +420,6 @@ export const questionsOfHGMI = [
 
 // Howard Gardner Multiple Intelligence Test (Hindi Translation)
 export const questionsOfHGMIHindi = [
-  // 1. Linguistic (भाषाई)
   "मुझे शब्द पहेलियाँ जैसे स्क्रैबल या क्रॉसवर्ड हल करना पसंद है।",
   "मुझे आनंद के लिए किताबें, पत्रिकाएँ या लेख पढ़ना पसंद है।",
   "मुझे उद्धरण, मुहावरे या गीतों के बोल आसानी से याद रहते हैं।",
@@ -462,8 +432,6 @@ export const questionsOfHGMIHindi = [
   "मैं लोगों के बोलने के तरीके और शब्दों पर ध्यान देता हूँ।",
   "मैं शब्दों के खेल और विश्लेषण में अच्छा हूँ।",
   "मेरा हमेशा से लेखक या संपादक बनने का सपना रहा है।",
-
-  // 2. Logical-Mathematical (तार्किक-गणितीय)
   "मुझे तर्क पहेलियाँ, सुडोकू या रणनीति खेल पसंद हैं।",
   "मुझे संख्याओं, ग्राफ और आंकड़ों के साथ काम करना पसंद है।",
   "मैं मानसिक गणना और हिसाब-किताब में अच्छा हूँ।",
@@ -476,8 +444,6 @@ export const questionsOfHGMIHindi = [
   "मैं बजट बनाने और वित्त प्रबंधन में अच्छा हूँ।",
   "मैं तार्किक तर्कों और रेशनल सोच की सराहना करता हूँ।",
   "मैं तब सबसे अच्छा सोचता हूँ जब मैं किसी स्थिति का निष्पक्ष विश्लेषण कर सकता हूँ।",
-
-  // 3. Spatial (स्थानिक/दृश्य)
   "चीजों को समझने के लिए मैं चित्र, नक्शे या चार्ट देखना पसंद करता हूँ।",
   "मेरी दिशाओं की समझ अच्छी है और मैं आसानी से नक्शे पढ़ सकता हूँ।",
   "मुझे चित्रकला, पेंटिंग या दृश्य कला में रुचि है।",
@@ -490,8 +456,6 @@ export const questionsOfHGMIHindi = [
   "मुझे नई जगहों पर रास्ता खोजना पसंद है।",
   "मैं रंगों और सौंदर्यशास्त्र की सराहना करता हूँ।",
   "मैं देखकर या निरीक्षण करके सबसे अच्छा सीखता हूँ।",
-
-  // 4. Musical (संगीतात्मक)
   "मेरा हमेशा से संगीतकार या गायक बनने का सपना रहा है।",
   "मुझे धुनें और सुर आसानी से याद रहते हैं।",
   "काम या पढ़ाई करते समय मुझे संगीत सुनना पसंद है।",
@@ -504,8 +468,6 @@ export const questionsOfHGMIHindi = [
   "संगीत मेरे मूड और भावनाओं को बहुत प्रभावित करता है।",
   "मैं फिल्मों या दुकानों में बज रहे बैकग्राउंड संगीत पर ध्यान देता हूँ।",
   "अक्सर मेरे दिमाग में कोई गाना अटक जाता है।",
-
-  // 5. Bodily-Kinesthetic (शारीरिक-गतिक)
   "मुझे शारीरिक गतिविधियाँ जैसे जॉगिंग या व्यायाम करते समय सोचना सबसे अच्छा लगता है।",
   "मुझे खेल खेलना, नृत्य करना या शारीरिक गतिविधियाँ पसंद हैं।",
   "मैं अपने हाथों से काम करने (शिल्प, निर्माण, मरम्मत) में अच्छा हूँ।",
@@ -518,8 +480,6 @@ export const questionsOfHGMIHindi = [
   "मैं शारीरिक रूप से सक्रिय और ऊर्जावान हूँ।",
   "मुझे रोमांचकारी गतिविधियाँ पसंद हैं।",
   "मैं दूसरों की चाल-ढाल की आसानी से नकल कर सकता हूँ।",
-
-  // 6. Interpersonal (अंतर्वैयक्तिक)
   "मुझे सामाजिक समारोहों में जाना और नए लोगों से मिलना पसंद है।",
   "लोग अक्सर सलाह या मदद के लिए मेरे पास आते हैं।",
   "मैं व्यक्तिगत खेलों के बजाय टीम खेल या समूह गतिविधियाँ पसंद करता हूँ।",
@@ -532,8 +492,6 @@ export const questionsOfHGMIHindi = [
   "मैं संवेदनशील हूँ और दूसरों के दृष्टिकोण को समझता हूँ।",
   "मुझे कार्यक्रम आयोजित करना या समूहों का समन्वय करना पसंद है।",
   "मैं अकेले के बजाय टीम में काम करना पसंद करता हूँ।",
-
-  // 7. Intrapersonal (अंतरावैयक्तिक)
   "मुझे आत्म-चिंतन के लिए अकेले समय बिताना पसंद है।",
   "मुझे अपनी ताकतों और कमजोरियों की स्पष्ट समझ है।",
   "मैं अक्सर अपने विचारों को रिकॉर्ड करने के लिए डायरी लिखता हूँ।",
@@ -546,8 +504,6 @@ export const questionsOfHGMIHindi = [
   "मुझे अपने व्यवहार और निर्णयों का विश्लेषण करना पसंद है।",
   "मैं अपनी निजता और व्यक्तिगत स्थान को महत्व देता हूँ।",
   "मुझे अक्सर अंतर्मुखी या गहरा सोचने वाला कहा जाता है।",
-
-  // 8. Naturalist (प्रकृतिवादी)
   "मैं जलवायु परिवर्तन की स्थिति से गहरा दुखी हूँ।",
   "मुझे प्रकृति में समय बिताना, लंबी पैदल यात्रा या बागवानी करना पसंद है।",
   "मैं विभिन्न पौधों, जानवरों या चट्टानों को आसानी से पहचान सकता हूँ।",
@@ -561,6 +517,94 @@ export const questionsOfHGMIHindi = [
   "मुझे वन्यजीवों और जानवरों के व्यवहार का निरीक्षण करना पसंद है।",
   "मैं घर के अंदर रहने के बजाय बाहर रहना पसंद करता हूँ।",
 ];
+
+
+// --- DATA: Intelligence Grid Details (Extracted from Excel) ---
+const HGMI_DETAILS = {
+  "Linguistic": {
+    characteristics: "You are good at words, language & also at:\n• Retention\n• Interpretation and explanation of ideas and information via language\n• Understanding relationship between communication and meaning",
+    courses: [
+      "BA LLB",
+      "BBA LLB",
+      "BA (H) Psychology, Political Science, English",
+      "BA in Journalism & Mass Communication"
+    ]
+  },
+  "Logical-Mathematical": {
+    characteristics: "You are good at logical thinking & also at:\n• Detecting patterns\n• Scientific reasoning and deduction\n• Analyzing problems\n• Performing mathematical calculations\n• Understanding relationship between cause and effect",
+    courses: [
+      "B.Com",
+      "Banking & Finance",
+      "Law",
+      "B.Pharmacy / D-Pharmacy",
+      "BCA",
+      "B.Sc (Hons.) in Mathematics, Microbiology, Forensic Science",
+      "BA (Hons.) Economics",
+      "B.Tech (CSE, ME, Civil)"
+    ]
+  },
+  "Musical": {
+    characteristics: "You are good at Musical Ability & also at:\n• Awareness, appreciation and use of sound\n• Recognition of tonal and rhythmic patterns\n• Understanding relationship between sound and feeling",
+    courses: [
+      "Event Management",
+      "Mass Communication",
+      "BBA, B.Com",
+      "B.Tech",
+      "BA Performing Arts",
+      "Hotel Management"
+    ]
+  },
+  "Bodily-Kinesthetic": {
+    characteristics: "You are good at body movement control & also at:\n• Manual dexterity\n• Physical agility and balance\n• Eye and body coordination",
+    courses: [
+      "B.Sc. Design",
+      "B.Design",
+      "Diploma (ME, CE)",
+      "B.Tech (ME, CE)"
+    ]
+  },
+  "Intrapersonal": {
+    characteristics: "You are good at self-awareness & also at:\n• Personal cognizance and objectivity\n• Understanding oneself and one's relationship to others\n• Understanding one's own need for and reaction to change",
+    courses: [
+      "BBA - Entrepreneurship & Family Business",
+      "BA (Hons.) Psychology",
+      "B.Sc Forensic Science",
+      "BA (Hons.) in Design / Fine Arts / Performing Arts"
+    ]
+  },
+  "Interpersonal": {
+    characteristics: "You are good at perception of other people's feelings & also at:\n• Relating to others\n• Interpretation of behavior and communications\n• Understanding relationships between people and their situations",
+    courses: [
+      "BBA LLB",
+      "BBA (Hons)",
+      "BA (Hons.) Political Science, Psychology, Hotel Management",
+      "B.Sc. Airlines, Travel & Tourism Management",
+      "BBA MBA Integrated",
+      "BA in Journalism & Mass Communication"
+    ]
+  },
+  "Spatial": {
+    characteristics: "You are good at visual and spatial perception & also at:\n• Interpretation and creation of visual images\n• Pictorial imagination and expression\n• Understanding relationship between images, meanings, and space",
+    courses: [
+      "B.Tech (Civil, ME, CSE, ECE)",
+      "BCA",
+      "B.Design, B.Sc Interior Design",
+      "BA Film & Television Studies",
+      "BA Fine Arts",
+      "Dental Science"
+    ]
+  },
+  "Naturalist": {
+    characteristics: "You are good at doing things related to nature & also at:\n• Nurturing and relating information to one's natural surroundings\n• Sensitivity to nature and place within it\n• Caring for, taming and interacting with animals\n• Discern changes in weather or surroundings\n• Recognizing and classifying species",
+    courses: [
+      "B.Sc. Nutrition & Dietetics",
+      "B.Sc. Agricultural Science",
+      "B.Sc. Microbiology",
+      "B.Sc Forensic Science",
+      "B.Sc Chemistry"
+    ]
+  }
+};
 
 export const TESTS = {
   dweck: {
@@ -970,14 +1014,6 @@ hgmi: {
     options: ["Yes", "No"],
     scoring: (() => {
         // Questions are grouped in blocks of 12
-        // 0-11: Linguistic
-        // 12-23: Logical
-        // 24-35: Spatial
-        // 36-47: Musical
-        // 48-59: Bodily
-        // 60-71: Interpersonal
-        // 72-83: Intrapersonal
-        // 84-95: Naturalist
         const scoreMap = {};
         for(let i=0; i<96; i++) {
             scoreMap[i] = [1, 0]; // Yes = 1, No = 0
@@ -985,17 +1021,7 @@ hgmi: {
         return scoreMap;
     })(),
     interpret(scores) {
-      // NOTE: 'scores' argument here is usually the TOTAL sum in other tests,
-      // but for HGMI we need the breakdown per category.
-      // Assuming the calling code sums up the scores based on the map.
-      // If the calling code only passes a total sum, we can't fully interpret HGMI.
-      // However, keeping with the structure, we can return a generic message or
-      // rely on the frontend to display the breakdown if it handles object returns.
-      //
-      // Below logic assumes the 'score' passed is just a total (which isn't ideal for HGMI).
-      // If you have a custom interpreter that takes the raw answers, that's better.
-      // For now, returning a generic success message as HGMI is a profile, not a single score.
-      
+      // Return a generic object; the specific breakdown is handled in calculateScore
       return {
           title: "Multiple Intelligence Profile",
           description: "Your results indicate your strengths across 8 different intelligences. Check the detailed breakdown to see your top intelligences.",
@@ -1006,17 +1032,18 @@ hgmi: {
           ]
       };
     },
-    // Custom helper to categorize scores (if your frontend can use it)
+    // We add 'id' to map to HGMI_DETAILS
     categories: [
-        { name: "Linguistic", range: [0, 11] },
-        { name: "Logical-Mathematical", range: [12, 23] },
-        { name: "Spatial", range: [24, 35] },
-        { name: "Musical", range: [36, 47] },
-        { name: "Bodily-Kinesthetic", range: [48, 59] },
-        { name: "Interpersonal", range: [60, 71] },
-        { name: "Intrapersonal", range: [72, 83] },
-        { name: "Naturalist", range: [84, 95] }
-    ]
+        { id: "Linguistic", name: "Linguistic", range: [0, 11] },
+        { id: "Logical-Mathematical", name: "Logical-Mathematical", range: [12, 23] },
+        { id: "Spatial", name: "Spatial", range: [24, 35] },
+        { id: "Musical", name: "Musical", range: [36, 47] },
+        { id: "Bodily-Kinesthetic", name: "Bodily-Kinesthetic", range: [48, 59] },
+        { id: "Interpersonal", name: "Interpersonal", range: [60, 71] },
+        { id: "Intrapersonal", name: "Intrapersonal", range: [72, 83] },
+        { id: "Naturalist", name: "Naturalist", range: [84, 95] }
+    ],
+    details: HGMI_DETAILS
 },
 hgmi_hindi: {
     title: "बहु-बुद्धि परीक्षण (Multiple Intelligence Test - Hindi)",
@@ -1040,15 +1067,18 @@ hgmi_hindi: {
           ]
       };
     },
+    // We add 'id' to map to HGMI_DETAILS (English details are used)
     categories: [
-        { name: "भाषाई (Linguistic)", range: [0, 11] },
-        { name: "तार्किक-गणितीय (Logical-Mathematical)", range: [12, 23] },
-        { name: "स्थानिक (Spatial)", range: [24, 35] },
-        { name: "संगीतात्मक (Musical)", range: [36, 47] },
-        { name: "शारीरिक-गतिक (Bodily-Kinesthetic)", range: [48, 59] },
-        { name: "अंतर्वैयक्तिक (Interpersonal)", range: [60, 71] },
-        { name: "अंतरावैयक्तिक (Intrapersonal)", range: [72, 83] },
-        { name: "प्रकृतिवादी (Naturalist)", range: [84, 95] }
-    ]
+        { id: "Linguistic", name: "भाषाई (Linguistic)", range: [0, 11] },
+        { id: "Logical-Mathematical", name: "तार्किक-गणितीय (Logical-Mathematical)", range: [12, 23] },
+        { id: "Spatial", name: "स्थानिक (Spatial)", range: [24, 35] },
+        { id: "Musical", name: "संगीतात्मक (Musical)", range: [36, 47] },
+        { id: "Bodily-Kinesthetic", name: "शारीरिक-गतिक (Bodily-Kinesthetic)", range: [48, 59] },
+        { id: "Interpersonal", name: "अंतर्वैयक्तिक (Interpersonal)", range: [60, 71] },
+        { id: "Intrapersonal", name: "अंतरावैयक्तिक (Intrapersonal)", range: [72, 83] },
+        { id: "Naturalist", name: "प्रकृतिवादी (Naturalist)", range: [84, 95] }
+    ],
+    details: HGMI_DETAILS
 }
 };
+

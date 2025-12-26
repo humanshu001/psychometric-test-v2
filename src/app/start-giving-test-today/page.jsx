@@ -1,5 +1,7 @@
 "use client"
+
 import { Monitor, CheckCircle2, Settings, TrendingUp, Database, BookText, Calculator, Music, Dumbbell, User, Users, Eye, Leaf, HelpCircle, Clock, ClipboardList, Grid2x2, Layers, FileText, ChevronRight, CheckCircle, X, GraduationCap, UserCheck, Building2, Briefcase, Mail, Phone, HelpCircleIcon } from 'lucide-react'
+import Footer from '@/components/ui/footer';
 
 export default function HomePage() {
     return(
@@ -8,15 +10,17 @@ export default function HomePage() {
                 <h1 className="text-white text-xl font-semibold">Geeta Personality Portal</h1>
            </div>
            
-           <div className="h-[500px] bg-gray-900 flex justify-start items-center px-20">
-                <div className="space-y-8 w-1/3 text-white">
+           <div className="relative h-[500px] flex justify-start items-center px-20" style={{backgroundImage: "url(/banner.png)", backgroundSize:"cover"}}>
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/70 to-white/5"></div>
+                <div className="relative space-y-8 w-1/3 text-white z-10">
                     <h1 className="text-6xl">
                         Find the right career path for you!
                     </h1>
                     <p className="text-lg"> 
                         Recommendations for successful career
                     </p>
-                    <a href="/" className="bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
+                    <a href="/test?test=hgmi" className="bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
                         Take the Free Test
                     </a>
                 </div>
@@ -367,7 +371,7 @@ export default function HomePage() {
                 <div className="max-w-7xl mx-auto text-center">
                     <p className="text-lg text-gray-700 flex items-center justify-center gap-3">
                         <span>This test is created in association with</span>
-                        <span className="font-bold text-2xl text-blue-600">TU CAREERS</span>
+                        <img src="/gu.png" alt="" className="h-14 ml-4" />
                     </p>
                 </div>
            </div>
@@ -382,12 +386,12 @@ export default function HomePage() {
                             <thead>
                                 <tr className="border-b">
                                     <th className="p-6 text-left font-bold text-lg">Features</th>
-                                    <th className="p-6 text-center bg-blue-50">
+                                    {/* <th className="p-6 text-center bg-blue-50">
                                         <div className="space-y-2">
                                             <h3 className="font-bold text-lg">Basic Intelligence Report</h3>
                                             <p className="text-sm text-gray-600 font-normal">Essential intelligence profile analysis</p>
                                         </div>
-                                    </th>
+                                    </th> */}
                                     <th className="p-6 text-center bg-blue-100">
                                         <div className="space-y-2">
                                             <h3 className="font-bold text-lg">Complete Intelligence Report</h3>
@@ -400,9 +404,9 @@ export default function HomePage() {
                                 {/* Linguistic */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Linguistic Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -411,9 +415,9 @@ export default function HomePage() {
                                 {/* Logical-Mathematical */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Logical-Mathematical Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -422,9 +426,9 @@ export default function HomePage() {
                                 {/* Musical */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Musical Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <X className="w-6 h-6 text-gray-300 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -433,9 +437,9 @@ export default function HomePage() {
                                 {/* Bodily-Kinesthetic */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Bodily-Kinesthetic Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <X className="w-6 h-6 text-gray-300 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -444,9 +448,9 @@ export default function HomePage() {
                                 {/* Intrapersonal */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Intrapersonal Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -455,9 +459,9 @@ export default function HomePage() {
                                 {/* Interpersonal */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Interpersonal Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -466,9 +470,9 @@ export default function HomePage() {
                                 {/* Spatial-Visual */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Spatial-Visual Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <X className="w-6 h-6 text-gray-300 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -477,9 +481,9 @@ export default function HomePage() {
                                 {/* Naturalist */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Naturalist Intelligence</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <X className="w-6 h-6 text-gray-300 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -488,9 +492,9 @@ export default function HomePage() {
                                 {/* Career Recommendations */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Career & Learning Recommendations</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -499,9 +503,9 @@ export default function HomePage() {
                                 {/* Detailed Analysis */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Detailed Psychometric Analysis</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <X className="w-6 h-6 text-gray-300 mx-auto" />
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td>
@@ -510,9 +514,9 @@ export default function HomePage() {
                                 {/* Number of Questions */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Number of Questions</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <span className="font-semibold text-gray-700">30-40</span>
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <span className="font-semibold text-gray-700">90</span>
                                     </td>
@@ -521,9 +525,9 @@ export default function HomePage() {
                                 {/* Price */}
                                 <tr className="border-b bg-gray-50">
                                     <td className="p-4 font-bold text-gray-700">Price</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <span className="text-2xl font-bold text-green-600">Free</span>
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <span className="text-2xl font-bold text-green-600">Free</span>
                                     </td>
@@ -532,11 +536,11 @@ export default function HomePage() {
                                 {/* Sample Report */}
                                 <tr className="border-b hover:bg-gray-50">
                                     <td className="p-4 text-gray-700">Sample Report</td>
-                                    <td className="p-4 text-center">
+                                    {/* <td className="p-4 text-center">
                                         <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline">
                                             Download Now
                                         </a>
-                                    </td>
+                                    </td> */}
                                     <td className="p-4 text-center bg-blue-50">
                                         <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline">
                                             Download Now
@@ -547,13 +551,13 @@ export default function HomePage() {
                                 {/* Action Buttons */}
                                 <tr>
                                     <td className="p-6"></td>
-                                    <td className="p-6 text-center">
+                                    {/* <td className="p-6 text-center">
                                         <a href="/test" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium">
                                             Take the Free Test
                                         </a>
-                                    </td>
+                                    </td> */}
                                     <td className="p-6 text-center bg-blue-50">
-                                        <a href="/test" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium">
+                                        <a href="/test?test=hgmi" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium">
                                             Take the Free Test
                                         </a>
                                     </td>
@@ -565,11 +569,11 @@ export default function HomePage() {
            </div>
 
            {/* Turn Recommendations into Reality Section */}
-           <div className="relative bg-cover bg-center py-24 px-10" style={{backgroundImage: "url('/career-bg.jpg')"}}>
+           <div className="relative bg-cover bg-center py-24 px-10" style={{backgroundImage: "url('/career.png')"}}>
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-black/70"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/70"></div>
                 
-                <div className="relative max-w-7xl mx-auto z-10">
+                <div className="relative max-w-5xl ml-5 z-10">
                     <div className="text-white space-y-6">
                         <h2 className="text-5xl font-bold mb-4">Turn Recommendations into Reality</h2>
                         <p className="text-lg max-w-3xl mb-12">
@@ -634,34 +638,20 @@ export default function HomePage() {
                                 </div>
                                 <div>
                                     <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                                    <a href="mailto:info.tcsionhub@tcs.com" className="text-gray-600 hover:text-blue-600">
-                                        info.tcsionhub@tcs.com
+                                    <a href="mailto:info@geetauniversity.edu.in" className="text-gray-600 hover:text-blue-600">
+                                        info@geetauniversity.edu.in
                                     </a>
                                 </div>
                             </div>
-
                             {/* Phone */}
                             <div className="flex items-start gap-4">
                                 <div className="bg-blue-100 p-3 rounded-lg">
                                     <Phone className="w-6 h-6 text-blue-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-lg mb-1">Contact Centre Number</h3>
-                                    <a href="tel:18002666282" className="text-gray-600 hover:text-blue-600">
-                                        1800 266 6282
-                                    </a>
-                                </div>
-                            </div>
-
-                            {/* Help Desk */}
-                            <div className="flex items-start gap-4">
-                                <div className="bg-blue-100 p-3 rounded-lg">
-                                    <HelpCircleIcon className="w-6 h-6 text-blue-600" />
-                                </div>
-                                <div>
-                                    <h3 className="font-semibold text-lg mb-1">Help Desk</h3>
-                                    <a href="#" className="text-blue-600 hover:text-blue-800 underline">
-                                        Click to raise a ticket
+                                    <h3 className="font-semibold text-lg mb-1">Contact Number</h3>
+                                    <a href="tel:09278768000" className="text-gray-600 hover:text-blue-600">
+                                        092787 68000
                                     </a>
                                 </div>
                             </div>
@@ -669,6 +659,7 @@ export default function HomePage() {
                     </div>
                 </div>
            </div>
+        <Footer />
         </>
     )
 }

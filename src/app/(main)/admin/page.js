@@ -32,6 +32,93 @@ import jsonToCsvExport from "json-to-csv-export";
 const ADMIN_EMAIL = "admin@geeta.edu.in";
 const ADMIN_PASSWORD = "admin123";
 
+// --- DATA: Intelligence Grid Details (Required for Admin View Mapping) ---
+const HGMI_DETAILS = {
+  "Linguistic": {
+    characteristics: "You are good at words, language & also at:\n• Retention\n• Interpretation and explanation of ideas and information via language\n• Understanding relationship between communication and meaning",
+    courses: [
+      "BA LLB",
+      "BBA LLB",
+      "BA (H) Psychology, Political Science, English",
+      "BA in Journalism & Mass Communication"
+    ]
+  },
+  "Logical-Mathematical": {
+    characteristics: "You are good at logical thinking & also at:\n• Detecting patterns\n• Scientific reasoning and deduction\n• Analyzing problems\n• Performing mathematical calculations\n• Understanding relationship between cause and effect",
+    courses: [
+      "B.Com",
+      "Banking & Finance",
+      "Law",
+      "B.Pharmacy / D-Pharmacy",
+      "BCA",
+      "B.Sc (Hons.) in Mathematics, Microbiology, Forensic Science",
+      "BA (Hons.) Economics",
+      "B.Tech (CSE, ME, Civil)"
+    ]
+  },
+  "Musical": {
+    characteristics: "You are good at Musical Ability & also at:\n• Awareness, appreciation and use of sound\n• Recognition of tonal and rhythmic patterns\n• Understanding relationship between sound and feeling",
+    courses: [
+      "Event Management",
+      "Mass Communication",
+      "BBA, B.Com",
+      "B.Tech",
+      "BA Performing Arts",
+      "Hotel Management"
+    ]
+  },
+  "Bodily-Kinesthetic": {
+    characteristics: "You are good at body movement control & also at:\n• Manual dexterity\n• Physical agility and balance\n• Eye and body coordination",
+    courses: [
+      "B.Sc. Design",
+      "B.Design",
+      "Diploma (ME, CE)",
+      "B.Tech (ME, CE)"
+    ]
+  },
+  "Intrapersonal": {
+    characteristics: "You are good at self-awareness & also at:\n• Personal cognizance and objectivity\n• Understanding oneself and one's relationship to others\n• Understanding one's own need for and reaction to change",
+    courses: [
+      "BBA - Entrepreneurship & Family Business",
+      "BA (Hons.) Psychology",
+      "B.Sc Forensic Science",
+      "BA (Hons.) in Design / Fine Arts / Performing Arts"
+    ]
+  },
+  "Interpersonal": {
+    characteristics: "You are good at perception of other people's feelings & also at:\n• Relating to others\n• Interpretation of behavior and communications\n• Understanding relationships between people and their situations",
+    courses: [
+      "BBA LLB",
+      "BBA (Hons)",
+      "BA (Hons.) Political Science, Psychology, Hotel Management",
+      "B.Sc. Airlines, Travel & Tourism Management",
+      "BBA MBA Integrated",
+      "BA in Journalism & Mass Communication"
+    ]
+  },
+  "Spatial": {
+    characteristics: "You are good at visual and spatial perception & also at:\n• Interpretation and creation of visual images\n• Pictorial imagination and expression\n• Understanding relationship between images, meanings, and space",
+    courses: [
+      "B.Tech (Civil, ME, CSE, ECE)",
+      "BCA",
+      "B.Design, B.Sc Interior Design",
+      "BA Film & Television Studies",
+      "BA Fine Arts",
+      "Dental Science"
+    ]
+  },
+  "Naturalist": {
+    characteristics: "You are good at doing things related to nature & also at:\n• Nurturing and relating information to one's natural surroundings\n• Sensitivity to nature and place within it\n• Caring for, taming and interacting with animals\n• Discern changes in weather or surroundings\n• Recognizing and classifying species",
+    courses: [
+      "B.Sc. Nutrition & Dietetics",
+      "B.Sc. Agricultural Science",
+      "B.Sc. Microbiology",
+      "B.Sc Forensic Science",
+      "B.Sc Chemistry"
+    ]
+  }
+};
+
 export default function AdminPanel() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -255,13 +342,13 @@ export default function AdminPanel() {
                             <Eye className="h-4 w-4" />
                           </Button>
                         </DialogTrigger>
-                        <DialogContent className="max-w-2xl">
+                        <DialogContent className="max-w-3xl max-h-[85vh] overflow-y-auto">
                           <DialogHeader>
                             <DialogTitle className="text-xl">
                               Student Submission Details
                             </DialogTitle>
                           </DialogHeader>
-                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-sm h-[400px] overflow-y-auto">
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4 text-sm">
                             <div>
                               <Label className="text-muted-foreground">
                                 Name
@@ -369,12 +456,12 @@ export default function AdminPanel() {
                                 {submission.score}
                               </p>
                               <Label className="text-muted-foreground">
-                                Score
+                                Total Score
                               </Label>
                             </div>
                             <div className="col-span-full">
                               <Label className="text-muted-foreground">
-                                Result
+                                Detailed Analysis
                               </Label>
                               {(() => {
                                 const parseResult = (result) => {
@@ -403,38 +490,75 @@ export default function AdminPanel() {
                                         {parsedResult.description}
                                       </p>
                                       
-                                      {/* NEW: Multi-Intelligence Breakdown for HGMI tests */}
+                                      {/* --- HGMI INTELLIGENCE BREAKDOWN & RECOMMENDATIONS --- */}
                                       {parsedResult.breakdown && Array.isArray(parsedResult.breakdown) && (
-                                        <div className="mt-4">
-                                          <h5 className="font-bold text-lg text-[#841844] mb-2">Intelligence Breakdown</h5>
-                                          <Table className="border rounded-lg bg-white">
-                                            <TableHeader>
-                                              <TableRow>
-                                                <TableHead>Intelligence Type</TableHead>
-                                                <TableHead className="text-right">Score (Max 12)</TableHead>
-                                              </TableRow>
-                                            </TableHeader>
-                                            <TableBody>
-                                              {/* Assumption: Breakdown array is already sorted by score */}
-                                              {parsedResult.breakdown.map((cat, index) => (
-                                                <TableRow key={index} className={index < 3 ? 'bg-yellow-50' : ''}>
-                                                  <TableCell className="font-medium">{cat.name}</TableCell>
-                                                  <TableCell className="text-right font-bold text-green-700">
-                                                    {cat.score}
-                                                  </TableCell>
-                                                </TableRow>
-                                              ))}
-                                            </TableBody>
-                                          </Table>
-                                          <p className="text-xs text-muted-foreground mt-2">
-                                            Scores shown are raw counts of 'Yes' responses per intelligence type (out of 12 questions). The top 3 scoring types are highlighted.
-                                          </p>
+                                        <div className="mt-6 space-y-6">
+                                          
+                                          {/* Full Score Table */}
+                                          <div>
+                                              <h5 className="font-bold text-md text-[#841844] mb-2">Full Score Breakdown</h5>
+                                              <Table className="border rounded-lg bg-white">
+                                                <TableHeader>
+                                                  <TableRow>
+                                                    <TableHead>Intelligence Type</TableHead>
+                                                    <TableHead className="text-right">Score (Max 12)</TableHead>
+                                                  </TableRow>
+                                                </TableHeader>
+                                                <TableBody>
+                                                  {parsedResult.breakdown.map((cat, index) => (
+                                                    <TableRow key={index} className={index < 3 ? 'bg-yellow-50 font-medium' : ''}>
+                                                      <TableCell>{cat.name}</TableCell>
+                                                      <TableCell className="text-right">{cat.score}</TableCell>
+                                                    </TableRow>
+                                                  ))}
+                                                </TableBody>
+                                              </Table>
+                                          </div>
+
+                                          {/* Detailed Recommendations for Top 3 */}
+                                          <div className="border-t pt-4">
+                                            <h5 className="font-bold text-lg text-[#841844] mb-4">Top 3 Recommended Careers & Courses</h5>
+                                            <div className="space-y-4">
+                                              {parsedResult.breakdown.slice(0, 3).map((cat, i) => {
+                                                // Try to match by ID first (newer submissions), then by name (legacy support)
+                                                const details = HGMI_DETAILS[cat.id] || HGMI_DETAILS[cat.name]; 
+                                                
+                                                if (!details) return null;
+
+                                                return (
+                                                  <div key={i} className="bg-white p-4 rounded-lg border shadow-sm">
+                                                    <h6 className="font-bold text-[#841844] mb-2 text-md flex items-center gap-2">
+                                                      <span className="bg-[#841844] text-white w-6 h-6 flex items-center justify-center rounded-full text-xs">{i + 1}</span>
+                                                      {cat.name}
+                                                    </h6>
+                                                    <div className="grid md:grid-cols-2 gap-4 text-sm">
+                                                      <div>
+                                                        <span className="font-semibold text-gray-800 block mb-1">Characteristics:</span>
+                                                        <p className="text-gray-600 whitespace-pre-line">{details.characteristics}</p>
+                                                      </div>
+                                                      <div>
+                                                        <span className="font-semibold text-gray-800 block mb-1 flex items-center gap-2">
+                                                          <GraduationCap className="w-4 h-4"/> Recommended Courses:
+                                                        </span>
+                                                        <ul className="list-disc list-inside text-gray-600 space-y-1 mt-1">
+                                                          {details.courses.map((c, idx) => (
+                                                            <li key={idx}>{c}</li>
+                                                          ))}
+                                                        </ul>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                );
+                                              })}
+                                            </div>
+                                          </div>
+
                                         </div>
                                       )}
-                                      {/* END NEW: Multi-Intelligence Breakdown */}
+                                      {/* --- END HGMI --- */}
 
                                       {parsedResult.studentProfile && (
-                                        <div>
+                                        <div className="mt-4 border-t pt-2">
                                           <h5 className="font-medium text-primary mb-1">Student Profile</h5>
                                           <p className="text-gray-700">{parsedResult.studentProfile}</p>
                                         </div>

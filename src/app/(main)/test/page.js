@@ -18,7 +18,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
-import { TESTS } from "@/data";
+import { TESTS } from "@/data"; // We are defining TESTS in this file now
 import { Input } from "@/components/ui/input";
 import axios from "axios";
 
@@ -44,6 +44,7 @@ const selectFields = {
   ],
 };
 
+
 export default function ImprovedPersonalityTest() {
   const [selectedTest, setSelectedTest] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -53,20 +54,17 @@ export default function ImprovedPersonalityTest() {
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [resultDetails, setResultDetails] = useState(null);
 
-
   const [userInfo, setUserInfo] = useState({
     name: "",
     dob: "",
-    course: "",
-    married: "",
-    education: "",
-    religion: "",
+    class: "",
+    roll_number: "",
     gender: "",
     email: "",
-    occupation: "",
+    father_name: "",
     phone: "",
     institution: "",
-    rural_or_urban: "",
+    city: "",
   });
 
   useEffect(() => {
@@ -83,56 +81,60 @@ export default function ImprovedPersonalityTest() {
 
   const calculateScore = async () => {
     const test = TESTS[selectedTest];
-
     let totalScore;
     let interpretation;
 
     // --- Logic to handle Multi-Score Tests (e.g., HGMI) vs. Single-Score Tests ---
     if (test.categories) {
       // Multi-Score Calculation (HGMI)
-      const categoryScores = test.categories.map(category => {
+      const categoryScores = test.categories.map((category) => {
         let categorySum = 0;
         for (let i = category.range[0]; i <= category.range[1]; i++) {
           const val = answers[i];
           if (val !== undefined) {
             const idx = test.options.indexOf(val);
-            // Ensure scoring exists for the index, otherwise default to 0
-            categorySum += (test.scoring[i]?.[idx] || 0);
+            categorySum += test.scoring[i]?.[idx] || 0;
           }
         }
-        return { name: category.name, score: categorySum };
+        // IMPORTANT: Spread category to include 'id' for lookup later
+        return { ...category, score: categorySum };
       });
 
-      // Total score for database/simple display
       totalScore = categoryScores.reduce((sum, cat) => sum + cat.score, 0);
-      
-      // Interpretation is fetched and the breakdown is attached
-      interpretation = test.interpret(totalScore); 
-      interpretation.breakdown = categoryScores.sort((a, b) => b.score - a.score);
 
+      interpretation = test.interpret(totalScore);
+      interpretation.breakdown = categoryScores.sort((a, b) => b.score - a.score);
     } else {
-      // Single-Score Calculation (Dweck, Rses, etc.)
+      // Single-Score Calculation
       totalScore = answers.reduce((sum, val, i) => {
         const idx = test.options.indexOf(val);
-        // Ensure scoring exists for the index, otherwise default to 0
         return sum + (test.scoring[i]?.[idx] || 0);
       }, 0);
-      
+
       interpretation = test.interpret(totalScore);
     }
-    
+
     setScore(totalScore);
     setResultDetails(interpretation);
     setOpen(true);
-    // --------------------------------------------------------------------------
 
     const payload = {
-      ...userInfo,
-      married: userInfo.married === "yes" ? 1 : 0,
+      name: userInfo.name,
+      dob: userInfo.dob,
+      course: userInfo.class, 
+      married: 0, 
+      education: userInfo.roll_number, 
+      religion: "not-specified",
+      gender: userInfo.gender,
+      email: userInfo.email,
+      occupation: userInfo.father_name,
+      phone: userInfo.phone,
+      institution: userInfo.institution,
+      city: userInfo.city,
+      rural_or_urban: "not-specified",
       test_name: test.title,
       score: totalScore,
-      // Store the full interpretation object, including the breakdown for HGMI
-      result: JSON.stringify(interpretation), 
+      result: JSON.stringify(interpretation),
     };
 
     try {
@@ -144,24 +146,13 @@ export default function ImprovedPersonalityTest() {
       setAnswers([]);
       setCurrentIndex(0);
       setUserInfo({
-        name: "",
-        dob: "",
-        course: "",
-        married: "",
-        education: "",
-        religion: "",
-        gender: "",
-        email: "",
-        occupation: "",
-        phone: "",
-        institution: "",
-        rural_or_urban: "",
+        name: "", dob: "", class: "", roll_number: "", gender: "", 
+        email: "", father_name: "", phone: "", institution: "", city: "",
       });
     } catch (error) {
       console.error("Failed to submit result", error);
     }
   };
-
 
   const reset = () => {
     setScore(null);
@@ -172,244 +163,200 @@ export default function ImprovedPersonalityTest() {
 
   return (
     <div className="w-full mx-auto px-4 space-y-6">
-      {
-        !formSubmitted && (
-          <>
+      {!formSubmitted && (
+        <>
           <h1 className="text-3xl font-extrabold text-[#841844]">Select a Test</h1>
-          
           <Select
-          onValueChange={(val) => {
-            setSelectedTest(val);
-            reset();
-          }}
-          value={selectedTest || ""}
+            onValueChange={(val) => {
+              setSelectedTest(val);
+              reset();
+            }}
+            value={selectedTest || ""}
           >
-        <SelectTrigger className="w-full">
-          <SelectValue placeholder="Choose a test" />
-        </SelectTrigger>
-        <SelectContent>
-          {Object.entries(TESTS).map(([key, test]) => (
-            <SelectItem key={key} value={key}>
-              {test.title}
-            </SelectItem>
-          ))}
-        </SelectContent>
-      </Select>
-          </>
-        )
-      }
+            <SelectTrigger className="w-full">
+              <SelectValue placeholder="Choose a test" />
+            </SelectTrigger>
+            <SelectContent>
+              {Object.entries(TESTS).map(([key, test]) => (
+                <SelectItem key={key} value={key}>
+                  {test.title}
+                </SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
+        </>
+      )}
 
       {selectedTest &&
         (!formSubmitted ? (
           <Card className="w-full border border-[#841844]/40 shadow-md">
             <CardContent className="p-6 space-y-4">
-              <h2 className="text-xl font-bold text-[#841844]">
-                Fill Your Details Before Starting the Test
-              </h2>
+              <h2 className="text-xl font-bold text-[#841844]">Fill Your Details Before Starting the Test</h2>
               <div className="grid sm:grid-cols-2 gap-4">
-                {Object.entries(userInfo).map(([key, value]) => (
-                  <div key={key} className="space-y-1">
-                    <Label htmlFor={key} className="capitalize">
-                      {key.replaceAll("_", " ")}
-                    </Label>
-                    {selectFields[key] ? (
-                      <Select
-                        value={value}
-                        onValueChange={(val) =>
-                          setUserInfo({ ...userInfo, [key]: val })
-                        }
-                      >
-                        <SelectTrigger className="w-full">
-                          <SelectValue
-                            placeholder={`Select ${key.replaceAll("_", " ")}`}
-                          />
-                        </SelectTrigger>
-                        <SelectContent>
-                          {selectFields[key].map((opt) => (
-                            <SelectItem key={opt.value} value={opt.value}>
-                              {opt.label}
-                            </SelectItem>
-                          ))}
-                        </SelectContent>
-                      </Select>
-                    ) : key === "dob" ? (
-                      <Input
-                        type="date"
-                        id={key}
-                        value={value}
-                        onChange={(e) =>
-                          setUserInfo({ ...userInfo, [key]: e.target.value })
-                        }
-                      />
-                    ) : (
-                      <Input
-                        type="text"
-                        id={key}
-                        value={value}
-                        onChange={(e) =>
-                          setUserInfo({ ...userInfo, [key]: e.target.value })
-                        }
-                      />
-                    )}
-                  </div>
-                ))}
+                <div className="space-y-1"><Label htmlFor="name">Name</Label><Input type="text" id="name" value={userInfo.name} onChange={(e) => setUserInfo({ ...userInfo, name: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="dob">Dob</Label><Input type="date" id="dob" value={userInfo.dob} onChange={(e) => setUserInfo({ ...userInfo, dob: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="class">Class</Label><Input type="text" id="class" value={userInfo.class} onChange={(e) => setUserInfo({ ...userInfo, class: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="roll_number">Roll Number</Label><Input type="text" id="roll_number" value={userInfo.roll_number} onChange={(e) => setUserInfo({ ...userInfo, roll_number: e.target.value })} /></div>
+                <div className="space-y-1">
+                  <Label htmlFor="gender">Gender</Label>
+                  <Select value={userInfo.gender} onValueChange={(val) => setUserInfo({ ...userInfo, gender: val })}>
+                    <SelectTrigger className="w-full"><SelectValue placeholder="Select gender" /></SelectTrigger>
+                    <SelectContent>{selectFields.gender.map((opt) => (<SelectItem key={opt.value} value={opt.value}>{opt.label}</SelectItem>))}</SelectContent>
+                  </Select>
+                </div>
+                <div className="space-y-1"><Label htmlFor="email">Email</Label><Input type="email" id="email" value={userInfo.email} onChange={(e) => setUserInfo({ ...userInfo, email: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="father_name">Father Name</Label><Input type="text" id="father_name" value={userInfo.father_name} onChange={(e) => setUserInfo({ ...userInfo, father_name: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="phone">Phone</Label><Input type="text" id="phone" value={userInfo.phone} onChange={(e) => setUserInfo({ ...userInfo, phone: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="institution">State</Label><Input type="text" id="institution" value={userInfo.institution} onChange={(e) => setUserInfo({ ...userInfo, institution: e.target.value })} /></div>
+                <div className="space-y-1"><Label htmlFor="city">City</Label><Input type="text" id="city" value={userInfo.city} onChange={(e) => setUserInfo({ ...userInfo, city: e.target.value })} /></div>
               </div>
-
-              <Button
-                className="bg-[#841844] text-white hover:bg-[#6d1337]"
-                onClick={() => setFormSubmitted(true)}
-                disabled={Object.values(userInfo).some((val) => !val.trim())}
-              >
-                Start Test
-              </Button>
+              <Button className="bg-[#841844] text-white hover:bg-[#6d1337]" onClick={() => setFormSubmitted(true)} disabled={Object.values(userInfo).some((val) => !val.trim())}>Start Test</Button>
             </CardContent>
           </Card>
         ) : (
           <Card className="w-full border border-[#841844]/30">
             <CardContent className="p-6 space-y-4">
-              <div className="text-sm text-muted-foreground">
-                {TESTS[selectedTest]?.title}
-              </div>
-              <div className="text-sm font-medium">
-                Question {currentIndex + 1} of{" "}
-                {TESTS[selectedTest]?.questions?.length}
-              </div>
-              <div className="mb-4 font-bold text-xl text-[#841844]">
-                {TESTS[selectedTest]?.questions[currentIndex]}
-              </div>
-              <RadioGroup
-                value={answers[currentIndex] || ""}
-                onValueChange={handleAnswer}
-              >
+              <div className="text-sm text-muted-foreground">{TESTS[selectedTest]?.title}</div>
+              <div className="text-sm font-medium">Question {currentIndex + 1} of {TESTS[selectedTest]?.questions?.length}</div>
+              <div className="mb-4 font-bold text-xl text-[#841844]">{TESTS[selectedTest]?.questions[currentIndex]}</div>
+              <RadioGroup value={answers[currentIndex] || ""} onValueChange={handleAnswer}>
                 {TESTS[selectedTest]?.options?.map((opt, index) => (
                   <div key={index} className="flex items-center space-x-2 w-full cursor-pointer">
-                    <RadioGroupItem
-                      value={opt}
-                      id={`${currentIndex}-${index}`}
-                    />
+                    <RadioGroupItem value={opt} id={`${currentIndex}-${index}`} />
                     <Label className={"w-full cursor-pointer"} htmlFor={`${currentIndex}-${index}`}>{opt}</Label>
                   </div>
                 ))}
               </RadioGroup>
               <div className="flex justify-between mt-6">
-                <Button
-                  variant="outline"
-                  disabled={currentIndex === 0}
-                  onClick={() => setCurrentIndex(currentIndex - 1)}
-                >
-                  Previous
-                </Button>
+                <Button variant="outline" disabled={currentIndex === 0} onClick={() => setCurrentIndex(currentIndex - 1)}>Previous</Button>
                 {currentIndex < TESTS[selectedTest]?.questions?.length - 1 ? (
-                  <Button
-                    onClick={() => setCurrentIndex(currentIndex + 1)}
-                    disabled={!answers[currentIndex]}
-                  >
-                    Next
-                  </Button>
+                  <Button onClick={() => setCurrentIndex(currentIndex + 1)} disabled={!answers[currentIndex]}>Next</Button>
                 ) : (
-                  <Button
-                    className="bg-[#841844] text-white hover:bg-[#6d1337]"
-                    onClick={calculateScore}
-                    disabled={
-                      answers.length !== TESTS[selectedTest]?.questions?.length
-                    }
-                  >
-                    Submit
-                  </Button>
+                  <Button className="bg-[#841844] text-white hover:bg-[#6d1337]" onClick={calculateScore} disabled={answers.length !== TESTS[selectedTest]?.questions?.length}>Submit</Button>
                 )}
               </div>
             </CardContent>
           </Card>
         ))}
 
-      {/* Result Dialog */}
       <Dialog open={open} onOpenChange={setOpen}>
-        <DialogContent className="text-left max-w-xl">
+        <DialogContent className="text-left max-w-2xl max-h-[85vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-[#841844] text-center">
               {TESTS[selectedTest]?.title} Result
             </DialogTitle>
           </DialogHeader>
+          
           {score !== null && resultDetails && (
-            <div className="space-y-4 h-64 overflow-y-auto">
-              {/* Conditional Score Display: Larger for single score, smaller with label for multi-score */}
-              <p className={`font-bold text-[#841844] text-center ${resultDetails.breakdown ? 'text-2xl' : 'text-5xl'}`}>
-                  {resultDetails.breakdown ? `Total Score: ${score}` : score}
+            <div className="space-y-6">
+              <p className={`font-bold text-[#841844] text-center ${resultDetails.breakdown ? "text-2xl" : "text-5xl"}`}>
+                {resultDetails.breakdown ? `Total Score: ${score}` : score}
               </p>
 
-              {/* Multi-Intelligence Breakdown (HGMI specific) */}
+              {/* --- HGMI SPECIFIC RESULT DISPLAY --- */}
               {resultDetails.breakdown && (
-                <div className="space-y-3 p-3 border rounded-lg bg-gray-50">
-                  <h3 className="text-xl font-semibold text-[#841844] mb-2">
-                    Intelligence Profile Breakdown
-                  </h3>
-                  <div className="grid grid-cols-2 gap-2 text-sm">
-                    {/* Breakdown is already sorted in calculateScore */}
-                    {resultDetails.breakdown.map((cat, i) => (
-                      <div
-                        key={cat.name}
-                        className={`flex justify-between p-2 rounded ${
-                          i < 3 ? "bg-yellow-100 font-medium border border-yellow-300" : "bg-white border"
-                        }`}
-                      >
-                        <span className="text-gray-700">{cat.name}</span>
-                        <span className="text-[#841844] font-bold">
-                          {cat.score} / 12
-                        </span>
-                      </div>
-                    ))}
+                <div className="space-y-6">
+                  <div className="bg-gray-50 p-4 rounded-lg border">
+                    <h3 className="text-xl font-bold text-[#841844] mb-4 text-center">
+                      Top 3 Dominant Intelligences & Career Recommendations
+                    </h3>
+                    
+                    <div className="space-y-6">
+                      {/* Detailed View for Top 3 */}
+                      {resultDetails.breakdown.slice(0, 3).map((cat, index) => {
+                        // Look up details using the category ID
+                        const details = TESTS[selectedTest]?.details?.[cat.id];
+                        
+                        return (
+                          <div key={cat.name} className="bg-white p-5 rounded-lg border border-gray-200 shadow-sm">
+                            <div className="flex justify-between items-center mb-3 border-b pb-2">
+                              <h4 className="text-lg font-bold text-[#841844]">
+                                {index + 1}. {cat.name}
+                              </h4>
+                              <span className="bg-[#841844] text-white px-3 py-1 rounded-full text-sm font-semibold">
+                                Score: {cat.score}/12
+                              </span>
+                            </div>
+                            
+                            {details ? (
+                              <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700">
+                                <div>
+                                  <strong className="block text-[#841844] mb-1">Characteristics:</strong>
+                                  <p className="whitespace-pre-line leading-relaxed">{details.characteristics}</p>
+                                </div>
+                                <div>
+                                  <strong className="block text-[#841844] mb-1">Recommended Courses:</strong>
+                                  <ul className="list-disc list-inside space-y-1 marker:text-[#841844]">
+                                    {details.courses.map((course, i) => (
+                                      <li key={i}>{course}</li>
+                                    ))}
+                                  </ul>
+                                </div>
+                              </div>
+                            ) : (
+                              <p className="text-gray-500 italic">Detailed recommendations not available for this category.</p>
+                            )}
+                          </div>
+                        );
+                      })}
+                    </div>
                   </div>
-                  <p className="text-xs text-muted-foreground pt-2">
-                    Scores shown are raw counts of 'Yes' responses per intelligence type (out of 12 questions).
-                  </p>
+
+                  {/* Summary List for the Rest */}
+                  <div className="p-4 border rounded-lg bg-gray-50">
+                    <h4 className="font-semibold text-gray-700 mb-3">Other Intelligences Profile</h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-sm">
+                      {resultDetails.breakdown.slice(3).map((cat) => (
+                        <div key={cat.name} className="flex justify-between p-2 rounded bg-white border items-center">
+                          <span className="text-gray-600 truncate mr-2" title={cat.name}>{cat.name}</span>
+                          <span className="font-bold text-gray-800">{cat.score}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
                 </div>
               )}
 
-              {/* Interpretation (Common for all tests) */}
-              {typeof resultDetails === 'string' ? (
-                <p className="text-xl font-semibold text-[#841844]">{resultDetails}</p>
+              {/* --- STANDARD RESULT INTERPRETATION (For non-HGMI tests or generic HGMI text) --- */}
+              {typeof resultDetails === "string" ? (
+                <p className="text-xl font-semibold text-[#841844] text-center">{resultDetails}</p>
               ) : (
-                <div className="space-y-3">
-                  <h3 className="text-xl font-semibold text-[#841844]">
-                    {resultDetails.title}
-                  </h3>
-
-                  <p className="text-gray-700 leading-relaxed">
-                    {resultDetails.description}
-                  </p>
+                <div className="space-y-4">
+                  {!resultDetails.breakdown && ( // Only show title/desc if not HGMI (HGMI shows custom UI above)
+                    <>
+                      <h3 className="text-xl font-semibold text-[#841844]">{resultDetails.title}</h3>
+                      <p className="text-gray-700 leading-relaxed">{resultDetails.description}</p>
+                    </>
+                  )}
 
                   {resultDetails.studentProfile && (
-                    <>
+                    <div className="bg-blue-50 p-3 rounded-md border border-blue-100">
                       <h4 className="font-medium text-md text-[#841844]">Student Profile</h4>
                       <p className="text-gray-700">{resultDetails.studentProfile}</p>
-                    </>
+                    </div>
                   )}
 
                   {resultDetails.goal && (
-                    <>
+                    <div className="bg-green-50 p-3 rounded-md border border-green-100">
                       <h4 className="font-medium text-md text-[#841844]">Goal</h4>
                       <p className="text-gray-700">{resultDetails.goal}</p>
-                    </>
+                    </div>
                   )}
 
                   {resultDetails.suggestions && (
-                    <div>
-                      <h4 className="font-medium text-md text-[#841844] mb-1">
-                        Suggestions
-                      </h4>
+                    <div className="bg-orange-50 p-3 rounded-md border border-orange-100">
+                      <h4 className="font-medium text-md text-[#841844] mb-2">Suggestions</h4>
                       <ul className="list-disc list-inside text-gray-700 space-y-1">
-                        {resultDetails.suggestions.map((s, i) => (
-                          <li key={i}>{s}</li>
-                        ))}
+                        {resultDetails.suggestions.map((s, i) => <li key={i}>{s}</li>)}
                       </ul>
                     </div>
                   )}
                 </div>
               )}
 
-              <div className="text-center">
-                <Button variant="outline" onClick={() => setOpen(false)}>
-                  Close
+              <div className="text-center pt-2">
+                <Button className="bg-[#841844] hover:bg-[#6d1337] text-white" onClick={() => setOpen(false)}>
+                  Close Result
                 </Button>
               </div>
             </div>
