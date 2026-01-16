@@ -37,7 +37,9 @@ export default function LayoutWrapper({ children }) {
 
       {/* Footer */}
       <footer className="p-4 text-center sm:text-right text-sm text-muted-foreground">
-        Made with ❤️ by <span className="font-medium text-[#841844]">Softricity</span>
+        Made with ❤️ by <span className="font-medium text-[#841844]">
+          <a href="https://geetauniversity.edu.in/edge/gth" style={{textDecoration: "none"}}>Geeta Technical Hub</a>
+          </span>
       </footer>
     </div>
   );
