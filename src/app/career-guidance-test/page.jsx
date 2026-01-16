@@ -7,7 +7,7 @@ export default function HomePage() {
     return(
         <>
            <div className="bg-black w-full h-16 flex px-4 items-center">
-                <h1 className="text-white text-xl font-semibold">Geeta Personality Portal</h1>
+                <h1 className="text-white text-xl font-semibold">Psychometric Test Portal</h1>
            </div>
            
            <div className="relative h-[500px] flex justify-start items-center px-20" style={{backgroundImage: "url(/banner.png)", backgroundSize:"cover"}}>

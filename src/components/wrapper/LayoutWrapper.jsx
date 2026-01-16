@@ -10,7 +10,7 @@ export default function LayoutWrapper({ children }) {
       {/* Header */}
       <header className="w-full border-b p-4 flex justify-between items-center">
         <Link href="/" className="text-xl font-extrabold text-[#841844] hover:opacity-80 transition">
-          GU Personality Portal
+          Psychometric Test Portal
         </Link>
         <div className="flex justify-end gap-6 text-sm">
           <Link
