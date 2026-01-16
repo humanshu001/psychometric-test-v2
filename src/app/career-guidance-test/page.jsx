@@ -21,7 +21,7 @@ export default function HomePage() {
                         Recommendations for successful career
                     </p>
                     <a href="/test?test=hgmi" className="bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
-                        Take the Free Test
+                        Take the Free
                     </a>
                 </div>
            </div>
