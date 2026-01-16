@@ -526,21 +526,25 @@ const HGMI_DETAILS = {
     courses: [
       "BA LLB",
       "BBA LLB",
+      "LL.M",
       "BA (H) Psychology, Political Science, English",
-      "BA in Journalism & Mass Communication"
+      "MA Political Science, Psychology",
+      "BA in Journalism & Mass Communication",
+      "Ph.D Psychology",
+      "Ph.D Law"
     ]
   },
   "Logical-Mathematical": {
     characteristics: "You are good at logical thinking & also at:\n• Detecting patterns\n• Scientific reasoning and deduction\n• Analyzing problems\n• Performing mathematical calculations\n• Understanding relationship between cause and effect",
     courses: [
-      "B.Com",
-      "Banking & Finance",
-      "Law",
-      "B.Pharmacy / D-Pharmacy",
-      "BCA",
-      "B.Sc (Hons.) in Mathematics, Microbiology, Forensic Science",
-      "BA (Hons.) Economics",
-      "B.Tech (CSE, ME, Civil)"
+      "B.Com (Accounting, Auditing, Taxation, Finance)",
+      "BCA (AI-ML, DS, Full Stack, Cyber)",
+      "B.Tech CSE (AI-ML, Cyber Security, Data Science, Full Stack)",
+      "MBA (Finance, Supply Chain)",
+      "MCA",
+      "M.Tech CSE",
+      "Ph.D CSE",
+      "Ph.D Computer Applications"
     ]
   },
   "Musical": {
@@ -586,7 +590,7 @@ const HGMI_DETAILS = {
   "Spatial": {
     characteristics: "You are good at visual and spatial perception & also at:\n• Interpretation and creation of visual images\n• Pictorial imagination and expression\n• Understanding relationship between images, meanings, and space",
     courses: [
-      "B.Tech (Civil, ME, CSE, ECE)",
+      "B.Tech CSE (AI, Data Science – dashboards, visualization)",
       "BCA",
       "B.Design, B.Sc Interior Design",
       "BA Film & Television Studies",
