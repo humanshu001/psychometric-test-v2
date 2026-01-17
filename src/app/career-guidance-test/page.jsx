@@ -138,11 +138,11 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-8 md:mb-12">
                         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
                             <HelpCircle className="w-5 h-5 text-blue-600" />
-                            <span className="text-gray-800 font-medium">90 Questions</span>
+                            <span className="text-gray-800 font-medium">96 Questions</span>
                         </div>
                         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
                             <Clock className="w-5 h-5 text-blue-600" />
-                            <span className="text-gray-800 font-medium">90 Minutes</span>
+                            <span className="text-gray-800 font-medium">96 Minutes</span>
                         </div>
                     </div>
 
