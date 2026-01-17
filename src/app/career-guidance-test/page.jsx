@@ -10,7 +10,7 @@ export default function HomePage() {
                 <h1 className="text-white text-xl font-semibold">Psychometric Test Portal</h1>
            </div>
            
-           <div className="relative min-h-[400px] md:h-[500px] flex justify-start items-center px-4 md:px-10 lg:px-20 py-8 md:py-0" style={{backgroundImage: "url(/banner.png)", backgroundSize:"cover"}}>
+           <div className="relative min-h-[400px] md:h-[500px] flex justify-start items-center px-4 md:px-10 lg:px-20 py-8 md:py-0" style={{backgroundImage: "url(/COVER.png)", backgroundSize:"cover"}}>
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 to-black/20 md:from-black/70 md:to-white/5"></div>
                 <div className="relative space-y-4 md:space-y-8 w-full md:w-2/3 lg:w-1/2 xl:w-1/3 text-white z-10">
