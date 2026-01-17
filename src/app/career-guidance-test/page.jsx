@@ -17,7 +17,7 @@ export default function HomePage() {
                     <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                         Confused About Courses?
                     </h1>
-                    <p className="text-base md:text-lg"> 
+                    <p className="text-base md:text-lg lg:text-2xl"> 
                         A COMPLETE GUIDE FOR <br />
                         12TH STUDENTS ABOUT <br />
                         THEIR ACADEMIC JOURNEY <br />
