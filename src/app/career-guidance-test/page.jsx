@@ -10,31 +10,31 @@ export default function HomePage() {
                 <h1 className="text-white text-xl font-semibold">Psychometric Test Portal</h1>
            </div>
            
-           <div className="relative h-[500px] flex justify-start items-center px-20" style={{backgroundImage: "url(/COVER.png)", backgroundSize:"cover"}}>
+           <div className="relative min-h-[400px] md:h-[500px] flex justify-start items-center px-4 md:px-10 lg:px-20 py-8 md:py-0" style={{backgroundImage: "url(/banner.png)", backgroundSize:"cover"}}>
                 {/* Gradient Overlay */}
-                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/70 to-white/5"></div>
-                <div className="relative space-y-8 w-1/3 text-white z-10">
-                    <h1 className="text-6xl">
+                <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 to-black/20 md:from-black/70 md:to-white/5"></div>
+                <div className="relative space-y-4 md:space-y-8 w-full md:w-2/3 lg:w-1/2 xl:w-1/3 text-white z-10">
+                    <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
                         Find the right career path for you!
                     </h1>
-                    <p className="text-lg"> 
+                    <p className="text-base md:text-lg"> 
                         Recommendations for successful career
                     </p>
-                    <a href="/test?test=hgmi" className="bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
+                    <a href="/test?test=hgmi" className="inline-block bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
                         Take the Free Test
                     </a>
                 </div>
            </div>
 
            {/* Career Guidance Section */}
-           <div className="bg-white px-20 py-16">
-                <div className="flex gap-12 items-center">
+           <div className="bg-white px-4 md:px-10 lg:px-20 py-12 md:py-16">
+                <div className="flex flex-col lg:flex-row gap-8 md:gap-12 items-center">
                     {/* Left side - Image */}
-                    <div className="w-1/3 flex-shrink-0 flex flex-col items-center">
+                    <div className="w-full lg:w-1/3 flex-shrink-0 flex flex-col items-center">
                         <img 
-                            src="/side_model_image.png" 
+                            src="/girl.png" 
                             alt="Career Guidance" 
-                            className="w-[300px] object-cover h-[500px]"
+                            className="w-full max-w-[300px] object-cover h-auto lg:h-[500px]"
                         />
                         <button className="mt-6 bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition">
                             Take the Free Test
@@ -44,24 +44,24 @@ export default function HomePage() {
                     {/* Right side - Content */}
                     <div className="flex-1 space-y-6">
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">What is our career guidance test?</h2>
-                            <p className="text-gray-700 leading-relaxed">
+                            <h2 className="text-xl md:text-2xl font-bold mb-4">What is our career guidance test?</h2>
+                            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                                 Our career guidance test is based on the world's largest job database. It analyses you on various aspects and maps the career options that best fit you. The report provided also suggests appropriate learning paths to achieve your dream career. Even if you have already made a career decision, the test can still help you validate your choice, so that you are more confident about your decision.
                             </p>
                         </div>
 
                         <div>
-                            <h2 className="text-2xl font-bold mb-4">Why do you need a career guidance test?</h2>
-                            <p className="text-gray-700 leading-relaxed">
+                            <h2 className="text-xl md:text-2xl font-bold mb-4">Why do you need a career guidance test?</h2>
+                            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                                 Choosing the right career path can be a very challenging task. After all, the career that you choose, sets the tone for the rest of your future. Take this data-driven test to get a clear picture of who you are and what you can be in your career.
                             </p>
                         </div>
 
-                        <div className="bg-gray-50 p-6 rounded-lg">
-                            <div className="flex items-start gap-4">
-                                <div className="text-6xl font-bold text-blue-600">93%</div>
+                        <div className="bg-gray-50 p-4 md:p-6 rounded-lg">
+                            <div className="flex flex-col md:flex-row items-start gap-4">
+                                <div className="text-4xl md:text-6xl font-bold text-blue-600">93%</div>
                                 <div className="flex-1">
-                                    <p className="text-gray-700">
+                                    <p className="text-sm md:text-base text-gray-700">
                                         of Indian students are aware of only 7 career options whereas, there are over 250 career options with 5000 job types available in our country.
                                     </p>
                                 </div>
@@ -69,7 +69,7 @@ export default function HomePage() {
                         </div>
 
                         <div>
-                            <p className="text-gray-700 leading-relaxed">
+                            <p className="text-sm md:text-base text-gray-700 leading-relaxed">
                                 Get insights into the most suitable career options, tailor-made just for you! What's more? You will get recommendations on learning paths that suit your skills to help you shine in your career.
                             </p>
                         </div>
@@ -78,9 +78,9 @@ export default function HomePage() {
            </div>
 
            {/* Reasons to Choose Section */}
-           <div className="bg-gray-50 py-16 px-10">
+           <div className="bg-gray-50 py-12 md:py-16 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-12">Reasons to choose career guidance test</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">Reasons to choose career guidance test</h2>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
                         {/* Card 1 */}
@@ -127,12 +127,12 @@ export default function HomePage() {
            </div>
 
            {/* Structure and Categories Section */}
-           <div className="bg-white py-16 px-10">
+           <div className="bg-white py-12 md:py-16 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-4">Structure and categories of the test</h2>
-                    <p className="text-center text-gray-600 mb-8">In order to provide accurate recommendations, we need to know you in depth.</p>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-4">Structure and categories of the test</h2>
+                    <p className="text-center text-sm md:text-base text-gray-600 mb-6 md:mb-8">In order to provide accurate recommendations, we need to know you in depth.</p>
                     
-                    <div className="flex justify-center gap-4 mb-12">
+                    <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-8 md:mb-12">
                         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
                             <HelpCircle className="w-5 h-5 text-blue-600" />
                             <span className="text-gray-800 font-medium">90 Questions</span>
@@ -143,14 +143,14 @@ export default function HomePage() {
                         </div>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
                         {/* Linguistic */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <BookText className="w-16 h-16 text-gray-700" />
+                                <BookText className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Linguistic</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Linguistic</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at words, language & also at retention, interpretation and explanation of ideas and information via language
                             </p>
                         </div>
@@ -158,10 +158,10 @@ export default function HomePage() {
                         {/* Logical-Mathematical */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Calculator className="w-16 h-16 text-gray-700" />
+                                <Calculator className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Logical - Mathematical</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Logical - Mathematical</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at logical thinking & also at detecting patterns, scientific reasoning and deduction, analyze problems
                             </p>
                         </div>
@@ -169,10 +169,10 @@ export default function HomePage() {
                         {/* Musical */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Music className="w-16 h-16 text-gray-700" />
+                                <Music className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Musical</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Musical</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at musical ability & also at awareness, appreciation and use of sound, recognition of tonal and rhythmic patterns
                             </p>
                         </div>
@@ -180,10 +180,10 @@ export default function HomePage() {
                         {/* Bodily-Kinesthetic */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Dumbbell className="w-16 h-16 text-gray-700" />
+                                <Dumbbell className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Bodily - Kinesthetic</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Bodily - Kinesthetic</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at body movement control & also at manual dexterity, physical agility and balance, eye and body coordination
                             </p>
                         </div>
@@ -191,10 +191,10 @@ export default function HomePage() {
                         {/* Intrapersonal */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <User className="w-16 h-16 text-gray-700" />
+                                <User className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Intrapersonal</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Intrapersonal</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at self-awareness & also at personal cognizance, personal objectivity, capable of understanding oneself
                             </p>
                         </div>
@@ -202,10 +202,10 @@ export default function HomePage() {
                         {/* Interpersonal */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Users className="w-16 h-16 text-gray-700" />
+                                <Users className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Interpersonal</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Interpersonal</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at perception of other people's feelings, able to relate to others, interpretation of behaviour and communications
                             </p>
                         </div>
@@ -213,10 +213,10 @@ export default function HomePage() {
                         {/* Spatial-Visual */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Eye className="w-16 h-16 text-gray-700" />
+                                <Eye className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Spatial - Visual</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Spatial - Visual</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at visual and spatial perception & also at interpretation and creation of visual images, pictorial imagination
                             </p>
                         </div>
@@ -224,10 +224,10 @@ export default function HomePage() {
                         {/* Naturalist */}
                         <div className="text-center space-y-3">
                             <div className="flex justify-center">
-                                <Leaf className="w-16 h-16 text-gray-700" />
+                                <Leaf className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                             </div>
-                            <h3 className="font-bold text-lg">Naturalist</h3>
-                            <p className="text-sm text-gray-600">
+                            <h3 className="font-bold text-base md:text-lg">Naturalist</h3>
+                            <p className="text-xs md:text-sm text-gray-600">
                                 You are good at doing things related to nature & also at nurturing and relating information to one's natural surroundings
                             </p>
                         </div>
@@ -236,9 +236,9 @@ export default function HomePage() {
            </div>
 
            {/* Steps to Take the Test Section */}
-           <div className="bg-gray-50 py-16 px-10">
+           <div className="bg-gray-50 py-12 md:py-16 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-16">Steps to take the test</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-16">Steps to take the test</h2>
                     
                     {/* Steps Flow with SVG Arrows */}
                     <div className="relative">
@@ -367,35 +367,35 @@ export default function HomePage() {
            </div>
 
            {/* Association Section */}
-           <div className="bg-white py-8 px-10">
+           <div className="bg-white py-6 md:py-8 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto text-center">
-                    <p className="text-lg text-gray-700 flex items-center justify-center gap-3">
+                    <p className="text-sm md:text-lg text-gray-700 flex flex-col sm:flex-row items-center justify-center gap-3">
                         <span>This test is created in association with</span>
-                        <img src="/gu.png" alt="" className="h-14 ml-4" />
+                        <img src="/gu.png" alt="" className="h-10 md:h-14 sm:ml-4" />
                     </p>
                 </div>
            </div>
 
            {/* Test Results Comparison Section */}
-           <div className="bg-gray-50 py-16 px-10">
+           <div className="bg-gray-50 py-12 md:py-16 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto">
-                    <h2 className="text-4xl font-bold text-center mb-12">What will the test results include?</h2>
+                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">What will the test results include?</h2>
                     
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-                        <table className="w-full">
+                    <div className="bg-white rounded-lg shadow-lg overflow-hidden overflow-x-auto">
+                        <table className="w-full min-w-[600px]">
                             <thead>
                                 <tr className="border-b">
-                                    <th className="p-6 text-left font-bold text-lg">Features</th>
+                                    <th className="p-3 md:p-6 text-left font-bold text-sm md:text-lg">Features</th>
                                     {/* <th className="p-6 text-center bg-blue-50">
                                         <div className="space-y-2">
                                             <h3 className="font-bold text-lg">Basic Intelligence Report</h3>
                                             <p className="text-sm text-gray-600 font-normal">Essential intelligence profile analysis</p>
                                         </div>
                                     </th> */}
-                                    <th className="p-6 text-center bg-blue-100">
+                                    <th className="p-3 md:p-6 text-center bg-blue-100">
                                         <div className="space-y-2">
-                                            <h3 className="font-bold text-lg">Complete Intelligence Report</h3>
-                                            <p className="text-sm text-gray-600 font-normal">Comprehensive analysis of all intelligence types</p>
+                                            <h3 className="font-bold text-sm md:text-lg">Complete Intelligence Report</h3>
+                                            <p className="text-xs md:text-sm text-gray-600 font-normal">Comprehensive analysis of all intelligence types</p>
                                         </div>
                                     </th>
                                 </tr>
@@ -403,7 +403,7 @@ export default function HomePage() {
                             <tbody>
                                 {/* Linguistic */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Linguistic Intelligence</td>
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Linguistic Intelligence</td>
                                     {/* <td className="p-4 text-center">
                                         <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
                                     </td> */}
@@ -414,135 +414,135 @@ export default function HomePage() {
 
                                 {/* Logical-Mathematical */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Logical-Mathematical Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Logical-Mathematical Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Musical */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Musical Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <X className="w-6 h-6 text-gray-300 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Musical Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Bodily-Kinesthetic */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Bodily-Kinesthetic Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <X className="w-6 h-6 text-gray-300 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Bodily-Kinesthetic Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Intrapersonal */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Intrapersonal Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Intrapersonal Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Interpersonal */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Interpersonal Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Interpersonal Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Spatial-Visual */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Spatial-Visual Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <X className="w-6 h-6 text-gray-300 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Spatial-Visual Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Naturalist */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Naturalist Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <X className="w-6 h-6 text-gray-300 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Naturalist Intelligence</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Career Recommendations */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Career & Learning Recommendations</td>
-                                    {/* <td className="p-4 text-center">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Career & Learning Recommendations</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Detailed Analysis */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Detailed Psychometric Analysis</td>
-                                    {/* <td className="p-4 text-center">
-                                        <X className="w-6 h-6 text-gray-300 mx-auto" />
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Detailed Psychometric Analysis</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
                                     </td>
                                 </tr>
 
                                 {/* Number of Questions */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Number of Questions</td>
-                                    {/* <td className="p-4 text-center">
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Number of Questions</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
                                         <span className="font-semibold text-gray-700">30-40</span>
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <span className="font-semibold text-gray-700">90</span>
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <span className="font-semibold text-sm md:text-base text-gray-700">90</span>
                                     </td>
                                 </tr>
 
                                 {/* Price */}
                                 <tr className="border-b bg-gray-50">
-                                    <td className="p-4 font-bold text-gray-700">Price</td>
-                                    {/* <td className="p-4 text-center">
-                                        <span className="text-2xl font-bold text-green-600">Free</span>
+                                    <td className="p-2 md:p-4 font-bold text-xs md:text-base text-gray-700">Price</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <span className="text-xl md:text-2xl font-bold text-green-600">Free</span>
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <span className="text-2xl font-bold text-green-600">Free</span>
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <span className="text-xl md:text-2xl font-bold text-green-600">Free</span>
                                     </td>
                                 </tr>
 
                                 {/* Sample Report */}
                                 <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-4 text-gray-700">Sample Report</td>
-                                    {/* <td className="p-4 text-center">
-                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Sample Report</td>
+                                    {/* <td className="p-2 md:p-4 text-center">
+                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base">
                                             Download Now
                                         </a>
                                     </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline">
+                                    <td className="p-2 md:p-4 text-center bg-blue-50">
+                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base">
                                             Download Now
                                         </a>
                                     </td>
@@ -550,14 +550,14 @@ export default function HomePage() {
 
                                 {/* Action Buttons */}
                                 <tr>
-                                    <td className="p-6"></td>
-                                    {/* <td className="p-6 text-center">
-                                        <a href="/test" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium">
+                                    <td className="p-3 md:p-6"></td>
+                                    {/* <td className="p-3 md:p-6 text-center">
+                                        <a href="/test" className="inline-block bg-blue-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-blue-700 transition font-medium text-sm md:text-base">
                                             Take the Free Test
                                         </a>
                                     </td> */}
-                                    <td className="p-6 text-center bg-blue-50">
-                                        <a href="/test?test=hgmi" className="inline-block bg-blue-600 text-white px-8 py-3 rounded-full hover:bg-blue-700 transition font-medium">
+                                    <td className="p-3 md:p-6 text-center bg-blue-50">
+                                        <a href="/test?test=hgmi" className="inline-block bg-blue-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-blue-700 transition font-medium text-sm md:text-base">
                                             Take the Free Test
                                         </a>
                                     </td>
@@ -569,44 +569,44 @@ export default function HomePage() {
            </div>
 
            {/* Turn Recommendations into Reality Section */}
-           <div className="relative bg-cover bg-center py-24 px-10" style={{backgroundImage: "url('/career.png')"}}>
+           <div className="relative bg-cover bg-center py-12 md:py-24 px-4 md:px-10" style={{backgroundImage: "url('/career.png')"}}>
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-r from-black/70"></div>
+                <div className="absolute inset-0 bg-gradient-to-r from-black/80 md:from-black/70"></div>
                 
-                <div className="relative max-w-5xl ml-5 z-10">
-                    <div className="text-white space-y-6">
-                        <h2 className="text-5xl font-bold mb-4">Turn Recommendations into Reality</h2>
-                        <p className="text-lg max-w-3xl mb-12">
+                <div className="relative max-w-5xl md:ml-5 z-10">
+                    <div className="text-white space-y-4 md:space-y-6">
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">Turn Recommendations into Reality</h2>
+                        <p className="text-sm md:text-base lg:text-lg max-w-3xl mb-8 md:mb-12">
                             At Geeta Technical Hub, we not only provide you with the best career recommendations but also help you get ready for your dream career.
                         </p>
 
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-6 md:mb-10">
                             {/* Learning Programs */}
                             <div className="flex flex-col items-start space-y-2">
-                                <GraduationCap className="w-16 h-16 mb-2" />
-                                <h3 className="text-4xl font-bold">450+</h3>
-                                <p className="text-lg">Learning Programs</p>
+                                <GraduationCap className="w-12 h-12 md:w-16 md:h-16 mb-2" />
+                                <h3 className="text-3xl md:text-4xl font-bold">450+</h3>
+                                <p className="text-base md:text-lg">Learning Programs</p>
                             </div>
 
                             {/* Registered Users */}
                             <div className="flex flex-col items-start space-y-2">
-                                <UserCheck className="w-16 h-16 mb-2" />
-                                <h3 className="text-4xl font-bold">3.64M+</h3>
-                                <p className="text-lg">Registered Users</p>
+                                <UserCheck className="w-12 h-12 md:w-16 md:h-16 mb-2" />
+                                <h3 className="text-3xl md:text-4xl font-bold">3.64M+</h3>
+                                <p className="text-base md:text-lg">Registered Users</p>
                             </div>
 
                             {/* Corporates Engaged */}
                             <div className="flex flex-col items-start space-y-2">
-                                <Building2 className="w-16 h-16 mb-2" />
-                                <h3 className="text-4xl font-bold">600+</h3>
-                                <p className="text-lg">Corporates Engaged</p>
+                                <Building2 className="w-12 h-12 md:w-16 md:h-16 mb-2" />
+                                <h3 className="text-3xl md:text-4xl font-bold">600+</h3>
+                                <p className="text-base md:text-lg">Corporates Engaged</p>
                             </div>
 
                             {/* Internship Opportunities */}
                             <div className="flex flex-col items-start space-y-2">
-                                <Briefcase className="w-16 h-16 mb-2" />
-                                <h3 className="text-4xl font-bold">170+</h3>
-                                <p className="text-lg">Internship Opportunities</p>
+                                <Briefcase className="w-12 h-12 md:w-16 md:h-16 mb-2" />
+                                <h3 className="text-3xl md:text-4xl font-bold">170+</h3>
+                                <p className="text-base md:text-lg">Internship Opportunities</p>
                             </div>
                         </div>
 
@@ -620,13 +620,13 @@ export default function HomePage() {
            </div>
 
            {/* Contact Us Section */}
-           <div className="bg-white py-16 px-10">
+           <div className="bg-white py-12 md:py-16 px-4 md:px-10">
                 <div className="max-w-7xl mx-auto">
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
                         {/* Left Side - Title */}
                         <div>
-                            <h2 className="text-4xl font-bold mb-4">Contact Us</h2>
-                            <p className="text-gray-600 text-lg">For queries, feedback & assistance</p>
+                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">Contact Us</h2>
+                            <p className="text-gray-600 text-sm md:text-base lg:text-lg">For queries, feedback & assistance</p>
                         </div>
 
                         {/* Right Side - Contact Options */}
@@ -634,11 +634,11 @@ export default function HomePage() {
                             {/* Email */}
                             <div className="flex items-start gap-4">
                                 <div className="bg-blue-100 p-3 rounded-lg">
-                                    <Mail className="w-6 h-6 text-blue-600" />
+                                    <Mail className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-lg mb-1">Email Us</h3>
-                                    <a href="mailto:info@geetauniversity.edu.in" className="text-gray-600 hover:text-blue-600">
+                                    <h3 className="font-semibold text-base md:text-lg mb-1">Email Us</h3>
+                                    <a href="mailto:info@geetauniversity.edu.in" className="text-sm md:text-base text-gray-600 hover:text-blue-600 break-all">
                                         info@geetauniversity.edu.in
                                     </a>
                                 </div>
@@ -646,11 +646,11 @@ export default function HomePage() {
                             {/* Phone */}
                             <div className="flex items-start gap-4">
                                 <div className="bg-blue-100 p-3 rounded-lg">
-                                    <Phone className="w-6 h-6 text-blue-600" />
+                                    <Phone className="w-5 h-5 md:w-6 md:h-6 text-blue-600" />
                                 </div>
                                 <div>
-                                    <h3 className="font-semibold text-lg mb-1">Contact Number</h3>
-                                    <a href="tel:09278768000" className="text-gray-600 hover:text-blue-600">
+                                    <h3 className="font-semibold text-base md:text-lg mb-1">Contact Number</h3>
+                                    <a href="tel:09278768000" className="text-sm md:text-base text-gray-600 hover:text-blue-600">
                                         092787 68000
                                     </a>
                                 </div>
