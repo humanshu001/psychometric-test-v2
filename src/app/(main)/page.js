@@ -15,7 +15,7 @@ export default function HomePage() {
           Geeta Personality Portal
         </h1>
         <p className="text-lg text-muted-foreground">
-          Powered by Geeta University – where “empowering education empowers
+          Powered by Geeta University – where “Empowering education empowers
           minds”
         </p>
         <Link href="/test">
