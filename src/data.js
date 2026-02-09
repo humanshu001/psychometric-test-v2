@@ -524,27 +524,23 @@ const HGMI_DETAILS = {
   "Linguistic": {
     characteristics: "You are good at words, language & also at:\n• Retention\n• Interpretation and explanation of ideas and information via language\n• Understanding relationship between communication and meaning",
     courses: [
-      "BA LLB",
-      "BBA LLB",
-      "LL.M",
-      "BA (H) Psychology, Political Science, English",
-      "MA Political Science, Psychology",
-      "BA in Journalism & Mass Communication",
+      "BA (Political Science, Psychology, Economics)",
+      "MA (Political Science, Psychology)",
+      "Journalism & related BA subjects (within Humanities)",
+      "Law: BA LL.B, BBA LL.B, LL.M, Ph.D Law",
       "Ph.D Psychology",
-      "Ph.D Law"
+   
     ]
   },
   "Logical-Mathematical": {
     characteristics: "You are good at logical thinking & also at:\n• Detecting patterns\n• Scientific reasoning and deduction\n• Analyzing problems\n• Performing mathematical calculations\n• Understanding relationship between cause and effect",
     courses: [
-      "B.Com (Accounting, Auditing, Taxation, Finance)",
-      "BCA (AI-ML, DS, Full Stack, Cyber)",
       "B.Tech CSE (AI-ML, Cyber Security, Data Science, Full Stack)",
+      "M.Tech CSE, Ph.D CSE",
+      "BCA (AI-ML, DS, Full Stack, Cyber)",
+      "MCA, Ph.D Computer Applications",
+      "B.Com (Accounting, Auditing, Taxation, Finance)",
       "MBA (Finance, Supply Chain)",
-      "MCA",
-      "M.Tech CSE",
-      "Ph.D CSE",
-      "Ph.D Computer Applications"
     ]
   },
   "Musical": {
@@ -561,10 +557,11 @@ const HGMI_DETAILS = {
   "Bodily-Kinesthetic": {
     characteristics: "You are good at body movement control & also at:\n• Manual dexterity\n• Physical agility and balance\n• Eye and body coordination",
     courses: [
-      "B.Sc. Design",
-      "B.Design",
-      "Diploma (ME, CE)",
-      "B.Tech (ME, CE)"
+      "Nursing & Midwifery (GNM, B.Sc Nursing)",
+      "Paramedical (MLT, Optometry, X-Ray)",
+      "Pharmacy (D.Pharm, B.Pharm, M.Pharm)",
+      "Hospitality (Food Production, Hotel Management)",
+      "Agriculture (B.Sc Hons Agriculture)"
     ]
   },
   "Intrapersonal": {
@@ -590,22 +587,20 @@ const HGMI_DETAILS = {
   "Spatial": {
     characteristics: "You are good at visual and spatial perception & also at:\n• Interpretation and creation of visual images\n• Pictorial imagination and expression\n• Understanding relationship between images, meanings, and space",
     courses: [
-      "B.Tech CSE (AI, Data Science – dashboards, visualization)",
-      "BCA",
-      "B.Design, B.Sc Interior Design",
-      "BA Film & Television Studies",
-      "BA Fine Arts",
-      "Dental Science"
+      "B.Tech CSE (AI, Data Science – dashboards, visualization",
+      "Forensic Science (crime scene reconstruction)",
+      "Medical Lab Technology (imaging interpretation)",
+      "Radiology/X-Ray (XRT)",
+      
     ]
   },
   "Naturalist": {
     characteristics: "You are good at doing things related to nature & also at:\n• Nurturing and relating information to one's natural surroundings\n• Sensitivity to nature and place within it\n• Caring for, taming and interacting with animals\n• Discern changes in weather or surroundings\n• Recognizing and classifying species",
     courses: [
-      "B.Sc. Nutrition & Dietetics",
-      "B.Sc. Agricultural Science",
-      "B.Sc. Microbiology",
-      "B.Sc Forensic Science",
-      "B.Sc Chemistry"
+      
+      "B.Sc (Hons) Agriculture",
+      "M.Sc Agronomy",
+      "Ph.D Agriculture"
     ]
   }
 };

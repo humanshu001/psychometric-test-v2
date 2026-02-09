@@ -10,15 +10,18 @@ export default function HomePage() {
                 <h1 className="text-white text-xl font-semibold">Psychometric Test Portal</h1>
            </div>
            
-           <div className="relative min-h-[400px] md:h-[500px] flex justify-start items-center px-4 md:px-10 lg:px-20 py-8 md:py-0" style={{backgroundImage: "url(/banner.png)", backgroundSize:"cover"}}>
+           <div className="relative min-h-[400px] md:h-[500px] flex justify-start items-center px-4 md:px-10 lg:px-20 py-8 md:py-0" style={{backgroundImage: "url(/COVER-Copy.png)", backgroundSize:"cover"}}>
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-r from-black/80 to-black/20 md:from-black/70 md:to-white/5"></div>
                 <div className="relative space-y-4 md:space-y-8 w-full md:w-2/3 lg:w-1/2 xl:w-1/3 text-white z-10">
                     <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold">
-                        Find the right career path for you!
+                        Confused About Courses?
                     </h1>
-                    <p className="text-base md:text-lg"> 
-                        Recommendations for successful career
+                    <p className="text-base md:text-lg lg:text-2xl"> 
+                        A COMPLETE GUIDE FOR <br />
+                        12TH STUDENTS ABOUT <br />
+                        THEIR ACADEMIC JOURNEY <br />
+                        & CAREER PLANNING
                     </p>
                     <a href="/test?test=hgmi" className="inline-block bg-blue-700 px-6 py-3 rounded-full hover:bg-blue-800 transition">
                         Take the Free Test
@@ -135,11 +138,11 @@ export default function HomePage() {
                     <div className="flex flex-col sm:flex-row justify-center gap-3 md:gap-4 mb-8 md:mb-12">
                         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
                             <HelpCircle className="w-5 h-5 text-blue-600" />
-                            <span className="text-gray-800 font-medium">90 Questions</span>
+                            <span className="text-gray-800 font-medium">96 Questions</span>
                         </div>
                         <div className="flex items-center gap-2 bg-blue-50 px-4 py-2 rounded-full">
                             <Clock className="w-5 h-5 text-blue-600" />
-                            <span className="text-gray-800 font-medium">90 Minutes</span>
+                            <span className="text-gray-800 font-medium">96 Minutes</span>
                         </div>
                     </div>
 
