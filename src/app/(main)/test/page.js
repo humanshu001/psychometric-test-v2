@@ -139,7 +139,7 @@ export default function ImprovedPersonalityTest() {
 
     try {
       await axios.post(
-        "https://psychometric-test-v2-backend.onrender.com/submit-details",
+        "https://deeppink-moose-154369.hostingersite.com/submit-details",
         payload
       );
       setFormSubmitted(false);
