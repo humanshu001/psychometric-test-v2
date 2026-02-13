@@ -35,8 +35,16 @@ export default function HomePage() {
           </h1>
         </div>
 
-        {[
-          // 🟢 NEWLY ADDED TESTS (First Position)
+{[
+          // 🟢 NEWLY ADDED TEST: RIASEC
+          {
+            href: "/test?test=riasec",
+            title: "Short RIASEC Career Interest Inventory",
+            badge: "Career Interest",
+            desc: "Analyze your interests across 6 dimensions (Realistic, Investigative, Artistic, Social, Enterprising, Conventional) to find your ideal career path.",
+            gradient: "from-sky-500 to-[#841844]",
+          },
+          // ------------------------------------
           {
             href: "/test?test=hgmi",
             title: "Multiple Intelligence Test (English)",
@@ -51,8 +59,6 @@ export default function HomePage() {
             desc: "हावर्ड गार्डनर के सिद्धांत पर आधारित 8 प्रकार की बुद्धिमत्ता (जैसे: भाषाई, स्थानिक, संगीतात्मक) में अपनी ताकत जानें।",
             gradient: "from-orange-400 to-[#841844]",
           },
-          // ------------------------------------
-
           {
             href: "/test?test=dweck",
             title: "Growth vs. Fixed Mindset",
@@ -127,9 +133,7 @@ export default function HomePage() {
           }
         ].map(({ href, title, badge, desc, gradient }) => (
           <Link key={title} href={href} className="h-full">
-            {/* 🟢 Updated: Make the card fill the available height */}
             <Card className="h-full hover:shadow-xl transition-all duration-300 hover:border-[#841844]">
-              {/* 🟢 Updated: Flex layout to make content stretch */}
               <CardContent className="p-6 space-y-3 flex flex-col h-full">
                 <Badge className={`border-none font-extrabold bg-gradient-to-r ${gradient} text-white`}>
                   {badge}
@@ -137,7 +141,6 @@ export default function HomePage() {
                 <h2 className="text-xl font-semibold text-[#841844]">
                   {title}
                 </h2>
-                {/* 🟢 Updated: Make this paragraph grow to fill space evenly */}
                 <p className="text-muted-foreground text-sm flex-grow">
                   {desc}
                 </p>

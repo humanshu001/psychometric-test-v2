@@ -519,6 +519,57 @@ export const questionsOfHGMIHindi = [
 ];
 
 
+// --- NEW ADDITION: RIASEC Test Data ---
+
+export const questionsOfRiasec = [
+  "I like working with tools, machines, or equipment.",
+  "I enjoy repairing or building things.",
+  "I prefer practical, hands-on activities.",
+  "I enjoy solving scientific or logical problems.",
+  "I like analyzing data and figuring out how things work.",
+  "I am interested in research or experiments.",
+  "I enjoy drawing, writing, music, design, or other creative activities.",
+  "I like using imagination and originality in my work.",
+  "I prefer work that is not routine and allows freedom of expression.",
+  "I like helping, teaching, or guiding other people.",
+  "I enjoy understanding others’ problems and supporting them.",
+  "I like working with people and interacting in a team.",
+  "I like taking leadership roles and making decisions.",
+  "I enjoy persuading people or selling ideas/products.",
+  "I am interested in business, management, or entrepreneurship.",
+  "I like working with records, files, numbers, or data in an organized way.",
+  "I prefer clear rules and a well-structured work environment.",
+  "I enjoy planning, organizing, and doing systematic work."
+];
+
+const RIASEC_DETAILS = {
+  "Realistic": {
+    description: "You are practical, mechanical, and realistic. You prefer working with things rather than people or ideas.",
+    careers: "Engineering, mechanics, technical trades, agriculture, police, military, construction, architecture."
+  },
+  "Investigative": {
+    description: "You are precise, scientific, and intellectual. You prefer to analyze and solve problems.",
+    careers: "Science, research, psychology, medicine, data analysis, computer programming, pharmacy."
+  },
+  "Artistic": {
+    description: "You are expressive, original, and independent. You prefer creative work without strict rules.",
+    careers: "Design, media, writing, fine arts, photography, architecture, fashion, acting/performing arts."
+  },
+  "Social": {
+    description: "You are helpful, friendly, and trustworthy. You prefer to teach, counsel, or cure others.",
+    careers: "Teaching, counseling, social work, nursing, human resources, public relations, customer service."
+  },
+  "Enterprising": {
+    description: "You are energetic, ambitious, and sociable. You prefer to persuade, lead, or manage others.",
+    careers: "Business, management, marketing, sales, entrepreneurship, politics, law, real estate."
+  },
+  "Conventional": {
+    description: "You are orderly, organized, and detail-oriented. You prefer structured work with clear goals.",
+    careers: "Accounting, banking, administration, clerical/office work, data entry, finance, logistics."
+  }
+};
+
+
 // --- DATA: Intelligence Grid Details (Extracted from Excel) ---
 const HGMI_DETAILS = {
   "Linguistic": {
@@ -1078,6 +1129,41 @@ hgmi_hindi: {
         { id: "Naturalist", name: "प्रकृतिवादी (Naturalist)", range: [84, 95] }
     ],
     details: HGMI_DETAILS
-}
+},
+riasec: {
+    title: "Short RIASEC Career Interest Inventory",
+    questions: questionsOfRiasec,
+    options: ["Strongly Disagree", "Disagree", "Neutral", "Agree", "Strongly Agree"],
+    scoring: (() => {
+      const scoreMap = {};
+      // 18 questions total, 1-5 scale for all
+      for (let i = 0; i < 18; i++) {
+        scoreMap[i] = [1, 2, 3, 4, 5]; // SD=1 to SA=5
+      }
+      return scoreMap;
+    })(),
+    interpret(scores) {
+      // Returns a generic profile message; specific category calculation matches HGMI logic
+      return {
+        title: "Career Interest Profile (RIASEC)",
+        description: "Your results highlight your top career personality types. Check the detailed breakdown to see your specific RIASEC code.",
+        suggestions: [
+          "Look for careers that combine your top two interest areas.",
+          "Research the industries listed in your top categories.",
+          "Consider internships or hobbies that align with these interests."
+        ]
+      };
+    },
+    // Categories map to specific question indices (3 questions per category)
+    categories: [
+      { id: "Realistic", name: "Realistic (Doers)", range: [0, 2] },     // Q1-3
+      { id: "Investigative", name: "Investigative (Thinkers)", range: [3, 5] }, // Q4-6
+      { id: "Artistic", name: "Artistic (Creators)", range: [6, 8] },    // Q7-9
+      { id: "Social", name: "Social (Helpers)", range: [9, 11] },        // Q10-12
+      { id: "Enterprising", name: "Enterprising (Persuaders)", range: [12, 14] }, // Q13-15
+      { id: "Conventional", name: "Conventional (Organizers)", range: [15, 17] }  // Q16-18
+    ],
+    details: RIASEC_DETAILS
+  }
 };
 

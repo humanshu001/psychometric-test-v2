@@ -380,196 +380,176 @@ export default function HomePage() {
            </div>
 
            {/* Test Results Comparison Section */}
-           <div className="bg-gray-50 py-12 md:py-16 px-4 md:px-10">
-                <div className="max-w-7xl mx-auto">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">What will the test results include?</h2>
-                    
-                    <div className="bg-white rounded-lg shadow-lg overflow-hidden overflow-x-auto">
-                        <table className="w-full min-w-[600px]">
-                            <thead>
-                                <tr className="border-b">
-                                    <th className="p-3 md:p-6 text-left font-bold text-sm md:text-lg">Features</th>
-                                    {/* <th className="p-6 text-center bg-blue-50">
-                                        <div className="space-y-2">
-                                            <h3 className="font-bold text-lg">Basic Intelligence Report</h3>
-                                            <p className="text-sm text-gray-600 font-normal">Essential intelligence profile analysis</p>
-                                        </div>
-                                    </th> */}
-                                    <th className="p-3 md:p-6 text-center bg-blue-100">
-                                        <div className="space-y-2">
-                                            <h3 className="font-bold text-sm md:text-lg">Complete Intelligence Report</h3>
-                                            <p className="text-xs md:text-sm text-gray-600 font-normal">Comprehensive analysis of all intelligence types</p>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {/* Linguistic */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Linguistic Intelligence</td>
-                                    {/* <td className="p-4 text-center">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td> */}
-                                    <td className="p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-6 h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+<div className="bg-gray-50 py-12 md:py-16 px-4 md:px-10">
+  <div className="max-w-7xl mx-auto">
+    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-8 md:mb-12">
+      Compare Our Assessments
+    </h2>
 
-                                {/* Logical-Mathematical */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Logical-Mathematical Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+    <div className="bg-white rounded-lg shadow-lg overflow-hidden overflow-x-auto">
+      <table className="w-full min-w-[700px]">
+        <thead>
+          <tr className="border-b">
+            <th className="p-3 md:p-6 text-left font-bold text-sm md:text-lg w-1/3">
+              Features
+            </th>
+            
+            {/* HGMI Header */}
+            <th className="p-3 md:p-6 text-center bg-blue-100 w-1/3">
+              <div className="space-y-2">
+                <h3 className="font-bold text-sm md:text-lg">Multiple Intelligence</h3>
+                <p className="text-xs md:text-sm text-gray-600 font-normal">
+                  Complete profile of 8 intelligence types
+                </p>
+              </div>
+            </th>
 
-                                {/* Musical */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Musical Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+            {/* RIASEC Header */}
+            <th className="p-3 md:p-6 text-center bg-green-100 w-1/3">
+              <div className="space-y-2">
+                <h3 className="font-bold text-sm md:text-lg">Career Interest (RIASEC)</h3>
+                <p className="text-xs md:text-sm text-gray-600 font-normal">
+                  Career personality & industry fit
+                </p>
+              </div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* Intelligence Metrics */}
+          {[
+            "Linguistic Intelligence",
+            "Logical-Mathematical Intelligence",
+            "Musical Intelligence",
+            "Bodily-Kinesthetic Intelligence",
+            "Intrapersonal Intelligence",
+            "Interpersonal Intelligence",
+            "Spatial-Visual Intelligence",
+            "Naturalist Intelligence",
+          ].map((feature, index) => (
+            <tr key={index} className="border-b hover:bg-gray-50">
+              <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">
+                {feature}
+              </td>
+              {/* HGMI has all these */}
+              <td className="p-2 md:p-4 text-center bg-blue-50">
+                <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
+              </td>
+              {/* RIASEC does not measure these specifically */}
+              <td className="p-2 md:p-4 text-center bg-green-50">
+                <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
+              </td>
+            </tr>
+          ))}
 
-                                {/* Bodily-Kinesthetic */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Bodily-Kinesthetic Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+          {/* Career & Learning Recommendations */}
+          <tr className="border-b hover:bg-gray-50">
+            <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">
+              Career Recommendations
+            </td>
+            <td className="p-2 md:p-4 text-center bg-blue-50">
+              <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
+            </td>
+            <td className="p-2 md:p-4 text-center bg-green-50">
+              <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
+            </td>
+          </tr>
 
-                                {/* Intrapersonal */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Intrapersonal Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+          {/* Detailed Analysis */}
+          <tr className="border-b hover:bg-gray-50">
+            <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">
+              Detailed Psychometric Analysis
+            </td>
+            <td className="p-2 md:p-4 text-center bg-blue-50">
+              <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
+            </td>
+            <td className="p-2 md:p-4 text-center bg-green-50">
+              <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
+            </td>
+          </tr>
 
-                                {/* Interpersonal */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Interpersonal Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+          {/* Number of Questions */}
+          <tr className="border-b hover:bg-gray-50">
+            <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">
+              Number of Questions
+            </td>
+            <td className="p-2 md:p-4 text-center bg-blue-50">
+              <span className="font-semibold text-sm md:text-base text-gray-700">
+                90
+              </span>
+            </td>
+            <td className="p-2 md:p-4 text-center bg-green-50">
+              <span className="font-semibold text-sm md:text-base text-gray-700">
+                18
+              </span>
+            </td>
+          </tr>
 
-                                {/* Spatial-Visual */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Spatial-Visual Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+          {/* Price */}
+          <tr className="border-b bg-gray-50">
+            <td className="p-2 md:p-4 font-bold text-xs md:text-base text-gray-700">
+              Price
+            </td>
+            <td className="p-2 md:p-4 text-center bg-blue-50">
+              <span className="text-xl md:text-2xl font-bold text-green-600">
+                Free
+              </span>
+            </td>
+            <td className="p-2 md:p-4 text-center bg-green-50">
+              <span className="text-xl md:text-2xl font-bold text-green-600">
+                Free
+              </span>
+            </td>
+          </tr>
 
-                                {/* Naturalist */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Naturalist Intelligence</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
+          {/* Sample Report */}
+          <tr className="border-b hover:bg-gray-50">
+            <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">
+              Sample Report
+            </td>
+            <td className="p-2 md:p-4 text-center bg-blue-50">
+              <a
+                href="#"
+                className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base"
+              >
+                Download
+              </a>
+            </td>
+            <td className="p-2 md:p-4 text-center bg-green-50">
+              <a
+                href="#"
+                className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base"
+              >
+                Download
+              </a>
+            </td>
+          </tr>
 
-                                {/* Career Recommendations */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Career & Learning Recommendations</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
-
-                                {/* Detailed Analysis */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Detailed Psychometric Analysis</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <X className="w-5 h-5 md:w-6 md:h-6 text-gray-300 mx-auto" />
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <CheckCircle className="w-5 h-5 md:w-6 md:h-6 text-green-600 mx-auto" />
-                                    </td>
-                                </tr>
-
-                                {/* Number of Questions */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Number of Questions</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <span className="font-semibold text-gray-700">30-40</span>
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <span className="font-semibold text-sm md:text-base text-gray-700">90</span>
-                                    </td>
-                                </tr>
-
-                                {/* Price */}
-                                <tr className="border-b bg-gray-50">
-                                    <td className="p-2 md:p-4 font-bold text-xs md:text-base text-gray-700">Price</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <span className="text-xl md:text-2xl font-bold text-green-600">Free</span>
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <span className="text-xl md:text-2xl font-bold text-green-600">Free</span>
-                                    </td>
-                                </tr>
-
-                                {/* Sample Report */}
-                                <tr className="border-b hover:bg-gray-50">
-                                    <td className="p-2 md:p-4 text-xs md:text-base text-gray-700">Sample Report</td>
-                                    {/* <td className="p-2 md:p-4 text-center">
-                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base">
-                                            Download Now
-                                        </a>
-                                    </td> */}
-                                    <td className="p-2 md:p-4 text-center bg-blue-50">
-                                        <a href="#" className="text-blue-600 hover:text-blue-800 font-medium underline text-xs md:text-base">
-                                            Download Now
-                                        </a>
-                                    </td>
-                                </tr>
-
-                                {/* Action Buttons */}
-                                <tr>
-                                    <td className="p-3 md:p-6"></td>
-                                    {/* <td className="p-3 md:p-6 text-center">
-                                        <a href="/test" className="inline-block bg-blue-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-blue-700 transition font-medium text-sm md:text-base">
-                                            Take the Free Test
-                                        </a>
-                                    </td> */}
-                                    <td className="p-3 md:p-6 text-center bg-blue-50">
-                                        <a href="/test?test=hgmi" className="inline-block bg-blue-600 text-white px-6 md:px-8 py-2 md:py-3 rounded-full hover:bg-blue-700 transition font-medium text-sm md:text-base">
-                                            Take the Free Test
-                                        </a>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-           </div>
+          {/* Action Buttons */}
+          <tr>
+            <td className="p-3 md:p-6"></td>
+            <td className="p-3 md:p-6 text-center bg-blue-50">
+              <a
+                href="/test?test=hgmi"
+                className="inline-block bg-blue-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-blue-700 transition font-medium text-xs md:text-sm"
+              >
+                Start Long Test
+              </a>
+            </td>
+            <td className="p-3 md:p-6 text-center bg-green-50">
+              <a
+                href="/test?test=riasec"
+                className="inline-block bg-green-600 text-white px-4 md:px-6 py-2 md:py-3 rounded-full hover:bg-green-700 transition font-medium text-xs md:text-sm"
+              >
+                Start Short Test
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
 
            {/* Turn Recommendations into Reality Section */}
            <div className="relative bg-cover bg-center py-12 md:py-24 px-4 md:px-10" style={{backgroundImage: "url('/career.png')"}}>
